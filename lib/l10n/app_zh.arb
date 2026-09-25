@@ -1,0 +1,1357 @@
+{
+  "@@locale": "zh",
+
+  "appTitle": "SGReady",
+
+  "preferences": "偏好设置",
+  "personaliseSGReady": "个性化 SGReady",
+  "preferencesDescription": "这些偏好设置可帮助 SGReady 根据您的需要调整防灾准备体验。",
+
+  "homeRegion": "常用地区",
+  "homeRegionDescription": "选择您通常希望优先查看的新加坡地区。",
+  "central": "中部",
+  "north": "北部",
+  "south": "南部",
+  "east": "东部",
+  "west": "西部",
+
+  "outdoorActivity": "户外活动",
+  "outdoorActivityDescription": "您通常有多少时间在户外活动？",
+  "low": "较少",
+  "moderate": "适中",
+  "high": "较多",
+
+  "usuallyOutdoors": "通常在户外的时段",
+  "usuallyOutdoorsDescription": "选择您通常在户外活动的时段。",
+  "morning": "早上",
+  "midday": "中午",
+  "evening": "晚上",
+
+  "preparednessReminders": "防灾准备提醒",
+  "preparednessRemindersDescription": "允许 SGReady 提醒您采取相关的防灾准备措施。",
+  "enableReminders": "启用提醒",
+  "notificationSchedule": "通知时间",
+  "daytimeOnly": "仅限白天",
+  "daytimeOnlyDescription": "上午 8 点至晚上 10 点之间，大约每 5 小时发送一次天气和任务提醒。",
+  "twentyFourHours": "24 小时",
+  "twentyFourHoursDescription": "全天大约每 5 小时发送一次天气更新。任务提醒仅限上午 8 点至晚上 10 点。",
+
+  "accessibility": "无障碍功能",
+  "accessibilityDescription": "调整 SGReady，使应用更易于使用。",
+  "largerText": "放大文字",
+  "largerTextDescription": "增大 SGReady 中的文字尺寸，方便阅读。",
+  "largerControls": "放大控件",
+  "largerControlsDescription": "增大重要控件的尺寸，使其更容易点击。",
+
+  "language": "语言",
+  "languageDescription": "选择 SGReady 使用的语言。",
+  "english": "英语",
+  "simplifiedChinese": "简体中文",
+  "malay": "马来语",
+
+  "appearance": "外观",
+  "appearanceDescription": "选择 SGReady 在此设备上的显示方式。",
+  "systemDefault": "跟随系统",
+  "systemDefaultDescription": "与设备的外观设置保持一致",
+  "light": "浅色",
+  "lightDescription": "始终使用浅色模式",
+  "dark": "深色",
+  "darkDescription": "始终使用深色模式",
+
+  "savePreferences": "保存偏好设置",
+  "saving": "正在保存...",
+  "preferencesSaved": "偏好设置已保存。",
+  "unableToSavePreferences": "无法保存偏好设置。",
+
+  "navHome": "首页",
+  "navToday": "今日",
+  "navExplore": "探索",
+  "navLearn": "学习",
+  "navProfile": "个人资料",
+
+  "todayInSingapore": "今日新加坡",
+  "homeDescription": "查看本地环境状况以及您应该做好的准备。",
+  "todaysPreparedness": "今日防灾准备",
+  "whatYouShouldDo": "您应该采取的行动",
+  "showLess": "收起",
+  "why": "为什么？",
+  "noData": "暂无数据",
+  "psi24h": "PSI（24小时）",
+  "uvIndex": "紫外线指数",
+  "temperature": "温度",
+  "wbgtHeatStress": "WBGT（热应激）",
+  "lastUpdated": "最后更新：{dateTime}",
+  "@lastUpdated": {
+    "placeholders": {
+      "dateTime": {
+        "type": "String"
+      }
+    }
+  },
+  "regionAverage": "{region}平均值",
+  "@regionAverage": {
+    "placeholders": {
+      "region": {
+        "type": "String"
+      }
+    }
+  },
+
+  "riskElevated": "风险升高",
+  "riskLow": "低风险",
+  "riskModerate": "中等",
+  "riskHigh": "高",
+  "riskVeryHigh": "非常高",
+  "riskExtreme": "极高",
+
+  "floodRiskMessage": "检测到强降雨。请保持警惕，并避开易发生水灾的地区。",
+  "lowRiskMessage": "整体情况良好。请保持准备并继续留意最新信息。",
+  "moderateRiskMessage": "请采取基本预防措施，并遵循今日建议的行动。",
+  "highRiskMessage": "请遵循以下安全指引，并在需要时调整您的计划。",
+  "veryHighRiskMessage": "请减少户外活动，并采取额外的预防措施。",
+  "extremeRiskMessage": "请避免不必要的户外活动，并密切遵循安全指引。",
+
+  "recommendationEnvironmentalDataUnavailable": "环境数据暂时无法获取",
+  "recommendationEnvironmentalDataUnavailableBody": "目前无法获取环境监测数据。请稍后刷新并重试。",
+  "actionCheckInternetConnection": "检查您的网络连接",
+  "actionRefreshEnvironmentalData": "刷新环境数据",
+  "actionReferOfficialChannels": "如果环境状况看起来不安全，请参考 NEA 和 PUB 的官方信息",
+
+  "recommendationPsiUnavailable": "PSI 数据暂时无法获取",
+  "recommendationPsiUnavailableBody": "目前无法获取最新的空气质量数据。",
+  "actionRefreshDataLater": "稍后刷新数据",
+  "actionReferNeaHazeUpdates": "规划户外活动时，请参考 NEA 官方烟霾信息",
+
+  "recommendationHaze": "烟霾／空气质量（PSI {psi}）",
+  "@recommendationHaze": {
+    "placeholders": {
+      "psi": {
+        "type": "int"
+      }
+    }
+  },
+
+  "psiBodyGood": "空气质量处于良好范围。",
+  "psiBodyModerate": "空气质量处于中等范围。大多数人可以继续正常活动，较易受影响的人士应留意自身健康状况和症状。",
+  "psiBodyHigh": "空气质量处于不健康水平。请减少长时间或剧烈的户外活动，尤其是较易受空气污染影响的人士。",
+  "psiBodyVeryHigh": "空气质量处于非常不健康水平。请尽量减少户外活动，并尽可能减少接触室外空气。",
+  "psiBodyExtreme": "空气质量处于危险水平。请尽可能留在室内，并尽量减少接触室外空气。",
+
+  "actionContinueNormalActivities": "继续正常活动",
+  "actionMonitorEnvironmentalUpdates": "留意官方环境信息更新",
+  "actionContinueNormalIfWell": "如果身体状况良好，可继续正常活动",
+  "actionMonitorHealthSymptoms": "如有心脏或呼吸系统疾病，请留意身体症状",
+  "actionCheckPsiBeforeOutdoorActivity": "长时间进行户外活动前，请查看最新的 PSI 数据",
+  "actionReduceOutdoorActivity": "减少长时间或剧烈的户外活动",
+  "actionWearN95Appropriate": "在适当情况下佩戴贴合良好的 N95 口罩",
+  "actionKeepIndoorAirClean": "尽可能保持室内空气清洁",
+  "actionSeekMedicalAdvice": "如果感到不适，请寻求医疗建议",
+  "actionMinimiseOutdoorActivity": "尽量减少户外活动",
+  "actionRemainIndoors": "尽可能留在室内",
+  "actionWearN95IfUnavoidable": "如果无法避免外出，请佩戴贴合良好的 N95 口罩",
+  "actionSeekHelpBreathing": "如果出现呼吸困难，请寻求医疗帮助",
+  "actionAvoidOutdoorActivity": "尽可能避免户外活动",
+  "actionCloseDoorsWindows": "留在室内并关闭门窗",
+  "actionWearN95Outside": "如必须外出，请佩戴贴合良好的 N95 口罩",
+  "actionSeekHelpSeriousSymptoms": "如果出现严重症状，请立即寻求医疗帮助",
+
+  "recommendationUvUnavailable": "紫外线数据暂时无法获取",
+  "recommendationUvUnavailableBody": "目前无法获取最新的紫外线指数数据。",
+  "actionSunProtectionExtended": "长时间进行户外活动时，请采取防晒措施",
+
+  "recommendationUvExposure": "紫外线暴露（指数 {uv}）",
+  "@recommendationUvExposure": {
+    "placeholders": {
+      "uv": {
+        "type": "int"
+      }
+    }
+  },
+
+  "uvBodyGood": "紫外线暴露水平较低。一般只需采取基本防护措施。",
+  "uvBodyModerate": "紫外线暴露处于中等水平。长时间在户外时请采取防晒措施。",
+  "uvBodyHigh": "紫外线暴露水平较高。请使用防晒霜、穿着防护衣物并尽量待在阴凉处，尤其是在中午时段。",
+  "uvBodyVeryHigh": "紫外线暴露水平非常高。请尽量减少中午时段的阳光直射，并采取全面的防晒措施。",
+  "uvBodyExtreme": "紫外线暴露达到极高水平。请避免在高峰时段不必要的阳光直射，并采取全面的防晒措施。",
+
+  "actionBasicSunProtection": "长时间在户外时采取基本防晒措施",
+  "actionApplySunscreen": "涂抹 SPF 30+ 广谱防晒霜",
+  "actionWearSunglasses": "长时间进行户外活动时佩戴太阳眼镜",
+  "actionSeekShade": "尽可能待在阴凉处",
+  "actionReapplySunscreen": "按照产品说明重新涂抹防晒霜",
+  "actionWearHatSunglassesClothing": "佩戴帽子和太阳眼镜，并穿着防护衣物",
+  "actionSeekMiddayShade": "中午时段尽量待在阴凉处",
+  "actionMinimiseMiddaySun": "尽量减少中午时段的阳光直射",
+  "actionWearProtectiveClothing": "穿着防护衣物，并佩戴帽子和太阳眼镜",
+  "actionRegularlyReapplySunscreen": "涂抹并定时补涂 SPF 30+ 防晒霜",
+  "actionTakeShadeBreaks": "户外工作时定时到阴凉处休息",
+  "actionAvoidMiddaySun": "避免中午时段不必要的阳光直射",
+  "actionUseShadeProtectiveClothing": "利用阴凉处并穿着防护衣物",
+  "actionOutdoorWorkersShadeBreaks": "户外工作者应经常到阴凉处休息",
+
+  "recommendationHeavyRain": "强降雨警报",
+  "heavyRainBodyOne": "一个气象站报告的降雨量已超过设定的强降雨阈值。易受影响或低洼地区可能发生水灾。",
+  "heavyRainBodyMany": "{count} 个气象站报告的降雨量已超过设定的强降雨阈值。易受影响或低洼地区可能发生水灾。",
+  "@heavyRainBodyMany": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "actionAvoidFloodWater": "避免进入流动或较深的积水",
+  "actionCheckPubUpdates": "查看 PUB 官方水灾和强降雨信息",
+  "actionAvoidFloodProneRoutes": "避开易发生水灾或低洼的路线",
+  "actionKeepEmergencyDevices": "准备好已充电的手机、手电筒和移动电源",
+
+  "recommendationFavourable": "当前情况良好",
+  "recommendationFavourableBody": "目前可获取的 PSI 和紫外线数据均处于较低风险范围，并且未检测到达到强降雨阈值的情况。",
+  "actionContinueMonitoring": "继续留意环境信息更新",
+  "actionReviewEmergencyKit": "检查您的应急包和防灾准备清单",
+  "actionCompletePreparednessActivity": "完成一项防灾准备活动以保持安全意识",
+
+  "psiGood": "良好",
+  "psiModerate": "中等",
+  "psiUnhealthy": "不健康",
+  "psiVeryUnhealthy": "非常不健康",
+  "psiHazardous": "危险",
+
+  "todayTitle": "今天",
+  "todayDescription": "查看您今天的个性化应急准备计划。",
+
+  "todayPlanError": "无法生成今天的应急准备计划。",
+  "todayProgressError": "无法加载今天的进度。",
+  "todayEnvironmentError": "无法准备今天的环境信息。",
+  "completeTasksBeforeClaiming": "请先完成所有任务，再领取您的 XP。",
+
+  "claimTodayReward": "领取今天的奖励？",
+  "claimRewardDescription": "领取 XP 前，请确认您已完成并满意今天的准备行动。",
+  "notYet": "暂不",
+  "claimXp": "领取 {xp} XP",
+  "@claimXp": {
+    "placeholders": {
+      "xp": {
+        "type": "int"
+      }
+    }
+  },
+
+  "planComplete": "计划完成！",
+  "planCompleteDescription": "做得好！您已完成今天的应急准备行动。",
+  "awesome": "太棒了！",
+
+  "personalisedForYou": "为您个性化定制",
+  "yourRoutine": "您的日常习惯",
+  "todaysFocus": "今日重点",
+  "moreTimeOutdoors": "您较常进行户外活动",
+  "moderatelyActiveOutdoors": "您有适量的户外活动",
+  "usuallyOutdoorsMidday": "通常在中午进行户外活动",
+  "airQuality": "空气质量",
+  "heatSafety": "高温安全",
+  "uvProtection": "紫外线防护",
+  "todayPlanAdapts": "今天的计划会根据您的日常习惯和当前环境状况进行调整。",
+
+  "todaysActions": "今日行动",
+  "todaysActionsDescription": "完成以下建议行动，提升您今天的应急准备。",
+
+  "rewardClaimed": "奖励已领取",
+  "completeOneMoreTask": "再完成 1 项任务",
+  "completeMoreTasks": "再完成 {count} 项任务",
+  "@completeMoreTasks": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+
+  "todaysConditions": "今日状况",
+  "priority": "重点：{focus}",
+  "@priority": {
+    "placeholders": {
+      "focus": {
+        "type": "String"
+      }
+    }
+  },
+  "whyThisPlan": "为什么是这个计划？",
+  "heavyRain": "大雨",
+
+  "focusRainPreparation": "雨天准备",
+  "focusAirQualitySunProtection": "空气质量与防晒",
+  "focusAirQuality": "空气质量",
+  "focusSunProtection": "防晒",
+  "focusGeneralPreparedness": "一般应急准备",
+
+  "dailyPreparedness": "每日应急准备",
+  "allActionsCompleted": "已完成全部 {total} 项行动",
+  "@allActionsCompleted": {
+    "placeholders": {
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+
+  "actionsCompleted": "已完成 {completed}/{total} 项行动",
+  "@actionsCompleted": {
+    "placeholders": {
+      "completed": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+
+  "tasksLeft": "剩余 {count} 项",
+  "@tasksLeft": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+
+  "counterProgress": "{current}/{target} {unit}",
+  "@counterProgress": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "target": {
+        "type": "int"
+      },
+      "unit": {
+        "type": "String"
+      }
+    }
+  },
+
+  "completed": "已完成",
+
+  "missionRewardClaimedMessage": "奖励已领取。明天再回来查看新的应急准备计划。",
+  "missionCompleteMessage": "做得好！您的每日奖励已经可以领取。",
+  "missionStartMessage": "从一个简单的行动开始，提升今天的应急准备。",
+  "missionGoodStartMessage": "不错的开始。继续完成剩余行动。",
+  "missionOneRemainingMessage": "快完成了！只剩最后一项行动。",
+  "missionRemainingMessage": "快完成了！请完成剩余行动。",
+
+  "done": "完成",
+  "noDailyMission": "目前没有可用的每日任务。请刷新环境数据后再试。",
+
+  "taskReviewConditionsTitle": "查看今日环境状况",
+  "taskReviewConditionsDescription": "规划户外活动前，请查看当前的 PSI、紫外线指数、温度和降雨情况。",
+  "taskReviewConditionsReason": "查看实时环境状况有助于您在外出前采取适当的预防措施。",
+
+  "taskMonitorAirQualityTitle": "留意空气质量",
+  "taskMonitorAirQualityDescription": "长时间进行户外活动前再次查看 PSI，尤其是如果您对烟霾较敏感。",
+  "taskMonitorAirQualityReason": "当前的 PSI 表明可能需要采取额外的预防措施，尤其是较易受影响的人士。",
+
+  "taskPackN95Title": "携带 N95 口罩",
+  "taskPackN95Description": "如果无法避免户外活动，请携带贴合良好的 N95 口罩。",
+  "taskPackN95Reason": "当前空气质量处于不健康水平，建议在户外采取额外防护措施。",
+
+  "taskReduceOutdoorExerciseTitle": "减少剧烈户外活动",
+  "taskReduceOutdoorExerciseDescription": "空气质量不健康时，请选择较轻松的活动或室内活动。",
+  "taskReduceOutdoorExerciseReason": "剧烈活动会增加呼吸频率，并可能增加接触空气污染物的程度。",
+
+  "taskStayIndoorsHazeTitle": "尽可能留在室内",
+  "taskStayIndoorsHazeDescription": "关闭门窗，并尽量减少不必要的户外活动。",
+  "taskStayIndoorsHazeReason": "当前空气质量状况表明户外暴露风险较高。",
+
+  "taskPrepareN95HazeTitle": "准备好 N95 口罩",
+  "taskPrepareN95HazeDescription": "如果必须外出，请佩戴 N95 口罩。",
+  "taskPrepareN95HazeReason": "在空气质量较差时，N95 口罩有助于减少接触细微烟霾颗粒。",
+
+  "taskCheckHazeSymptomsTitle": "留意身体状况",
+  "taskCheckHazeSymptomsDescription": "留意呼吸困难、咳嗽或眼睛不适等症状。",
+  "taskCheckHazeSymptomsReason": "非常差的空气质量可能影响呼吸舒适度并引起其他健康症状。",
+
+  "taskApplySunscreenTitle": "涂抹防晒霜",
+  "taskApplySunscreenDescription": "外出前涂抹 SPF 30+ 广谱防晒霜。",
+  "taskApplySunscreenReason": "今天的紫外线水平表示在户外活动前建议采取防晒措施。",
+
+  "taskSeekMiddayShadeTitle": "中午时段尽量待在阴凉处",
+  "taskSeekMiddayShadeDescription": "在紫外线最强的时段减少阳光直射。",
+  "taskSeekMiddayShadeReason": "中午时段的紫外线通常较强，待在阴凉处可以有效减少暴露。",
+
+  "taskReapplySunscreenTitle": "补涂防晒霜",
+  "taskReapplySunscreenDescription": "按照产品说明补涂防晒霜，尤其是在出汗后。",
+  "taskReapplySunscreenReason": "紫外线水平非常高时，长时间在户外需要持续采取防晒措施。",
+
+  "taskWearSunProtectionTitle": "做好防晒措施",
+  "taskWearSunProtectionDescription": "携带帽子、太阳眼镜并穿着防护衣物。",
+  "taskWearSunProtectionReason": "额外的物理防护有助于减少皮肤和眼睛受到紫外线直接照射。",
+
+  "taskAvoidMiddaySunTitle": "避免长时间暴露在中午阳光下",
+  "taskAvoidMiddaySunDescription": "将剧烈的户外活动安排在紫外线较弱的时段。",
+  "taskAvoidMiddaySunReason": "紫外线水平非常高时，不建议在中午长时间暴露于阳光下。",
+
+  "taskCarryWaterHeatTitle": "随身携带饮用水",
+  "taskCarryWaterHeatDescription": "如果您会在户外活动，请确保随时有饮用水。",
+  "taskCarryWaterHeatReason": "当前 WBGT 状况表示热应激处于中等水平。",
+
+  "taskHydrationGoalHeatTitle": "记录饮水量",
+  "taskHydrationGoalHeatDescription": "在一天内记录饮用六杯水。",
+  "taskHydrationGoalHeatReason": "当前 WBGT 状况表示热应激处于高水平。",
+
+  "taskCoolingBreakHeatTitle": "定时休息降温",
+  "taskCoolingBreakHeatDescription": "定时到阴凉、通风或有空调的地方休息。",
+  "taskCoolingBreakHeatReason": "高热应激状况会增加休息和降温的需要。",
+
+  "taskReduceOutdoorHeatTitle": "减少剧烈户外活动",
+  "taskReduceOutdoorHeatDescription": "选择较轻松的活动，或将剧烈活动安排在一天中较凉爽的时段。",
+  "taskReduceOutdoorHeatReason": "当前 WBGT 状况表示热应激处于高水平。",
+
+  "taskRainPreparationTitle": "做好强降雨准备",
+  "taskRainPreparationDescription": "在强降雨期间出行前完成重要的准备步骤。",
+  "taskRainPreparationReason": "检测到强降雨，可能影响出行、增加水灾风险，并影响获取天气更新。",
+
+  "estimatedOneMinute": "1 分钟",
+  "estimatedThirtySeconds": "30 秒",
+  "estimatedThroughoutDay": "全天",
+  "estimatedPlanToday": "今日计划",
+  "estimatedTwoThreeMinutes": "2–3 分钟",
+
+  "unitSteps": "步骤",
+  "unitGlasses": "杯",
+
+  "undo": "撤销",
+  "complete": "完成",
+
+  "hydrationProgress": "{current}/{target} 杯",
+  "@hydrationProgress": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "target": {
+        "type": "int"
+      }
+    }
+  },
+  "undoLastGlass": "撤销上一杯",
+  "hydrationComplete": "饮水目标已完成",
+  "iDrankAGlass": "我喝了一杯水",
+  "hydrationGoalComplete": "饮水目标完成！",
+  "xpWhenPlanClaimed": "领取今日计划奖励时获得 +{xp} XP",
+  "@xpWhenPlanClaimed": {
+    "placeholders": {
+      "xp": {
+        "type": "int"
+      }
+    }
+  },
+
+  "sunscreenApplied": "已涂抹防晒霜",
+  "coveragePercent": "已完成 {percent}%",
+  "@coveragePercent": {
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "applySunscreenButton": "涂抹防晒霜",
+
+  "rainStepsReady": "已准备 {current}/{target} 个步骤",
+  "@rainStepsReady": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "target": {
+        "type": "int"
+      }
+    }
+  },
+  "rainReadyProgress": "已准备 {current}/{target}",
+  "@rainReadyProgress": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "target": {
+        "type": "int"
+      }
+    }
+  },
+  "undoLastStep": "撤销上一步",
+  "packUmbrella": "携带雨伞",
+  "checkFloodAlerts": "查看水灾警报",
+  "reviewYourRoute": "查看出行路线",
+  "chargePowerBank": "为移动电源充电",
+  "rainPrepComplete": "雨天准备已完成",
+  "completeNextStep": "完成下一步",
+  "missionGoodMorning": "早上好",
+  "missionGoodAfternoon": "下午好",
+  "missionGoodEvening": "晚上好",
+
+  "missionRainTitle": "建议做好强降雨准备",
+  "missionRainMessage": "强降雨可能影响出行和户外计划。请查看今天的降雨及防洪安全行动。",
+
+  "missionHeatUvTitle": "建议采取高温和紫外线防护措施",
+  "missionHeatUvMessage": "高温压力和紫外线暴露可能影响今天的户外活动。请保持充足水分、做好防晒并定时到凉爽处休息。",
+
+  "missionHeatTitle": "建议采取高温防护措施",
+  "missionHeatMessage": "今天的高温压力较高。请保持充足水分、适时到凉爽处休息，并尽可能减少剧烈的户外活动。",
+
+  "missionHazeUvTitle": "建议采取空气质量和紫外线防护措施",
+  "missionHazeUvMessage": "进行户外活动前，请查看空气质量并做好防晒措施。",
+
+  "missionHazeTitle": "建议采取空气质量防护措施",
+  "missionHazeMessage": "请留意 PSI，并根据情况调整长时间的户外活动。",
+
+  "missionUvTitle": "建议采取紫外线防护措施",
+  "missionUvMessage": "今天进行户外活动时，防晒和补充水分可能较为重要。",
+
+  "missionGeneralTitle": "目前情况总体可控",
+  "missionGeneralMessage": "请查看今天的环境数据，并完成基本的防护准备行动。",
+
+  "riskLow": "低",
+  "riskModerate": "中等",
+  "riskHigh": "高",
+  "riskVeryHigh": "非常高",
+  "riskExtreme": "极高",
+  "riskUnknown": "未知",
+  "riskNoData": "无数据",
+
+  "psiReading": "PSI {value} · {label}",
+  "@psiReading": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      },
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+
+  "uvReading": "紫外线 {value} · {label}",
+  "@uvReading": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      },
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+
+  "heatStressReading": "高温压力 · {label}",
+  "@heatStressReading": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+
+  "taskApplySunscreenModerateDescription": "长时间进行户外活动前，请涂抹 SPF 30+ 广谱防晒霜。",
+  "taskApplySunscreenModerateReason": "今天的紫外线水平表示长时间在户外时建议采取防晒措施。",
+
+  "taskApplySunscreenHighDescription": "外出前请涂抹 SPF 30+ 广谱防晒霜。",
+  "taskApplySunscreenHighReason": "今天的紫外线指数较高，因此建议在户外活动前采取防晒措施。",
+
+  "taskApplySunscreenVeryHighDescription": "外出前请涂抹 SPF 30+ 广谱防晒霜。",
+  "taskApplySunscreenVeryHighReason": "今天的紫外线水平表示外出前建议采取较强的防晒措施。",
+  "exploreTitle": "探索新加坡",
+  "exploreDescription": "探索新加坡各地的环境状况。",
+  "exploreHeat": "高温",
+  "explorePsi": "PSI",
+  "exploreRain": "降雨",
+  "exploreFindNearMe": "查找我附近的环境状况",
+  "exploreTapMarker": "点击标记查看详情",
+  "exploreLow": "低",
+  "exploreModerate": "中等",
+  "exploreHigh": "高",
+  "exploreHeatStress": "热应激",
+  "exploreWbgtStationsReporting": "{count} 个 WBGT 监测站正在报告",
+  "@exploreWbgtStationsReporting": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "exploreHighestObserved": "最高观测值",
+  "exploreForYou": "建议：",
+  "exploreHeatAdvice": "保持充足水分，并定时休息降温。",
+  "exploreUnableLoadHeat": "无法加载热应激数据。",
+  "exploreNoWbgtObservations": "目前没有可用的 WBGT 观测数据。",
+  "exploreHeatStressLabel": "热应激",
+  "exploreRegion": "区域",
+  "exploreLatestStationReading": "最新监测站观测数据",
+  "exploreMetresAway": "距离 {distance} 米",
+  "@exploreMetresAway": {
+    "placeholders": {
+      "distance": {
+        "type": "int"
+      }
+    }
+  },
+  "exploreKilometresAway": "距离 {distance} 公里",
+  "@exploreKilometresAway": {
+    "placeholders": {
+      "distance": {
+        "type": "String"
+      }
+    }
+  },
+
+  "exploreUnableLoadPsi": "无法加载 PSI 数据。",
+  "exploreNoRegionalPsi": "目前没有可用的区域 PSI 读数。",
+  "exploreAirQuality": "空气质量",
+  "exploreSingaporeRegionalPsi": "新加坡区域 PSI",
+  "exploreBasedOnLocation": "根据您的大概位置",
+  "exploreAirQualityLabel": "空气质量",
+  "explorePsiAdviceGood": "空气质量良好，可以正常进行日常活动。",
+  "explorePsiAdviceModerate": "空气质量处于中等水平，一般可以正常进行日常活动。",
+  "explorePsiAdviceUnhealthy": "空气质量不健康。建议减少长时间或剧烈的户外活动。",
+  "explorePsiAdviceVeryUnhealthy": "空气质量非常不健康。尽量减少长时间的户外活动。",
+  "explorePsiAdviceHazardous": "空气质量处于危险水平。避免不必要的户外活动。",
+
+  "exploreUnableLoadRain": "无法加载降雨数据。",
+  "exploreNoRainfall": "未检测到降雨",
+  "exploreNoRainfallDescription": "新加坡各报告站目前均未记录到降雨。",
+  "exploreRainfall": "降雨",
+  "exploreStationsReportingRain": "目前有 {count} 个站点报告降雨",
+  "@exploreStationsReportingRain": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+
+  "exploreRainLight": "小雨",
+  "exploreRainModerate": "中雨",
+  "exploreRainHeavy": "大雨",
+  "exploreRainAdviceLight": "如果要外出，请携带雨伞。",
+  "exploreRainAdviceModerate": "请携带雨伞，并在湿滑的道路和人行道上小心通行。",
+  "exploreRainAdviceHeavy": "避免前往易发生积水或水灾的地区，并在出行前查看路线状况。",
+  "exploreRainIntensity": "降雨强度",
+  "exploreLatestRainfallReading": "最新观测到的降雨读数",
+
+  "exploreLocationAccessNeeded": "需要位置访问权限才能查找您附近的环境状况。",
+  "exploreNoRainfallStations": "目前没有可用的降雨监测站。",
+  "exploreNoRegionalPsiNearby": "目前没有可用的区域 PSI 读数。",
+  "exploreUnableFindPsiArea": "无法找到您所在区域的 PSI 读数。",
+  "exploreNoWbgtStations": "目前没有可用的 WBGT 监测站。",
+  "exploreUnableFindNearby": "无法查找附近的环境状况。",
+
+  "learnTitle": "学习与准备",
+  "learnDescription": "提升您的应急准备知识和技能。",
+  "learnEmergencyHelp": "紧急求助",
+  "learnEmergencyHelpDescription": "了解新加坡重要的紧急联系电话及其适用情况。",
+  "learnTabMyKit": "我的应急包",
+  "learnTabQuizzes": "测验",
+  "learnTabScenarios": "情境挑战",
+
+  "learnMyEmergencyKit": "我的应急包",
+  "learnEmergencyKitDescription": "逐步准备您的应急包。",
+  "learnQuickSkills": "快速技能",
+  "learnLearnInMinutes": "几分钟内学习",
+  "learnCprAed": "心肺复苏与 AED",
+  "learnLifeSavingBasics": "救命基础知识",
+  "learnVideoGuide": "视频指南",
+  "learnFlashFloodSafety": "突发洪水安全",
+  "learnHeavyRainFloodSafety": "暴雨与洪水安全",
+  "learnQuickGuide": "快速指南",
+  "learnPreparednessCategories": "应急准备类别",
+  "learnKitReady": "已准备 {percentage}%",
+  "@learnKitReady": {
+    "placeholders": {
+      "percentage": {
+       "type": "int"
+      }
+    }
+  },
+  "learnKitComplete": "您的应急准备清单已完成。",
+  "learnKitItemsRemaining": "还有 {count} 项待完成。",
+  "@learnKitItemsRemaining": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "learnKitStatusEmergencyReady": "应急准备完成",
+  "learnKitStatusWellPrepared": "准备充分",
+  "learnKitStatusGettingPrepared": "正在准备",
+  "learnKitStatusBasicPreparation": "基础准备",
+  "learnKitStatusNeedsAttention": "需要完善",
+  "learnKitProgressError": "无法加载您的应急包进度。",
+
+  "learnRecommendedComplete": "您已经备齐了适合今日环境状况的推荐物品。",
+  "learnRecommendedToday": "今日推荐",
+  "learnRecommendedBasedOnConditions": "根据当前的环境状况：",
+  "learnCategoryHaze": "烟霾",
+  "learnCategoryUv": "紫外线",
+  "learnCategoryHeat": "高温",
+  "learnCategoryFlood": "洪水",
+  "learnCategoryProgress": "已完成 {completed}/{total} · {percentage}%",
+  "@learnCategoryProgress": {
+  "placeholders": {
+    "completed": {"type": "int"},
+    "total": {"type": "int"},
+    "percentage": {"type": "int"}
+    }
+  },
+  "learnItemAddedMessage": "已添加{item}。",
+  "@learnItemAddedMessage": {
+  "placeholders": {
+    "item": {"type": "String"}
+    }
+  },
+  "learnItemRemovedMessage": "已移除{item}。",
+  "@learnItemRemovedMessage": {
+  "placeholders": {
+    "item": {"type": "String"}
+    }
+  },
+  "learnItemUpdateError": "无法更新此物品，请重试。",
+  "learnAdded": "已添加",
+  "learnAdd": "添加",
+  "learnWhyThisMatters": "为什么这很重要",
+  "learnAddedXp": "已添加 · +{points} XP",
+  "@learnAddedXp": {
+  "placeholders": {
+    "points": {"type": "int"}
+    }
+  },
+  "learnXp": "+{points} XP",
+  "@learnXp": {
+  "placeholders": {
+    "points": {"type": "int"}
+    }
+  },
+  "learnEarnXpWhenAdded": "添加后可获得 {points} XP。",
+  "@learnEarnXpWhenAdded": {
+  "placeholders": {
+    "points": {"type": "int"}
+    }
+  },
+
+  "kitHazeMaskTitle": "N95 口罩",
+  "kitHazeMaskDescription": "存放在家中及随身携带",
+  "kitHazeMaskExplanation": "在无法避免户外活动时，正确佩戴 N95 口罩有助于减少吸入烟霾中的细颗粒物。",
+
+  "kitHazeMedsTitle": "过敏药物",
+  "kitHazeMedsDescription": "如有需要，请放在身边",
+  "kitHazeMedsExplanation": "如果空气质量不佳会影响您的健康，请随身备好医生处方的吸入器或过敏药物。",
+
+  "kitUvSunscreenTitle": "SPF 30+ 防晒霜",
+  "kitUvSunscreenDescription": "保护户外暴露的皮肤",
+  "kitUvSunscreenExplanation": "广谱 SPF 30+ 防晒霜有助于保护暴露的皮肤免受紫外线伤害。",
+
+  "kitUvHatTitle": "帽子和太阳镜",
+  "kitUvHatDescription": "加强高紫外线下的防护",
+  "kitUvHatExplanation": "在紫外线较强时，帽子和太阳镜可以提供额外的防护。",
+
+  "kitHeatWaterTitle": "饮用水",
+  "kitHeatWaterDescription": "炎热天气注意补充水分",
+  "kitHeatWaterExplanation": "携带足够的饮用水有助于降低脱水和高温相关疾病的风险。",
+
+  "kitFloodBagTitle": "手电筒和充电宝",
+  "kitFloodBagDescription": "适用于暴雨或停电情况",
+  "kitFloodBagExplanation": "在停电和暴雨期间，手电筒和已充电的充电宝十分实用。",
+
+  "kitFloodAlertsTitle": "洪水警报",
+  "kitFloodAlertsDescription": "及时了解受影响地区",
+  "kitFloodAlertsExplanation": "官方警报渠道可及时提供降雨情况和受影响地点的信息。",
+
+  "kitFloodRouteTitle": "备用路线",
+  "kitFloodRouteDescription": "避开易发生洪水的道路",
+  "kitFloodRouteExplanation": "提前了解备用路线有助于避开低洼地区和易发生洪水的道路。",
+
+  "kitDefaultDescription": "应急准备必需品",
+  "kitDefaultExplanation": "此物品有助于提升您的整体环境应急准备能力。",
+
+  "learnKnowledgeQuizzes": "知识测验",
+  "learnKnowledgeQuizzesDescription": "测试您的知识，并学习如何应对环境危害。",
+  "learnQuizProgress": "测验进度",
+  "learnAllQuizQuestionsCompleted": "所有测验题目均已完成。",
+  "learnQuizQuestionsRemaining": "剩余 {count} 道题。",
+  "learnQuizTopicTitle": "{topic} 防护知识",
+  "learnCompleted": "已完成",
+  "learnQuizQuestionsCompleted": "已完成 {completed} / {total} 道题",
+
+  "learnQuizTitle": "{topic} 测验",
+  "learnQuizQuestionProgress": "第 {current} 题，共 {total} 题",
+  "learnQuizCheckAnswer": "检查答案",
+  "learnQuizNextQuestion": "下一题",
+  "learnQuizViewResults": "查看结果",
+  "learnQuizComplete": "测验完成",
+  "learnQuizScore": "您的得分为 {score} / {total}。",
+  "learnQuizPreviouslyCompleted": "您之前已完成此测验，因此不会获得额外 XP。",
+  "learnQuizXpEarned": "获得 +{points} XP",
+  "learnQuizContinue": "继续",
+  "learnQuizSaveError": "无法保存测验进度。请重试。",
+  "learnQuizResultExcellent": "做得很好！您已经掌握了这个主题。",
+  "learnQuizResultGood": "做得不错。请查看解释以进一步巩固您的知识。",
+  "learnQuizResultKeepLearning": "继续学习。您可以重新进行测验来复习这个主题。",
+  "learnQuizNoAdditionalXp": "不会获得额外 XP。",
+  "quizHaze1Question": "当 24 小时 PSI 进入“不健康”范围时，健康人士应减少什么？",
+  "quizHaze1Option1": "喝水",
+  "quizHaze1Option2": "长时间或剧烈的户外活动",
+  "quizHaze1Option3": "室内活动",
+  "quizHaze1Option4": "睡眠",
+  "quizHaze1Explanation": "当空气质量进入“不健康”范围时，应减少长时间或剧烈的户外活动。",
+
+  "quizHaze2Question": "哪一种口罩是专为过滤烟霾中的细小颗粒而设计的？",
+  "quizHaze2Option1": "外科口罩",
+  "quizHaze2Option2": "N95 防护口罩",
+  "quizHaze2Option3": "布口罩",
+  "quizHaze2Option4": "不需要戴口罩",
+  "quizHaze2Explanation": "正确佩戴的 N95 防护口罩能比外科口罩或布口罩更有效地过滤细小颗粒。",
+
+  "quizHaze3Question": "在烟霾期间进行长时间户外活动前，为什么应该查看空气质量状况？",
+  "quizHaze3Option1": "空气质量可能在一天内发生变化",
+  "quizHaze3Option2": "PSI 只测量温度",
+  "quizHaze3Option3": "烟霾只影响能见度",
+  "quizHaze3Option4": "户外活动能改善空气质量",
+  "quizHaze3Explanation": "空气质量可能发生变化，因此查看当前状况有助于你决定是否需要调整长时间的户外活动。",
+
+  "quizHaze4Question": "当空气质量恶化时，怎样做可以合理地减少烟霾暴露？",
+  "quizHaze4Option1": "增加户外活动时间",
+  "quizHaze4Option2": "增加剧烈的户外运动",
+  "quizHaze4Option3": "减少不必要的长时间户外暴露",
+  "quizHaze4Option4": "保持所有户外计划不变",
+  "quizHaze4Explanation": "当空气质量恶化时，减少不必要的长时间户外暴露有助于降低烟霾暴露。",
+
+  "quizHaze5Question": "如果在烟霾天气下仍需要外出，你应该继续做什么？",
+  "quizHaze5Option1": "忽略之后的空气质量更新",
+  "quizHaze5Option2": "持续关注当前空气质量信息和相关通告",
+  "quizHaze5Option3": "假设情况不会改变",
+  "quizHaze5Option4": "延长户外时间以适应烟霾",
+  "quizHaze5Explanation": "应持续关注当前空气质量信息，因为空气状况和相关建议可能会发生变化。",
+
+  "quizUv1Question": "紫外线指数 8–10 属于哪个等级？",
+  "quizUv1Option1": "低",
+  "quizUv1Option2": "中等",
+  "quizUv1Option3": "非常高",
+  "quizUv1Option4": "极高",
+  "quizUv1Explanation": "紫外线指数 8–10 属于“非常高”等级，因此需要采取充分的防晒措施。",
+
+  "quizUv2Question": "在新加坡，紫外线照射通常在什么时候最强？",
+  "quizUv2Option1": "清晨",
+  "quizUv2Option2": "中午前后",
+  "quizUv2Option3": "傍晚",
+  "quizUv2Option4": "夜间",
+  "quizUv2Explanation": "紫外线辐射通常在中午前后最强，因此在这段时间采取额外的防晒措施十分重要。",
+
+  "quizUv3Question": "在户外活动时，怎样做有助于减少紫外线照射？",
+  "quizUv3Option1": "尽可能待在阴凉处",
+  "quizUv3Option2": "延长在阳光直射下的时间",
+  "quizUv3Option3": "只有感觉炎热时才采取防晒措施",
+  "quizUv3Option4": "避免喝水",
+  "quizUv3Explanation": "在户外时尽可能待在阴凉处，有助于减少紫外线的直接照射。",
+
+  "quizUv4Question": "当紫外线水平较高时，哪种组合能提供更好的防护？",
+  "quizUv4Option1": "防晒霜、合适的衣物和阴凉处",
+  "quizUv4Option2": "只喝水",
+  "quizUv4Option3": "外科口罩和手套",
+  "quizUv4Option4": "待在阳光直射下",
+  "quizUv4Explanation": "结合使用多种防晒措施，包括防晒霜、合适的衣物和阴凉处，有助于减少紫外线照射。",
+
+  "quizUv5Question": "为什么在阴天仍应考虑采取防晒措施？",
+  "quizUv5Option1": "紫外线辐射仍可穿过云层照射到人体",
+  "quizUv5Option2": "云层总会提高紫外线指数",
+  "quizUv5Option3": "紫外线辐射只在下雨时存在",
+  "quizUv5Option4": "只有晴天才需要防晒",
+  "quizUv5Explanation": "云层并不能完全阻挡紫外线辐射，因此即使在阴天也可能需要采取防晒措施。",
+
+  "quizHeat1Question": "在长时间户外活动中，减少热应激最重要的方法之一是什么？",
+  "quizHeat1Option1": "定时补充水分并进行降温休息",
+  "quizHeat1Option2": "等到感到口渴时才喝水",
+  "quizHeat1Option3": "穿更厚重的衣物",
+  "quizHeat1Option4": "持续待在阳光直射下",
+  "quizHeat1Explanation": "在长时间户外活动中，定时补充水分并进行降温休息有助于减少热应激。",
+
+  "quizHeat2Question": "如果你在户外活动时开始感到非常炎热，怎样做会更安全？",
+  "quizHeat2Option1": "继续活动而不休息",
+  "quizHeat2Option2": "到阴凉或较凉爽的地方休息",
+  "quizHeat2Option3": "加大运动强度以尽快完成",
+  "quizHeat2Option4": "避免喝水",
+  "quizHeat2Explanation": "在阴凉或较凉爽的地方休息可以减少持续的高温暴露，并让身体有机会降温。",
+
+  "quizHeat3Question": "为什么在炎热天气中补充水分很重要？",
+  "quizHeat3Option1": "有助于补充因出汗而流失的水分",
+  "quizHeat3Option2": "会增加身体受到的高温影响",
+  "quizHeat3Option3": "可以完全取代休息",
+  "quizHeat3Option4": "可以预防所有与高温有关的疾病",
+  "quizHeat3Explanation": "喝水有助于补充因出汗而流失的水分，并帮助身体在炎热环境中保持水分。",
+
+  "quizHeat4Question": "在非常炎热的日子计划长时间户外活动前，你应该怎么做？",
+  "quizHeat4Option1": "查看当前的高温状况并计划适当的防护措施",
+  "quizHeat4Option2": "如果天空晴朗就忽略高温状况",
+  "quizHeat4Option3": "不要携带饮用水",
+  "quizHeat4Option4": "多穿几层厚重衣物",
+  "quizHeat4Explanation": "查看当前的高温状况有助于你在长时间户外活动前安排补水、降温休息和其他防护措施。",
+
+  "quizHeat5Question": "如果炎热天气持续一整天，你应该怎么做？",
+  "quizHeat5Option1": "假设天气会自动好转",
+  "quizHeat5Option2": "完全不调整户外计划",
+  "quizHeat5Option3": "持续关注状况，并在必要时调整计划",
+  "quizHeat5Option4": "停止喝水以减少休息次数",
+  "quizHeat5Explanation": "高温状况可能在一天内发生变化，因此应持续关注，并在必要时调整长时间的户外活动。",
+
+  "quizFlood1Question": "如果前方道路被洪水淹没，而且你无法判断水有多深，应该怎么做？",
+  "quizFlood1Option1": "缓慢驶过积水路段",
+  "quizFlood1Option2": "掉头并改走其他路线",
+  "quizFlood1Option3": "停在被淹的路段中",
+  "quizFlood1Option4": "趁水位还没升高前快速驶过",
+  "quizFlood1Explanation": "当无法确定积水深度和状况时，应避免进入积水区域。掉头并选择更安全的替代路线可以降低风险。",
+
+  "quizFlood2Question": "发生突发洪水时，在选择替代路线之前应该怎么做？",
+  "quizFlood2Option1": "查看最新的洪水信息和道路状况",
+  "quizFlood2Option2": "不查看情况，直接选择最短路线",
+  "quizFlood2Option3": "返回被洪水淹没的道路",
+  "quizFlood2Option4": "继续驾驶，直到找到一条开放的道路",
+  "quizFlood2Explanation": "查看最新的洪水和道路信息，可以帮助你避开受洪水影响的路线。",
+
+  "quizFlood3Question": "暴雨导致驾驶能见度降低时，你应该怎么做？",
+  "quizFlood3Option1": "加速以尽快离开雨区",
+  "quizFlood3Option2": "减速并谨慎驾驶",
+  "quizFlood3Option3": "保持原来的速度继续行驶",
+  "quizFlood3Option4": "驾驶时使用手机查看天气更新",
+  "quizFlood3Explanation": "当暴雨降低能见度时，减速并谨慎驾驶会更加安全。",
+
+  "quizFlood4Question": "为什么应该避免进入洪水积水区域？",
+  "quizFlood4Option1": "洪水积水总是很浅",
+  "quizFlood4Option2": "洪水会让车辆变得更干净",
+  "quizFlood4Option3": "水可能比看起来更深或流动得更快",
+  "quizFlood4Option4": "洪水积水总会立即消退",
+  "quizFlood4Explanation": "洪水积水可能比看起来更深或流动得更快，因此进入积水区域可能十分危险。",
+
+  "quizFlood5Question": "当暴雨和洪水情况持续时，你应该怎么做？",
+  "quizFlood5Option1": "持续关注情况并遵循相关安全信息",
+  "quizFlood5Option2": "忽略之后的天气更新",
+  "quizFlood5Option3": "只要道路开放就认为一定安全",
+  "quizFlood5Option4": "进入积水区域查看水深",
+  "quizFlood5Explanation": "暴雨期间情况可能不断变化，因此应持续关注最新信息，并在必要时调整计划。",
+
+  "scenarioChallenges": "情境挑战",
+  "scenarioChallengesDescription": "在贴近现实的环境情境中练习做出安全的决定。",
+  "scenarioProgress": "情境挑战进度",
+  "scenarioAllCompleted": "所有情境挑战均已完成。",
+  "scenarioRemaining": "还剩 {count} 个情境挑战。",
+  "@scenarioRemaining": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "scenarioCompleted": "已完成",
+  "scenarioNotCompleted": "未完成",
+
+  "scenarioFlashFloodTitle": "路线突发洪水",
+  "scenarioFlashFloodDescription": "在突发洪水期间出行时做出安全决定。",
+
+  "scenarioHazeTitle": "户外活动期间的烟霾",
+  "scenarioHazeDescription": "当户外计划期间空气质量恶化时，做出安全决定。",
+
+  "scenarioHeatUvTitle": "户外活动期间的高温与紫外线",
+  "scenarioHeatUvDescription": "当高温和紫外线暴露较高时，做出安全决定。",
+
+  "scenarioFloodStep1Situation": "你正在暴雨中回家。前方道路已被洪水淹没，而且你无法判断积水有多深。",
+  "scenarioFloodStep1Question": "你应该怎么做？",
+  "scenarioFloodStep1Option1": "趁水位进一步上涨前快速驶过。",
+  "scenarioFloodStep1Option2": "掉头并改走其他路线。",
+  "scenarioFloodStep1Option3": "停在被淹的路段中等待。",
+  "scenarioFloodStep1Option4": "打开车窗并缓慢继续行驶。",
+  "scenarioFloodStep1CorrectFeedback": "正确的决定。应避免驶入积水区域，并选择更安全的替代路线。",
+  "scenarioFloodStep1IncorrectFeedback": "应避免驶入积水区域。水可能比看起来更深或流动得更快。",
+
+  "scenarioFloodStep2Situation": "你已安全掉头，但雨势正在增强。现在你需要决定接下来走哪条路线。",
+  "scenarioFloodStep2Question": "在选择另一条路线之前，你应该怎么做？",
+  "scenarioFloodStep2Option1": "不查看当前情况，直接选择最短的道路。",
+  "scenarioFloodStep2Option2": "查看当前洪水信息并规划更安全的路线。",
+  "scenarioFloodStep2Option3": "返回被淹的道路，看看情况是否有所改善。",
+  "scenarioFloodStep2Option4": "继续驾驶，直到找到一条开放的道路。",
+  "scenarioFloodStep2CorrectFeedback": "正确。查看当前情况有助于避开受洪水影响的道路。",
+  "scenarioFloodStep2IncorrectFeedback": "更安全的做法是在选择其他路线前先查看当前的洪水信息。",
+
+  "scenarioFloodStep3Situation": "你的替代路线目前畅通，但暴雨仍在持续，能见度也正在下降。",
+  "scenarioFloodStep3Question": "接下来最安全的做法是什么？",
+  "scenarioFloodStep3Option1": "加速，以便更快回家。",
+  "scenarioFloodStep3Option2": "照常驾驶并忽略能见度下降。",
+  "scenarioFloodStep3Option3": "减速谨慎驾驶，同时继续留意路况。",
+  "scenarioFloodStep3Option4": "驾驶时使用手机查看最新信息。",
+  "scenarioFloodStep3CorrectFeedback": "正确。能见度降低时，减速并保持警觉会更加安全。",
+  "scenarioFloodStep3IncorrectFeedback": "能见度降低会增加驾驶风险。请减速、保持警觉，并安全地留意当前情况。",
+
+  "scenarioFloodStep1Situation": "你正在暴雨中回家。前方道路已被洪水淹没，而且你无法判断积水有多深。",
+  "scenarioFloodStep1Question": "你应该怎么做？",
+  "scenarioFloodStep1Option1": "趁水位进一步上涨前快速驶过。",
+  "scenarioFloodStep1Option2": "掉头并改走其他路线。",
+  "scenarioFloodStep1Option3": "停在被淹的路段中等待。",
+  "scenarioFloodStep1Option4": "打开车窗并缓慢继续行驶。",
+  "scenarioFloodStep1CorrectFeedback": "正确的决定。应避免驶入积水区域，并选择更安全的替代路线。",
+  "scenarioFloodStep1IncorrectFeedback": "应避免驶入积水区域。水可能比看起来更深或流动得更快。",
+
+  "scenarioFloodStep2Situation": "你已安全掉头，但雨势正在增强。现在你需要决定接下来走哪条路线。",
+  "scenarioFloodStep2Question": "在选择另一条路线之前，你应该怎么做？",
+  "scenarioFloodStep2Option1": "不查看当前情况，直接选择最短的道路。",
+  "scenarioFloodStep2Option2": "查看当前洪水信息并规划更安全的路线。",
+  "scenarioFloodStep2Option3": "返回被淹的道路，看看情况是否有所改善。",
+  "scenarioFloodStep2Option4": "继续驾驶，直到找到一条开放的道路。",
+  "scenarioFloodStep2CorrectFeedback": "正确。查看当前情况有助于避开受洪水影响的道路。",
+  "scenarioFloodStep2IncorrectFeedback": "更安全的做法是在选择其他路线前先查看当前的洪水信息。",
+
+  "scenarioFloodStep3Situation": "你的替代路线目前畅通，但暴雨仍在持续，能见度也正在下降。",
+  "scenarioFloodStep3Question": "接下来最安全的做法是什么？",
+  "scenarioFloodStep3Option1": "加速，以便更快回家。",
+  "scenarioFloodStep3Option2": "照常驾驶并忽略能见度下降。",
+  "scenarioFloodStep3Option3": "减速谨慎驾驶，同时继续留意路况。",
+  "scenarioFloodStep3Option4": "驾驶时使用手机查看最新信息。",
+  "scenarioFloodStep3CorrectFeedback": "正确。能见度降低时，减速并保持警觉会更加安全。",
+  "scenarioFloodStep3IncorrectFeedback": "能见度降低会增加驾驶风险。请减速、保持警觉，并安全地留意当前情况。",
+
+  "scenarioCompleteTitle": "情境挑战完成",
+  "scenarioSafeDecisions": "{safe} / {total} 个安全决定",
+  "@scenarioSafeDecisions": {
+    "placeholders": {
+      "safe": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "scenarioPreviouslyCompleted": "此情境挑战之前已完成，因此不会获得额外 XP。",
+  "scenarioXpEarned": "+{points} XP 已获得",
+  "@scenarioXpEarned": {
+    "placeholders": {
+      "points": {
+        "type": "int"
+      }
+    }
+  },
+  "scenarioContinue": "继续",
+  "scenarioSaveError": "无法保存情境挑战进度，请重试。",
+  "scenarioHazeStep1Situation": "你计划今天下午在户外运动，但发现外面的环境看起来有烟霾。",
+  "scenarioHazeStep1Question": "出门前你应该怎么做？",
+  "scenarioHazeStep1Option1": "不查看任何信息，继续原来的计划。",
+  "scenarioHazeStep1Option2": "查看最新的 PSI 和空气质量状况。",
+  "scenarioHazeStep1Option3": "加大运动强度，以便更快完成。",
+  "scenarioHazeStep1Option4": "因为能见度仍可接受，所以认为烟霾没有危害。",
+  "scenarioHazeStep1CorrectFeedback": "正确的决定。查看当前空气质量信息有助于你判断是否适合进行户外活动。",
+  "scenarioHazeStep1IncorrectFeedback": "在决定是否继续长时间户外活动前，应先查看当前的空气质量信息。",
+
+  "scenarioHazeStep2Situation": "PSI 显示空气质量比平时更差，但你今天仍想保持活动。",
+  "scenarioHazeStep2Question": "哪一种选择更安全？",
+  "scenarioHazeStep2Option1": "继续进行长时间、高强度的户外运动。",
+  "scenarioHazeStep2Option2": "改到室内运动，或减少长时间的户外剧烈活动。",
+  "scenarioHazeStep2Option3": "因为已经安排好运动，所以忽略空气质量读数。",
+  "scenarioHazeStep2Option4": "延长户外活动时间，让自己适应烟霾。",
+  "scenarioHazeStep2CorrectFeedback": "正确。当空气质量恶化时，调整活动方式可以减少不必要的暴露。",
+  "scenarioHazeStep2IncorrectFeedback": "当空气质量恶化时，应考虑将剧烈运动移到室内，或减少长时间的户外剧烈活动。",
+
+  "scenarioHazeStep3Situation": "稍后你需要外出，而烟霾情况仍然存在。",
+  "scenarioHazeStep3Question": "你应该怎么做？",
+  "scenarioHazeStep3Option1": "继续留意当前情况，并遵循建议的防护措施。",
+  "scenarioHazeStep3Option2": "忽略之后的空气质量更新。",
+  "scenarioHazeStep3Option3": "因为运动计划取消了，所以花更多时间待在户外。",
+  "scenarioHazeStep3Option4": "认为一天内的空气质量不会发生变化。",
+  "scenarioHazeStep3CorrectFeedback": "正确。空气质量可能会发生变化，因此应继续留意当前情况并采取适当的防护措施。",
+  "scenarioHazeStep3IncorrectFeedback": "空气质量可能在一天中发生变化，因此应继续查看当前情况。",
+
+  "scenarioSituationLabel": "情境",
+  "scenarioCheckDecision": "检查决定",
+  "scenarioNextSituation": "下一个情境",
+  "scenarioFinishScenario": "完成情境挑战",
+
+"scenarioHeatUvStep1Situation": "你计划在中午前后进行数小时的户外活动。天气炎热，而且紫外线指数很高。",
+"scenarioHeatUvStep1Question": "出门前你应该怎么做？",
+"scenarioHeatUvStep1Option1": "因为天气晴朗很安全，所以立即出门。",
+"scenarioHeatUvStep1Option2": "做好防晒措施，携带饮用水，并计划在阴凉处休息。",
+"scenarioHeatUvStep1Option3": "避免喝水，这样就不需要休息。",
+"scenarioHeatUvStep1Option4": "穿更厚的衣服，让自己适应炎热天气。",
+"scenarioHeatUvStep1CorrectFeedback": "正确的决定。做好防晒、补充水分并安排阴凉处休息，有助于减少高温和紫外线带来的影响。",
+"scenarioHeatUvStep1IncorrectFeedback": "长时间进行户外活动前，应同时为高温和紫外线暴露做好准备。",
+
+"scenarioHeatUvStep2Situation": "在户外活动一段时间后，你开始感到非常炎热，而且已经在阳光直射下待了一段时间。",
+"scenarioHeatUvStep2Question": "接下来哪一种做法更安全？",
+"scenarioHeatUvStep2Option1": "不停下来，继续进行活动。",
+"scenarioHeatUvStep2Option2": "喝水，并到阴凉或较凉爽的地方休息。",
+"scenarioHeatUvStep2Option3": "加大运动强度，以便更快完成。",
+"scenarioHeatUvStep2Option4": "休息时继续待在阳光直射的地方。",
+"scenarioHeatUvStep2CorrectFeedback": "正确。补充水分并适时到凉爽处休息，有助于减少长时间户外活动造成的热应激。",
+"scenarioHeatUvStep2IncorrectFeedback": "应定期补充水分并到凉爽处休息，而不是在炎热环境中持续长时间活动。",
+
+"scenarioHeatUvStep3Situation": "当天稍后你仍计划进行更多户外活动。",
+"scenarioHeatUvStep3Question": "接下来你应该怎么做？",
+"scenarioHeatUvStep3Option1": "因为之前已经查看过情况，所以忽略之后的任何变化。",
+"scenarioHeatUvStep3Option2": "等到非常口渴时才喝水。",
+"scenarioHeatUvStep3Option3": "继续留意当前情况，并在必要时调整计划。",
+"scenarioHeatUvStep3Option4": "持续待在户外，让身体适应炎热天气。",
+"scenarioHeatUvStep3CorrectFeedback": "正确。环境状况可能发生变化，因此应继续留意情况，并在必要时调整户外活动计划。",
+"scenarioHeatUvStep3IncorrectFeedback": "应继续留意高温和紫外线情况，并在必要时调整计划。",
+
+"cprAedTitle": "心肺复苏与自动体外除颤器",
+"cprAedVideoTitle": "学习心肺复苏与 AED 操作步骤",
+"cprAedVideoSubtitle": "打开新加坡民防部队（SCDF）官方视频",
+"cprAedDescription": "了解在疑似心脏骤停时应采取的基本行动。",
+"cprAedRememberActions": "记住以下步骤",
+
+"cprAedStep1Title": "检查反应",
+"cprAedStep1Description": "轻拍患者的肩膀，检查对方是否有反应。",
+
+"cprAedStep2Title": "拨打 995 并获取 AED",
+"cprAedStep2Description": "请一人拨打 995，并让另一人取来最近的 AED。",
+
+"cprAedStep3Title": "开始心肺复苏",
+"cprAedStep3Description": "如果患者没有呼吸，请开始进行徒手心肺复苏，并遵循 995 调度员的指示。",
+
+"cprAedStep4Title": "使用 AED",
+"cprAedStep4Description": "AED 到达后立即使用，并按照设备的语音或视觉指示操作。",
+
+"cprAedWatchVideo": "观看 SCDF 官方视频",
+"cprAedDisclaimer": "本快速指南仅用于应急准备学习，不能替代经过认证的心肺复苏/AED 培训。发生紧急情况时，请拨打 995，并遵循 SCDF 调度员的指示。",
+"cprAedVideoError": "无法打开 SCDF 视频。",
+
+"floodSafetyTitle": "突发洪水安全指南",
+"floodSafetyHeroTitle": "暴雨可能引发突发洪水",
+"floodSafetyHeroDescription": "了解在新加坡出行时遇到洪水应采取的行动。",
+"floodSafetyEncounterTitle": "如果遇到洪水",
+
+"floodSafetyTurnBackTitle": "掉头返回",
+"floodSafetyTurnBackDescription": "不要进入积水区域。请选择更安全的替代路线。",
+
+"floodSafetyHigherGroundTitle": "前往较高处",
+"floodSafetyHigherGroundDescription": "如果前方发生洪水，请远离该区域，因为水位可能迅速上升。",
+
+"floodSafetyAvoidMovingWaterTitle": "避开流动的洪水",
+"floodSafetyAvoidMovingWaterDescription": "洪水的深度和流速可能难以判断，流动的水可能使你跌倒。",
+
+"floodSafetyAvoidDrivingTitle": "不要驶入较深的洪水",
+"floodSafetyAvoidDrivingDescription": "如果积水已高于路缘，或道路标线已无法看见，请避免驶入该道路。",
+
+"floodSafetyBeforeTravellingTitle": "出行前",
+"floodSafetyBeforeTravellingDescription": "暴雨期间出行前，请查看当前天气和洪水警报，并在必要时规划替代路线。",
+
+"floodSafetySource": "安全指南参考自新加坡国家水务局 PUB。",
+"floodSafetyDo": "应该做",
+"floodSafetyDont": "不要做",
+
+"scenarioRewardXp": "· +{points} XP",
+"@scenarioRewardXp": {
+  "placeholders": {
+    "points": {
+      "type": "int"
+    }
+  }
+},
+"learnTryAgain": "重试",
+"emergencyHelpTitle": "紧急求助",
+"emergencyInEmergency": "发生紧急情况时",
+"emergencyImmediateDangerDescription": "如果有人面临即时危险，请立即联系适当的紧急服务。",
+"emergencyServices": "紧急服务",
+
+"emergencyFireRescueTitle": "消防、救援与紧急救护车",
+"emergencyFireRescueDescription": "火灾、救援或危及生命的紧急情况",
+
+"emergencyPoliceTitle": "警方紧急服务",
+"emergencyPoliceDescription": "需要警方立即协助",
+
+"emergencySms": "紧急短信服务",
+"emergencyPoliceSmsTitle": "警方紧急短信服务",
+"emergencyPoliceSmsDescription": "在不安全或无法拨打电话时使用的紧急短信服务",
+
+"emergencyScdfSmsTitle": "民防部队紧急短信服务",
+"emergencyScdfSmsDescription": "为失聪、听障或有语言障碍人士提供的紧急短信服务。",
+
+"emergencyOtherUsefulContacts": "其他实用联系方式",
+"emergencyNurseFirstDescription": "非紧急医疗咨询",
+"emergencyNeaHotline": "国家环境局热线",
+"emergencyNeaDescription": "环境反馈与咨询",
+
+"emergencyWhenToCall": "什么时候应该拨打紧急电话？",
+"emergencyEmergencyLabel": "紧急情况",
+"emergencyEmergencyGuide": "有人面临即时危险、严重受伤、出现危及生命的医疗状况，或发生火灾或需要救援的情况。",
+"emergencyNonEmergencyLabel": "非紧急情况",
+"emergencyNonEmergencyGuide": "情况不会对生命或安全构成即时威胁。请改用适当的非紧急服务。",
+
+"emergencyDisclaimer": "紧急信息仅供防灾准备参考。请始终遵循新加坡相关政府机构的指示。",
+"profileLoadProgressError": "无法加载您的进度。",
+"profileWeeklyActivity": "每周活动",
+"profileWeeklyDaysCompleted": "{completed} / 7 天",
+"@profileWeeklyDaysCompleted": {
+  "placeholders": {
+    "completed": {
+      "type": "int"
+    }
+  }
+},
+"profileWeeklyActivityDescription": "您过去 7 天的防灾准备计划活动。",
+"profileCurrentStreak": "当前连续 {days} 天",
+"@profileCurrentStreak": {
+  "placeholders": {
+    "days": {
+      "type": "int"
+    }
+  }
+},
+"profileYourProgress": "您的进度",
+"profileProgressDescription": "追踪您的防灾准备进度和成就。",
+
+"profileLevel": "等级 {level}",
+"@profileLevel": {
+  "placeholders": {
+    "level": {
+      "type": "int"
+    }
+  }
+},
+"profileXpStreak": "{xp} XP · 连续 {days} 天",
+"@profileXpStreak": {
+  "placeholders": {
+    "xp": {
+      "type": "int"
+    },
+    "days": {
+      "type": "int"
+    }
+  }
+},
+"profileProgressToLevel": "距离等级 {level} 的进度",
+"@profileProgressToLevel": {
+  "placeholders": {
+    "level": {
+      "type": "int"
+    }
+  }
+},
+"profileXpProgress": "{current} / 100 XP",
+"@profileXpProgress": {
+  "placeholders": {
+    "current": {
+      "type": "int"
+    }
+  }
+},
+"profileXpToLevel": "还需 {xp} XP 达到等级 {level}",
+"@profileXpToLevel": {
+  "placeholders": {
+    "xp": {
+      "type": "int"
+    },
+    "level": {
+      "type": "int"
+    }
+  }
+},
+"profileTodayPlanCompleted": "今日计划已完成",
+"profileTodayPlanNotCompleted": "今日计划尚未完成",
+"profileTodayPlanCompletedDescription": "您的 XP 和连续记录已更新。",
+"profileTodayPlanNotCompletedDescription": "完成今天的防灾准备计划以延续您的连续记录。",
+"profileNextBadge": "下一个徽章",
+"profileBadges": "徽章",
+
+"profileBadgeFirstCheckTitle": "首次检查",
+"profileBadgeFirstCheckDescription": "完成您的第一个防灾准备清单项目。",
+
+"profileBadgeHazeHeroTitle": "烟霾英雄",
+"profileBadgeHazeHeroDescription": "完成两个烟霾测验。",
+
+"profileBadgeUvGuardianTitle": "紫外线守护者",
+"profileBadgeUvGuardianDescription": "完成两个紫外线测验。",
+
+"profileBadgeFloodReadyTitle": "防洪准备",
+"profileBadgeFloodReadyDescription": "完成所有防洪准备清单项目。",
+
+"profileBadgeStreak7Title": "连续 7 天",
+"profileBadgeStreak7Description": "连续 7 天保持您的防灾准备记录。",
+
+"profileSettings": "设置",
+"profilePreferences": "偏好设置",
+"profilePreferencesDescription": "地区、户外活动和防灾准备提醒。",
+
+"profileAccount": "账户",
+"profileLogout": "退出登录",
+"profileLogoutDescription": "退出您的 SGReady 账户。",
+"profileLogoutDialogTitle": "退出 SGReady？",
+"profileLogoutDialogDescription": "您可以随时使用您的账户重新登录。",
+"profileCancel": "取消",
+
+"profilePhotoSelectError": "无法选择该照片。请重试。",
+"profileChangePhoto": "更改个人资料照片",
+"profileChoosePhoto": "选择个人资料照片",
+"profileRemovePhoto": "移除个人资料照片",
+
+"profileRewards": "奖励",
+"profileLifetimeXp": "累计 {xp} XP",
+"@profileLifetimeXp": {
+  "placeholders": {
+    "xp": {
+      "type": "int"
+    }
+  }
+},
+"profileAllRewardsUnlocked": "所有原型奖励里程碑均已解锁。",
+"profileXpUntilNextReward": "距离下一个奖励还需 {xp} XP。",
+"@profileXpUntilNextReward": {
+  "placeholders": {
+    "xp": {
+      "type": "int"
+    }
+  }
+},
+
+"profilePreparednessScore": "防灾准备评分",
+"profileScoreChecklist": "清单",
+"profileScoreQuizzes": "测验",
+"profileScoreEngagement": "参与度",
+"profileScoreBadges": "徽章",
+
+"rewardsScreenTitle": "奖励",
+"rewardsMilestones": "奖励里程碑",
+"rewardsMilestonesDescription": "提升您的防灾准备知识，并随着累计 XP 增加解锁奖励。",
+
+"rewardTreatVoucherTitle": "$5 美食礼券",
+"rewardTreatVoucherDescription": "培养良好防灾准备习惯的小奖励。",
+"rewardLifestyleVoucherTitle": "$10 生活礼券",
+"rewardLifestyleVoucherDescription": "奖励您持续积极参与并做好防灾准备。",
+"rewardPreparednessPackTitle": "SGReady 防灾准备包",
+"rewardPreparednessPackDescription": "实用必需品，帮助您为紧急情况做好准备。",
+
+"rewardsLifetimeXpTitle": "您的累计 XP",
+"rewardsXpValue": "{xp} XP",
+
+"rewardsTier": "{tier}等级",
+"rewardsHighestTierReached": "已达到最高奖励等级",
+"rewardsXpToTier": "还需 {xp} XP 达到{tier}",
+"rewardsEarnXpDescription": "通过每日防灾准备行动、测验、情景挑战和应急包获取 XP。",
+
+"rewardsTierStarter": "起步",
+"rewardsTierPrepared": "已准备",
+"rewardsTierReady": "就绪",
+"rewardsTierResilient": "韧性",
+
+"rewardUnlocked": "奖励已解锁",
+"rewardXpMoreToUnlock": "还需 {xp} XP 解锁",
+"rewardView": "查看奖励",
+
+"rewardPrototypeDialogDescription": "此奖励属于 SGReady 原型，目前无法兑换。在未来的实现中，符合条件的用户可以通过参与合作的机构兑换奖励。",
+"rewardGotIt": "知道了",
+
+"prototypeRewardsTitle": "原型奖励",
+"prototypeRewardsDescription": "SGReady 中显示的奖励仅为演示用途，目前无法兑换。实际应用需要与参与机构建立合作，并采用安全的奖励发放机制。",
+
+"youSpendMoreTimeOutdoors": "您经常进行户外活动",
+"moderatelyActiveOutdoors": "您有适度的户外活动",
+"usuallyOutdoorsAtMidday": "通常在中午进行户外活动",
+"todayFocusAirQuality": "空气质量",
+"todayFocusHeatSafety": "高温安全",
+"todayFocusUvProtection": "紫外线防护",
+"todayPlanAdapts": "今日计划会根据您的日常习惯和当前环境状况进行调整。",
+"todayProgressError": "无法加载今日进度。"
+}

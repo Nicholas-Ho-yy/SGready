@@ -1,0 +1,38 @@
+# Flutter/Dart generated files
+.dart_tool/
+.packages
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+
+# IDE files
+*.iml
+.idea/
+.vscode/
+
+# Android generated/local files
+android/.gradle/
+android/.kotlin/
+android/local.properties
+
+# Firebase local files
+.firebase/
+
+# Firebase configuration
+**/google-services.json
+**/GoogleService-Info.plist
+
+# Firebase Functions dependencies
+functions/node_modules/
+
+# Secrets and signing files
+.env
+.env.*
+*.keystore
+*.jks
+key.properties
+
+# Temporary and backup files
+*_backup.txt
+*.bak
+*.tmp

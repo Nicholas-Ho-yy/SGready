@@ -1,0 +1,44 @@
+name: sg_env_ready
+description: Singapore environmental preparedness app with alerts, guidance, and gamification.
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.2.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  flutter_localizations:
+    sdk: flutter
+  
+  cupertino_icons: ^1.0.8
+  flutter_riverpod: ^2.6.1
+  http: ^1.2.2
+  intl: ^0.20.2
+  shared_preferences: ^2.3.3
+  flutter_svg: ^2.2.0
+  flutter_local_notifications: ^22.3.0
+  timezone: ^0.11.1
+  image_picker: ^1.2.3
+  geolocator: ^14.0.3
+  url_launcher: ^6.3.2
+  firebase_core: ^4.14.0
+  firebase_auth: ^6.6.1
+  cloud_firestore: ^6.9.0
+  workmanager: ^0.10.10
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  fake_cloud_firestore: ^4.2.0
+
+flutter:
+  uses-material-design: true
+  generate: true
+
+  assets:
+    - assets/images/
+    - assets/scenarios/

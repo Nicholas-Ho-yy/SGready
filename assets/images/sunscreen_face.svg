@@ -1,0 +1,125 @@
+<svg
+  width="220"
+  height="220"
+  viewBox="0 0 220 220"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <!-- Neck -->
+  <path
+    d="M88 168V196H132V168"
+    fill="#F2C7A5"
+    stroke="#5F6368"
+    stroke-width="3"
+    stroke-linecap="round"
+  />
+
+  <!-- Ears -->
+  <ellipse
+    cx="54"
+    cy="111"
+    rx="14"
+    ry="20"
+    fill="#F2C7A5"
+    stroke="#5F6368"
+    stroke-width="3"
+  />
+
+  <ellipse
+    cx="166"
+    cy="111"
+    rx="14"
+    ry="20"
+    fill="#F2C7A5"
+    stroke="#5F6368"
+    stroke-width="3"
+  />
+
+  <!-- Face -->
+  <path
+    d="
+      M110 28
+      C72 28 58 58 60 102
+      C62 145 80 174 110 180
+      C140 174 158 145 160 102
+      C162 58 148 28 110 28
+      Z
+    "
+    fill="#F6D0B3"
+    stroke="#5F6368"
+    stroke-width="3"
+  />
+
+  <!-- Hair -->
+  <path
+    d="
+      M62 83
+      C60 47 79 24 110 24
+      C143 24 160 49 158 84
+      C149 70 138 59 124 56
+      C104 51 83 59 62 83
+      Z
+    "
+    fill="#4E4540"
+  />
+
+  <!-- Left eyebrow -->
+  <path
+    d="M78 94C86 89 94 89 101 93"
+    stroke="#5F514B"
+    stroke-width="4"
+    stroke-linecap="round"
+  />
+
+  <!-- Right eyebrow -->
+  <path
+    d="M119 93C126 89 135 89 142 94"
+    stroke="#5F514B"
+    stroke-width="4"
+    stroke-linecap="round"
+  />
+
+  <!-- Left eye -->
+  <path
+    d="M79 105C86 110 94 110 100 105"
+    stroke="#444444"
+    stroke-width="3"
+    stroke-linecap="round"
+  />
+
+  <!-- Right eye -->
+  <path
+    d="M120 105C127 110 135 110 141 105"
+    stroke="#444444"
+    stroke-width="3"
+    stroke-linecap="round"
+  />
+
+  <!-- Nose -->
+  <path
+    d="M110 108V128L103 132"
+    stroke="#B88569"
+    stroke-width="2.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+
+  <!-- Mouth -->
+  <path
+    d="M96 146C105 153 115 153 124 146"
+    stroke="#A76161"
+    stroke-width="3"
+    stroke-linecap="round"
+  />
+
+  <!-- Shoulders -->
+  <path
+    d="
+      M88 190
+      C63 193 45 201 34 220
+      H186
+      C175 201 157 193 132 190
+    "
+    fill="#E9EEF4"
+  />
+</svg>

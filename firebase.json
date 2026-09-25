@@ -1,0 +1,57 @@
+{
+  "flutter": {
+    "platforms": {
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "sgready-fyp-233ad",
+          "configurations": {
+            "android": "1:824105487854:android:8680f2bdbe9fd5b9e852ff",
+            "web": "1:824105487854:web:5a0f3847f71bee9fe852ff"
+          }
+        }
+      },
+      "android": {
+        "default": {
+          "projectId": "sgready-fyp-233ad",
+          "appId": "1:824105487854:android:8680f2bdbe9fd5b9e852ff",
+          "fileOutput": "android/app/google-services.json"
+        }
+      }
+    }
+  },
+  "hosting": {
+    "public": "build/web",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "/api/data",
+        "function": {
+          "functionId": "dataGovProxy",
+          "region": "asia-southeast1"
+        }
+      },
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  },
+  "functions": [
+    {
+      "source": "functions",
+      "codebase": "default",
+      "disallowLegacyRuntimeConfig": true,
+      "ignore": [
+        "node_modules",
+        ".git",
+        "firebase-debug.log",
+        "firebase-debug.*.log",
+        "*.local"
+      ]
+    }
+  ]
+}

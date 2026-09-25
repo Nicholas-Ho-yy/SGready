@@ -1,0 +1,1421 @@
+{
+  "@@locale": "en",
+
+  "appTitle": "SGReady",
+
+  "preferences": "Preferences",
+  "personaliseSGReady": "Personalise SGReady",
+  "preferencesDescription": "These preferences help SGReady tailor your preparedness experience.",
+
+  "homeRegion": "Home region",
+  "homeRegionDescription": "Choose the Singapore region you usually want to see first.",
+  "central": "Central",
+  "north": "North",
+  "south": "South",
+  "east": "East",
+  "west": "West",
+
+  "outdoorActivity": "Outdoor activity",
+  "outdoorActivityDescription": "How much time do you usually spend outdoors?",
+  "low": "Low",
+  "moderate": "Moderate",
+  "high": "High",
+
+  "usuallyOutdoors": "Usually outdoors",
+  "usuallyOutdoorsDescription": "Select the periods when you are commonly outside.",
+  "morning": "Morning",
+  "midday": "Midday",
+  "evening": "Evening",
+
+  "preparednessReminders": "Preparedness reminders",
+  "preparednessRemindersDescription": "Allow SGReady to remind you about relevant preparedness actions.",
+  "enableReminders": "Enable reminders",
+  "notificationSchedule": "Notification schedule",
+  "daytimeOnly": "Daytime only",
+  "daytimeOnlyDescription": "Weather and task reminders approximately every 5 hours between 8 AM and 10 PM.",
+  "twentyFourHours": "24 hours",
+  "twentyFourHoursDescription": "Weather updates approximately every 5 hours, day and night. Task reminders are limited to 8 AM–10 PM.",
+
+  "accessibility": "Accessibility",
+  "accessibilityDescription": "Adjust SGReady to make the app easier and more comfortable to use.",
+  "largerText": "Larger text",
+  "largerTextDescription": "Increase text size across SGReady for easier reading.",
+  "largerControls": "Larger controls",
+  "largerControlsDescription": "Increase the size of important controls to make them easier to tap.",
+
+  "language": "Language",
+  "languageDescription": "Choose the language used across SGReady.",
+  "english": "English",
+  "simplifiedChinese": "Simplified Chinese",
+  "malay": "Malay",
+
+  "appearance": "Appearance",
+  "appearanceDescription": "Choose how SGReady looks on this device.",
+  "systemDefault": "System default",
+  "systemDefaultDescription": "Match your device appearance",
+  "light": "Light",
+  "lightDescription": "Always use light mode",
+  "dark": "Dark",
+  "darkDescription": "Always use dark mode",
+
+  "savePreferences": "Save preferences",
+  "saving": "Saving...",
+  "preferencesSaved": "Preferences saved.",
+  "unableToSavePreferences": "Unable to save preferences.",
+
+  "navHome": "Home",
+  "navToday": "Today",
+  "navExplore": "Explore",
+  "navLearn": "Learn",
+  "navProfile": "Profile",
+
+  "todayInSingapore": "Today in Singapore",
+  "homeDescription": "Check local conditions and what you should prepare for.",
+  "todaysPreparedness": "Today’s preparedness",
+  "whatYouShouldDo": "What you should do",
+  "showLess": "Show less",
+  "why": "Why?",
+  "noData": "No data",
+  "psi24h": "PSI (24h)",
+  "uvIndex": "UV Index",
+  "temperature": "Temperature",
+  "wbgtHeatStress": "WBGT (Heat Stress)",
+  "lastUpdated": "Last updated: {dateTime}",
+  "@lastUpdated": {
+    "placeholders": {
+      "dateTime": {
+        "type": "String"
+      }
+    }
+  },
+  "regionAverage": "{region} average",
+  "@regionAverage": {
+    "placeholders": {
+      "region": {
+        "type": "String"
+      }
+    }
+  },
+
+  "riskElevated": "Elevated",
+  "riskLow": "Low Risk",
+  "riskModerate": "Moderate",
+  "riskHigh": "High",
+  "riskVeryHigh": "Very High",
+  "riskExtreme": "Extreme",
+
+  "floodRiskMessage": "Heavy rainfall detected. Stay alert and avoid flood-prone areas.",
+  "lowRiskMessage": "Conditions are generally good. Stay prepared and keep monitoring updates.",
+  "moderateRiskMessage": "Take basic precautions and follow today’s recommended actions.",
+  "highRiskMessage": "Follow the safety guidance below and adjust your plans if needed.",
+  "veryHighRiskMessage": "Limit outdoor exposure and take additional precautions.",
+  "extremeRiskMessage": "Avoid unnecessary outdoor activity and follow safety guidance closely.",
+
+  "recommendationEnvironmentalDataUnavailable": "Environmental data unavailable",
+  "recommendationEnvironmentalDataUnavailableBody": "Current environmental readings could not be retrieved. Please try refreshing the data later.",
+  "actionCheckInternetConnection": "Check your internet connection",
+  "actionRefreshEnvironmentalData": "Refresh the environmental data",
+  "actionReferOfficialChannels": "Refer to official NEA and PUB channels if conditions appear unsafe",
+
+  "recommendationPsiUnavailable": "PSI reading unavailable",
+  "recommendationPsiUnavailableBody": "The latest air-quality reading could not be retrieved.",
+  "actionRefreshDataLater": "Refresh the data later",
+  "actionReferNeaHazeUpdates": "Refer to official NEA haze updates when planning outdoor activity",
+
+  "recommendationHaze": "Haze / Air Quality (PSI {psi})",
+  "@recommendationHaze": {
+    "placeholders": {
+      "psi": {
+        "type": "int"
+      }
+    }
+  },
+
+  "psiBodyGood": "Air quality is within the Good range.",
+  "psiBodyModerate": "Air quality is within the Moderate range. Most people can continue normal activities, while vulnerable individuals should monitor their health and symptoms.",
+  "psiBodyHigh": "Air quality is Unhealthy. Reduce prolonged or strenuous outdoor activity, particularly if you are vulnerable to air pollution.",
+  "psiBodyVeryHigh": "Air quality is Very Unhealthy. Minimise outdoor activity and reduce exposure where possible.",
+  "psiBodyExtreme": "Air quality is Hazardous. Remain indoors where possible and minimise exposure to outdoor air.",
+
+  "actionContinueNormalActivities": "Continue normal activities",
+  "actionMonitorEnvironmentalUpdates": "Monitor official environmental updates",
+  "actionContinueNormalIfWell": "Continue normal activities if you feel well",
+  "actionMonitorHealthSymptoms": "Monitor symptoms if you have heart or respiratory conditions",
+  "actionCheckPsiBeforeOutdoorActivity": "Check updated PSI readings before prolonged outdoor activity",
+  "actionReduceOutdoorActivity": "Reduce prolonged or strenuous outdoor activity",
+  "actionWearN95Appropriate": "Wear a properly fitted N95 mask when appropriate",
+  "actionKeepIndoorAirClean": "Keep indoor air as clean as reasonably possible",
+  "actionSeekMedicalAdvice": "Seek medical advice if you feel unwell",
+  "actionMinimiseOutdoorActivity": "Minimise outdoor activity",
+  "actionRemainIndoors": "Remain indoors where possible",
+  "actionWearN95IfUnavoidable": "Wear a properly fitted N95 mask if outdoor exposure is unavoidable",
+  "actionSeekHelpBreathing": "Seek medical help if breathing difficulties develop",
+  "actionAvoidOutdoorActivity": "Avoid outdoor activity where possible",
+  "actionCloseDoorsWindows": "Remain indoors with doors and windows closed",
+  "actionWearN95Outside": "Wear a properly fitted N95 mask if you must go outside",
+  "actionSeekHelpSeriousSymptoms": "Seek medical help promptly if you experience serious symptoms",
+
+  "recommendationUvUnavailable": "UV reading unavailable",
+  "recommendationUvUnavailableBody": "The latest ultraviolet-index reading could not be retrieved.",
+  "actionSunProtectionExtended": "Use sun protection when spending extended periods outdoors",
+
+  "recommendationUvExposure": "UV Exposure (Index {uv})",
+  "@recommendationUvExposure": {
+    "placeholders": {
+      "uv": {
+        "type": "int"
+      }
+    }
+  },
+
+  "uvBodyGood": "UV exposure is Low. Minimal protection is normally required.",
+  "uvBodyModerate": "UV exposure is Moderate. Use sun protection during extended periods outdoors.",
+  "uvBodyHigh": "UV exposure is High. Use sunscreen, protective clothing and shade, especially around midday.",
+  "uvBodyVeryHigh": "UV exposure is Very High. Minimise direct midday sun exposure and use comprehensive sun protection.",
+  "uvBodyExtreme": "UV exposure is Extreme. Avoid unnecessary direct sun exposure during peak hours and use comprehensive protection.",
+
+  "actionBasicSunProtection": "Use basic sun protection during extended outdoor exposure",
+  "actionApplySunscreen": "Apply broad-spectrum SPF 30+ sunscreen",
+  "actionWearSunglasses": "Wear sunglasses during extended outdoor activity",
+  "actionSeekShade": "Seek shade when practical",
+  "actionReapplySunscreen": "Reapply sunscreen according to product directions",
+  "actionWearHatSunglassesClothing": "Wear a hat, sunglasses and protective clothing",
+  "actionSeekMiddayShade": "Seek shade during midday hours",
+  "actionMinimiseMiddaySun": "Minimise direct sun exposure around midday",
+  "actionWearProtectiveClothing": "Wear protective clothing, a hat and sunglasses",
+  "actionRegularlyReapplySunscreen": "Apply and regularly reapply SPF 30+ sunscreen",
+  "actionTakeShadeBreaks": "Take regular shade breaks when working outdoors",
+  "actionAvoidMiddaySun": "Avoid unnecessary direct sun exposure around midday",
+  "actionUseShadeProtectiveClothing": "Use shade and protective clothing",
+  "actionOutdoorWorkersShadeBreaks": "Outdoor workers should take frequent shaded rest breaks",
+
+  "recommendationHeavyRain": "Heavy Rainfall Alert",
+  "heavyRainBodyOne": "One weather station is reporting rainfall above the configured heavy-rain threshold. Flooding may occur in vulnerable or low-lying areas.",
+  "heavyRainBodyMany": "{count} weather stations are reporting rainfall above the configured heavy-rain threshold. Flooding may occur in vulnerable or low-lying areas.",
+  "@heavyRainBodyMany": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "actionAvoidFloodWater": "Avoid entering moving or deep flood water",
+  "actionCheckPubUpdates": "Check official PUB flood and heavy-rain updates",
+  "actionAvoidFloodProneRoutes": "Avoid flood-prone or low-lying routes",
+  "actionKeepEmergencyDevices": "Keep a charged phone, torch and power bank available",
+
+  "recommendationFavourable": "Conditions look favourable",
+  "recommendationFavourableBody": "Current available PSI and UV readings are within lower-risk ranges, and no heavy-rain threshold has been detected.",
+  "actionContinueMonitoring": "Continue monitoring environmental updates",
+  "actionReviewEmergencyKit": "Review your emergency kit and preparedness checklist",
+  "actionCompletePreparednessActivity": "Complete a preparedness activity to maintain awareness",
+
+  "psiGood": "Good",
+  "psiModerate": "Moderate",
+  "psiUnhealthy": "Unhealthy",
+  "psiVeryUnhealthy": "Very Unhealthy",
+  "psiHazardous": "Hazardous",
+
+  "todayTitle": "Today",
+  "todayDescription": "Your personalised preparedness plan for today.",
+
+  "todayPlanError": "Unable to generate today’s preparedness plan.",
+  "todayProgressError": "Unable to load today’s progress.",
+  "todayEnvironmentError": "Unable to prepare today’s environmental context.",
+  "completeTasksBeforeClaiming": "Complete all tasks before claiming your XP.",
+
+  "claimTodayReward": "Claim today’s reward?",
+  "claimRewardDescription": "Make sure you’re happy with today’s completed actions before claiming your XP.",
+  "notYet": "Not yet",
+  "claimXp": "Claim {xp} XP",
+  "@claimXp": {
+    "placeholders": {
+      "xp": {
+        "type": "int"
+      }
+    }
+  },
+
+  "planComplete": "Plan Complete!",
+  "planCompleteDescription": "Great work completing today’s preparedness actions.",
+  "awesome": "Awesome!",
+
+  "personalisedForYou": "Personalised for you",
+  "yourRoutine": "YOUR ROUTINE",
+  "todaysFocus": "TODAY'S FOCUS",
+  "moreTimeOutdoors": "You spend more time outdoors",
+  "moderatelyActiveOutdoors": "You’re moderately active outdoors",
+  "usuallyOutdoorsMidday": "Usually outdoors at midday",
+  "airQuality": "Air quality",
+  "heatSafety": "Heat safety",
+  "uvProtection": "UV protection",
+  "todayPlanAdapts": "Today’s plan adapts to your routine and current environmental conditions.",
+
+  "todaysActions": "Today’s actions",
+  "todaysActionsDescription": "Complete the recommended actions below to build today’s preparedness.",
+
+  "rewardClaimed": "Reward claimed",
+  "completeOneMoreTask": "Complete 1 more task",
+  "completeMoreTasks": "Complete {count} more tasks",
+  "@completeMoreTasks": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+
+  "todaysConditions": "Today’s conditions",
+  "priority": "Priority: {focus}",
+  "@priority": {
+    "placeholders": {
+      "focus": {
+        "type": "String"
+      }
+    }
+  },
+  "whyThisPlan": "Why this plan?",
+  "heavyRain": "Heavy rain",
+
+  "focusRainPreparation": "Rain preparation",
+  "focusAirQualitySunProtection": "Air quality & sun protection",
+  "focusAirQuality": "Air quality",
+  "focusSunProtection": "Sun protection",
+  "focusGeneralPreparedness": "General preparedness",
+
+  "dailyPreparedness": "Daily preparedness",
+  "allActionsCompleted": "All {total} actions completed",
+  "@allActionsCompleted": {
+    "placeholders": {
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+
+  "actionsCompleted": "{completed} of {total} actions completed",
+  "@actionsCompleted": {
+    "placeholders": {
+      "completed": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+
+  "tasksLeft": "{count} left",
+  "@tasksLeft": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+
+  "counterProgress": "{current} of {target} {unit}",
+  "@counterProgress": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "target": {
+        "type": "int"
+      },
+      "unit": {
+        "type": "String"
+      }
+    }
+  },
+
+  "completed": "completed",
+
+  "missionRewardClaimedMessage": "Reward claimed. Return tomorrow for a new preparedness plan.",
+  "missionCompleteMessage": "Great work. Your daily reward is ready.",
+  "missionStartMessage": "Start with one small action to improve today’s preparedness.",
+  "missionGoodStartMessage": "Good start. Continue with the remaining actions.",
+  "missionOneRemainingMessage": "You’re almost there. Only one action remains.",
+  "missionRemainingMessage": "You’re almost there. Complete the remaining actions.",
+
+  "done": "Done",
+    "noDailyMission": "No daily mission is currently available. Refresh the environmental data and try again.",
+
+  "taskReviewConditionsTitle": "Review today’s conditions",
+  "taskReviewConditionsDescription": "Check the current PSI, UV Index, temperature and rainfall conditions before planning outdoor activities.",
+  "taskReviewConditionsReason": "Reviewing live conditions helps you choose the right precautions before heading outdoors.",
+
+  "taskMonitorAirQualityTitle": "Monitor the air quality",
+  "taskMonitorAirQualityDescription": "Check the PSI again before prolonged outdoor activity, especially if you are sensitive to haze.",
+  "taskMonitorAirQualityReason": "The current PSI indicates that additional caution may be useful, particularly for sensitive individuals.",
+
+  "taskPackN95Title": "Pack an N95 mask",
+  "taskPackN95Description": "Bring a properly fitted N95 mask if outdoor activity cannot be avoided.",
+  "taskPackN95Reason": "Air quality is currently unhealthy enough for additional protection to be recommended outdoors.",
+
+  "taskReduceOutdoorExerciseTitle": "Reduce strenuous outdoor activity",
+  "taskReduceOutdoorExerciseDescription": "Choose lighter or indoor activities while the air quality is unhealthy.",
+  "taskReduceOutdoorExerciseReason": "Strenuous activity increases breathing rate and may increase exposure to air pollutants.",
+
+  "taskStayIndoorsHazeTitle": "Stay indoors where possible",
+  "taskStayIndoorsHazeDescription": "Keep windows and doors closed and minimise unnecessary outdoor exposure.",
+  "taskStayIndoorsHazeReason": "Current air-quality conditions indicate a high level of exposure risk outdoors.",
+
+  "taskPrepareN95HazeTitle": "Keep an N95 mask ready",
+  "taskPrepareN95HazeDescription": "Use an N95 mask if leaving the house is unavoidable.",
+  "taskPrepareN95HazeReason": "An N95 mask can help reduce exposure to fine haze particles during poor air-quality conditions.",
+
+  "taskCheckHazeSymptomsTitle": "Monitor your health",
+  "taskCheckHazeSymptomsDescription": "Watch for breathing difficulty, coughing or eye irritation.",
+  "taskCheckHazeSymptomsReason": "Very poor air quality may affect respiratory comfort and other health symptoms.",
+
+  "taskApplySunscreenTitle": "Apply sunscreen",
+  "taskApplySunscreenDescription": "Apply broad-spectrum SPF 30+ sunscreen before going outdoors.",
+  "taskApplySunscreenReason": "Today’s UV level means sun protection is recommended before going outdoors.",
+
+  "taskSeekMiddayShadeTitle": "Seek shade around midday",
+  "taskSeekMiddayShadeDescription": "Limit direct sun exposure during the strongest UV period.",
+  "taskSeekMiddayShadeReason": "UV exposure is typically stronger around midday, making shade an effective protective measure.",
+
+  "taskReapplySunscreenTitle": "Reapply sunscreen",
+  "taskReapplySunscreenDescription": "Reapply sunscreen according to the product instructions, especially after sweating.",
+  "taskReapplySunscreenReason": "Very high UV exposure can require continued protection during prolonged outdoor activity.",
+
+  "taskWearSunProtectionTitle": "Wear sun protection",
+  "taskWearSunProtectionDescription": "Bring a hat, sunglasses and protective clothing.",
+  "taskWearSunProtectionReason": "Additional physical protection helps reduce direct UV exposure to the skin and eyes.",
+
+  "taskAvoidMiddaySunTitle": "Avoid prolonged midday sun",
+  "taskAvoidMiddaySunDescription": "Move strenuous outdoor plans away from the strongest UV period.",
+  "taskAvoidMiddaySunReason": "Very high UV levels make prolonged exposure around midday less advisable.",
+
+  "taskCarryWaterHeatTitle": "Bring water with you",
+  "taskCarryWaterHeatDescription": "Keep water available if you will be spending time outdoors.",
+  "taskCarryWaterHeatReason": "Current WBGT conditions indicate Moderate heat stress.",
+
+  "taskHydrationGoalHeatTitle": "Track your water intake",
+  "taskHydrationGoalHeatDescription": "Record six glasses of water during the day.",
+  "taskHydrationGoalHeatReason": "Current WBGT conditions indicate High heat stress.",
+
+  "taskCoolingBreakHeatTitle": "Take regular cooling breaks",
+  "taskCoolingBreakHeatDescription": "Spend regular breaks in shaded, ventilated or air-conditioned areas.",
+  "taskCoolingBreakHeatReason": "High heat-stress conditions increase the need for rest and cooling.",
+
+  "taskReduceOutdoorHeatTitle": "Reduce strenuous outdoor activity",
+  "taskReduceOutdoorHeatDescription": "Choose lighter activity or move strenuous plans to a cooler part of the day.",
+  "taskReduceOutdoorHeatReason": "Current WBGT conditions indicate High heat stress.",
+
+  "taskRainPreparationTitle": "Prepare for heavy rain",
+  "taskRainPreparationDescription": "Complete the key steps before travelling during heavy rainfall.",
+  "taskRainPreparationReason": "Heavy rainfall has been detected and may affect travel, flood risk and access to weather updates.",
+
+  "estimatedOneMinute": "1 minute",
+  "estimatedThirtySeconds": "30 seconds",
+  "estimatedThroughoutDay": "Throughout the day",
+  "estimatedPlanToday": "Plan for today",
+  "estimatedTwoThreeMinutes": "2–3 minutes",
+
+  "unitSteps": "steps",
+  "unitGlasses": "glasses",
+
+  "undo": "Undo",
+  "complete": "Complete",
+
+  "hydrationProgress": "{current} of {target} glasses",
+  "@hydrationProgress": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "target": {
+        "type": "int"
+      }
+    }
+  },
+  "undoLastGlass": "Undo last glass",
+  "hydrationComplete": "Hydration complete",
+  "iDrankAGlass": "I drank a glass",
+  "hydrationGoalComplete": "Hydration goal complete!",
+  "xpWhenPlanClaimed": "+{xp} XP when today’s plan is claimed",
+  "@xpWhenPlanClaimed": {
+    "placeholders": {
+      "xp": {
+        "type": "int"
+      }
+    }
+  },
+
+  "sunscreenApplied": "Sunscreen applied",
+  "coveragePercent": "{percent}% covered",
+  "@coveragePercent": {
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "applySunscreenButton": "Apply sunscreen",
+
+  "rainStepsReady": "{current} of {target} steps ready",
+  "@rainStepsReady": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "target": {
+        "type": "int"
+      }
+    }
+  },
+  "rainReadyProgress": "{current} of {target} ready",
+  "@rainReadyProgress": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "target": {
+        "type": "int"
+      }
+    }
+  },
+  "undoLastStep": "Undo last step",
+  "packUmbrella": "Pack an umbrella",
+  "checkFloodAlerts": "Check flood alerts",
+  "reviewYourRoute": "Review your route",
+  "chargePowerBank": "Charge your power bank",
+  "rainPrepComplete": "Rain prep complete",
+  "completeNextStep": "Complete next step",
+  "missionGoodMorning": "Good morning",
+  "missionGoodAfternoon": "Good afternoon",
+  "missionGoodEvening": "Good evening",
+
+  "missionRainTitle": "Rain preparedness is recommended",
+  "missionRainMessage": "Heavy rainfall may affect travel and outdoor plans. Review today’s rain and flood-safety actions.",
+
+  "missionHeatUvTitle": "Heat and UV precautions are recommended",
+  "missionHeatUvMessage": "Heat stress and UV exposure may affect outdoor activity today. Stay hydrated, use sun protection and take regular cooling breaks.",
+
+  "missionHeatTitle": "Heat precautions are recommended",
+  "missionHeatMessage": "Heat stress is elevated today. Stay hydrated, take cooling breaks and reduce strenuous outdoor activity where possible.",
+
+  "missionHazeUvTitle": "Air-quality and UV precautions are recommended",
+  "missionHazeUvMessage": "Review both air-quality and sun-protection actions before spending time outdoors.",
+
+  "missionHazeTitle": "Air-quality precautions are recommended",
+  "missionHazeMessage": "Monitor the PSI and adjust prolonged outdoor activities where necessary.",
+
+  "missionUvTitle": "UV protection is recommended",
+  "missionUvMessage": "Sun protection and hydration may be important for outdoor activities today.",
+
+  "missionGeneralTitle": "Conditions are generally manageable",
+  "missionGeneralMessage": "Review today’s readings and complete the basic preparedness actions.",
+
+  "riskLow": "Low",
+  "riskModerate": "Moderate",
+  "riskHigh": "High",
+  "riskVeryHigh": "Very High",
+  "riskExtreme": "Extreme",
+  "riskUnknown": "Unknown",
+  "riskNoData": "No data",
+
+  "psiReading": "PSI {value} · {label}",
+  "@psiReading": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      },
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+
+  "uvReading": "UV {value} · {label}",
+  "@uvReading": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      },
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+
+  "heatStressReading": "Heat stress · {label}",
+  "@heatStressReading": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+
+  "taskApplySunscreenModerateDescription": "Apply broad-spectrum SPF 30+ sunscreen before prolonged outdoor activity.",
+  "taskApplySunscreenModerateReason": "Today’s UV level means sun protection is recommended when spending extended time outdoors.",
+
+  "taskApplySunscreenHighDescription": "Apply broad-spectrum SPF 30+ sunscreen before going outdoors.",
+  "taskApplySunscreenHighReason": "The UV Index is high today, so sun protection is recommended before outdoor activity.",
+
+  "taskApplySunscreenVeryHighDescription": "Apply broad-spectrum SPF 30+ sunscreen before going outdoors.",
+  "taskApplySunscreenVeryHighReason": "Today’s UV level means strong sun protection is recommended before going outdoors.",
+  "exploreTitle": "Explore Singapore",
+  "exploreDescription": "Explore environmental conditions across Singapore.",
+  "exploreHeat": "Heat",
+  "explorePsi": "PSI",
+  "exploreRain": "Rain",
+  "exploreFindNearMe": "Find conditions near me",
+  "exploreTapMarker": "Tap a marker to view details",
+  "exploreLow": "Low",
+  "exploreModerate": "Moderate",
+  "exploreHigh": "High",
+  "exploreHeatStress": "Heat Stress",
+  "exploreWbgtStationsReporting": "{count} WBGT stations reporting",
+  "@exploreWbgtStationsReporting": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "exploreHighestObserved": "Highest observed",
+  "exploreForYou": "For you: ",
+  "exploreHeatAdvice": "Stay hydrated and take regular cooling breaks.",
+  "exploreUnableLoadHeat": "Unable to load heat-stress data.",
+  "exploreNoWbgtObservations": "No current WBGT observations are available.",
+  "exploreHeatStressLabel": "Heat stress",
+  "exploreRegion": "Region",
+  "exploreLatestStationReading": "Latest observed station reading",
+  "exploreMetresAway": "{distance} m away",
+  "@exploreMetresAway": {
+    "placeholders": {
+      "distance": {
+        "type": "int"
+      }
+    }
+  },
+  "exploreKilometresAway": "{distance} km away",
+  "@exploreKilometresAway": {
+    "placeholders": {
+      "distance": {
+        "type": "String"
+      }
+    }
+  },
+
+  "exploreUnableLoadPsi": "Unable to load PSI data.",
+  "exploreNoRegionalPsi": "No current regional PSI readings are available.",
+  "exploreAirQuality": "Air Quality",
+  "exploreSingaporeRegionalPsi": "Singapore regional PSI",
+  "exploreBasedOnLocation": "Based on your approximate location",
+  "exploreAirQualityLabel": "Air quality",
+  "explorePsiAdviceGood": "Air quality is good. Normal activities can continue.",
+  "explorePsiAdviceModerate": "Air quality is in the moderate range. Normal activities can generally continue.",
+  "explorePsiAdviceUnhealthy": "Air quality is unhealthy. Consider reducing prolonged or strenuous outdoor activity.",
+  "explorePsiAdviceVeryUnhealthy": "Air quality is very unhealthy. Minimise prolonged outdoor activity.",
+  "explorePsiAdviceHazardous": "Air quality is hazardous. Avoid unnecessary outdoor activity.",
+
+  "exploreUnableLoadRain": "Unable to load rainfall data.",
+  "exploreNoRainfall": "No rainfall detected",
+  "exploreNoRainfallDescription": "No rainfall is currently being recorded across reporting stations in Singapore.",
+  "exploreRainfall": "Rainfall",
+  "exploreStationsReportingRain": "{count} station(s) currently reporting rain",
+  "@exploreStationsReportingRain": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+
+  "exploreRainLight": "Light",
+  "exploreRainModerate": "Moderate",
+  "exploreRainHeavy": "Heavy",
+  "exploreRainAdviceLight": "Carry an umbrella if you’re heading outdoors.",
+  "exploreRainAdviceModerate": "Bring an umbrella and take care on wet paths and roads.",
+  "exploreRainAdviceHeavy": "Avoid flood-prone areas and check your route before travelling.",
+  "exploreRainIntensity": "Intensity",
+  "exploreLatestRainfallReading": "Latest observed rainfall reading",
+
+  "exploreLocationAccessNeeded": "Location access is needed to find conditions near you.",
+  "exploreNoRainfallStations": "No rainfall stations are currently available.",
+  "exploreNoRegionalPsiNearby": "No regional PSI readings are currently available.",
+  "exploreUnableFindPsiArea": "Unable to find the PSI reading for your area.",
+  "exploreNoWbgtStations": "No WBGT stations are currently available.",
+  "exploreUnableFindNearby": "Unable to find nearby conditions.",
+
+  "learnTitle": "Learn & Prepare",
+  "learnDescription": "Build your preparedness knowledge and skills.",
+  "learnEmergencyHelp": "Emergency Help",
+  "learnEmergencyHelpDescription": "Important Singapore emergency contacts and when to use them.",
+  "learnTabMyKit": "My Kit",
+  "learnTabQuizzes": "Quizzes",
+  "learnTabScenarios": "Scenarios",
+
+  "learnMyEmergencyKit": "My Emergency Kit",
+  "learnEmergencyKitDescription": "Build your emergency kit step by step.",
+  "learnQuickSkills": "Quick Skills",
+  "learnLearnInMinutes": "Learn in minutes",
+  "learnCprAed": "CPR & AED",
+  "learnLifeSavingBasics": "Life-saving basics",
+  "learnVideoGuide": "Video guide",
+  "learnFlashFloodSafety": "Flash Flood Safety",
+  "learnHeavyRainFloodSafety": "Heavy rain & flood safety",
+  "learnQuickGuide": "Quick guide",
+  "learnPreparednessCategories": "Preparedness Categories",
+  "learnKitReady": "{percentage}% Ready",
+  "@learnKitReady": {
+    "placeholders": {
+      "percentage": {
+        "type": "int"
+      }
+    }
+  },
+  "learnKitComplete": "Your preparedness checklist is complete.",
+  "learnKitItemsRemaining": "{count} item(s) remaining.",
+  "@learnKitItemsRemaining": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "learnKitStatusEmergencyReady": "Emergency Ready",
+  "learnKitStatusWellPrepared": "Well Prepared",
+  "learnKitStatusGettingPrepared": "Getting Prepared",
+  "learnKitStatusBasicPreparation": "Basic Preparation",
+  "learnKitStatusNeedsAttention": "Needs Attention",
+  "learnKitProgressError": "Unable to load your emergency-kit progress.",
+
+  "learnRecommendedComplete": "You already have the recommended items for today’s conditions.",
+  "learnRecommendedToday": "Recommended Today",
+  "learnRecommendedBasedOnConditions": "Based on the current environmental conditions:",
+  "learnCategoryHaze": "Haze",
+  "learnCategoryUv": "UV",
+  "learnCategoryHeat": "Heat",
+  "learnCategoryFlood": "Flood",
+  "learnCategoryProgress": "{completed} of {total} completed · {percentage}%",
+  "@learnCategoryProgress": {
+  "placeholders": {
+    "completed": {"type": "int"},
+    "total": {"type": "int"},
+    "percentage": {"type": "int"}
+    }
+  },
+  "learnItemAddedMessage": "{item} added.",
+  "@learnItemAddedMessage": {
+  "placeholders": {
+    "item": {"type": "String"}
+    }
+  },
+  "learnItemRemovedMessage": "{item} removed.",
+  "@learnItemRemovedMessage": {
+  "placeholders": {
+    "item": {"type": "String"}
+    }
+  },
+  "learnItemUpdateError": "Unable to update the item. Please try again.",
+  "learnAdded": "Added",
+  "learnAdd": "Add",
+  "learnWhyThisMatters": "Why this matters",
+  "learnAddedXp": "Added · +{points} XP",
+  "@learnAddedXp": {
+  "placeholders": {
+    "points": {"type": "int"}
+   }
+  },
+  "learnXp": "+{points} XP",
+  "@learnXp": {
+  "placeholders": {
+    "points": {"type": "int"}
+    }
+  },
+  "learnEarnXpWhenAdded": "Earn {points} XP when added.",
+  "@learnEarnXpWhenAdded": {
+  "placeholders": {
+    "points": {"type": "int"}
+    }
+  },
+
+  "kitHazeMaskTitle": "N95 masks",
+  "kitHazeMaskDescription": "Keep at home & in your bag",
+  "kitHazeMaskExplanation": "A properly fitted N95 mask can reduce exposure to fine haze particles when outdoor activity is unavoidable.",
+
+  "kitHazeMedsTitle": "Allergy medication",
+  "kitHazeMedsDescription": "Keep nearby if needed",
+  "kitHazeMedsExplanation": "Keep prescribed inhalers or allergy medication available if poor air quality affects you.",
+
+  "kitUvSunscreenTitle": "SPF 30+ sunscreen",
+  "kitUvSunscreenDescription": "Protect exposed skin outdoors",
+  "kitUvSunscreenExplanation": "Broad-spectrum SPF 30+ sunscreen helps protect exposed skin from ultraviolet radiation.",
+
+  "kitUvHatTitle": "Hat & sunglasses",
+  "kitUvHatDescription": "Extra protection from strong UV",
+  "kitUvHatExplanation": "A hat and sunglasses provide additional protection during periods of high UV exposure.",
+
+  "kitHeatWaterTitle": "Drinking water",
+  "kitHeatWaterDescription": "Stay hydrated in hot weather",
+  "kitHeatWaterExplanation": "Carrying additional water helps reduce dehydration and heat-related illness.",
+
+  "kitFloodBagTitle": "Torch & power bank",
+  "kitFloodBagDescription": "Useful during heavy rain or outages",
+  "kitFloodBagExplanation": "A torch and charged power bank are useful during power disruptions and heavy rainfall.",
+
+  "kitFloodAlertsTitle": "Flood alerts",
+  "kitFloodAlertsDescription": "Stay updated on affected areas",
+  "kitFloodAlertsExplanation": "Official alert channels provide timely information about rainfall and affected locations.",
+
+  "kitFloodRouteTitle": "Alternative route",
+  "kitFloodRouteDescription": "Avoid flood-prone roads",
+  "kitFloodRouteExplanation": "Knowing an alternative route helps you avoid low-lying and flood-prone roads.",
+
+  "kitDefaultDescription": "Preparedness essential",
+  "kitDefaultExplanation": "This item supports your overall environmental preparedness.",
+
+  "learnKnowledgeQuizzes": "Knowledge Quizzes",
+  "learnKnowledgeQuizzesDescription": "Test your knowledge and learn how to respond to environmental hazards.",
+  "learnQuizProgress": "Quiz Progress",
+  "learnAllQuizQuestionsCompleted": "All quiz questions completed.",
+  "learnQuizQuestionsRemaining": "{count} question(s) remaining.",
+  "@learnQuizQuestionsRemaining": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "learnQuizTopicTitle": "{topic} Preparedness",
+  "@learnQuizTopicTitle": {
+    "placeholders": {
+      "topic": {
+        "type": "String"
+      }
+    }
+  },
+  "learnCompleted": "Completed",
+  "learnQuizQuestionsCompleted": "{completed} of {total} questions completed",
+  "@learnQuizQuestionsCompleted": {
+    "placeholders": {
+      "completed": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+
+  "learnQuizTitle": "{topic} Quiz",
+  "learnQuizQuestionProgress": "Question {current} of {total}",
+  "learnQuizCheckAnswer": "Check answer",
+  "learnQuizNextQuestion": "Next question",
+  "learnQuizViewResults": "View results",
+  "learnQuizComplete": "Quiz complete",
+  "learnQuizScore": "You scored {score} out of {total}.",
+  "learnQuizPreviouslyCompleted": "Quiz completed previously. No additional XP awarded.",
+  "learnQuizXpEarned": "+{points} XP earned",
+  "learnQuizContinue": "Continue",
+  "learnQuizSaveError": "Unable to save quiz progress. Please try again.",
+  "learnQuizResultExcellent": "Excellent work. You have mastered this topic.",
+  "learnQuizResultGood": "Good effort. Review the explanations to strengthen your knowledge.",
+  "learnQuizResultKeepLearning": "Keep learning. You can retake the quiz to review the topic.",
+
+  "@learnQuizTitle": {
+    "placeholders": {
+      "topic": {
+        "type": "String"
+      }
+    }
+  },
+  "@learnQuizQuestionProgress": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "@learnQuizScore": {
+    "placeholders": {
+      "score": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "@learnQuizXpEarned": {
+    "placeholders": {
+      "points": {
+        "type": "int"
+      }
+    }
+  },
+
+  "learnQuizNoAdditionalXp": "No additional XP awarded.",
+  "quizHaze1Question": "When the 24-hour PSI enters the Unhealthy range, what should healthy people reduce?",
+  "quizHaze1Option1": "Drinking water",
+  "quizHaze1Option2": "Prolonged or strenuous outdoor activity",
+  "quizHaze1Option3": "Indoor activities",
+  "quizHaze1Option4": "Sleeping",
+  "quizHaze1Explanation": "When air quality enters the Unhealthy range, prolonged or strenuous outdoor activity should be reduced.",
+
+  "quizHaze2Question": "Which mask is designed to filter fine haze particles?",
+  "quizHaze2Option1": "Surgical mask",
+  "quizHaze2Option2": "N95 respirator",
+  "quizHaze2Option3": "Cloth mask",
+  "quizHaze2Option4": "No mask is required",
+  "quizHaze2Explanation": "A properly fitted N95 respirator is designed to filter fine particles more effectively than surgical or cloth masks.",
+
+  "quizHaze3Question": "Why should you check air-quality conditions before prolonged outdoor activity during haze?",
+  "quizHaze3Option1": "Air quality can change throughout the day",
+  "quizHaze3Option2": "PSI only measures temperature",
+  "quizHaze3Option3": "Haze only affects visibility",
+  "quizHaze3Option4": "Outdoor activity improves air quality",
+  "quizHaze3Explanation": "Air quality can change, so checking current conditions helps you decide whether to adjust prolonged outdoor activities.",
+
+  "quizHaze4Question": "What is a sensible way to reduce haze exposure when air quality worsens?",
+  "quizHaze4Option1": "Spend more time outdoors",
+  "quizHaze4Option2": "Increase strenuous outdoor exercise",
+  "quizHaze4Option3": "Reduce unnecessary prolonged outdoor exposure",
+  "quizHaze4Option4": "Keep all outdoor plans unchanged",
+  "quizHaze4Explanation": "Reducing unnecessary prolonged outdoor exposure can help limit exposure when air quality worsens.",
+
+  "quizHaze5Question": "If you still need to go outside during hazy conditions, what should you continue doing?",
+  "quizHaze5Option1": "Ignore later air-quality updates",
+  "quizHaze5Option2": "Monitor current air-quality information and relevant advisories",
+  "quizHaze5Option3": "Assume conditions will remain unchanged",
+  "quizHaze5Option4": "Stay outside longer to adapt to the haze",
+  "quizHaze5Explanation": "Continue monitoring current air-quality information because conditions and relevant recommendations may change.",
+
+  "quizUv1Question": "UV Index 8–10 belongs to which category?",
+  "quizUv1Option1": "Low",
+  "quizUv1Option2": "Moderate",
+  "quizUv1Option3": "Very High",
+  "quizUv1Option4": "Extreme",
+  "quizUv1Explanation": "A UV Index of 8–10 is categorised as Very High and requires strong sun protection.",
+
+  "quizUv2Question": "When is UV exposure typically strongest in Singapore?",
+  "quizUv2Option1": "Early morning",
+  "quizUv2Option2": "Around midday",
+  "quizUv2Option3": "Evening",
+  "quizUv2Option4": "Night",
+  "quizUv2Explanation": "UV radiation is generally strongest around midday, so additional protection is important during this period.",
+
+  "quizUv3Question": "What is a good way to reduce UV exposure when spending time outdoors?",
+  "quizUv3Option1": "Seek shade when possible",
+  "quizUv3Option2": "Stay in direct sunlight for longer",
+  "quizUv3Option3": "Only protect yourself when it feels hot",
+  "quizUv3Option4": "Avoid drinking water",
+  "quizUv3Explanation": "Seeking shade can help reduce direct exposure to ultraviolet radiation while outdoors.",
+
+  "quizUv4Question": "Which combination provides better protection when UV levels are high?",
+  "quizUv4Option1": "Sunscreen, suitable clothing and shade",
+  "quizUv4Option2": "Drinking water only",
+  "quizUv4Option3": "A surgical mask and gloves",
+  "quizUv4Option4": "Staying in direct sunlight",
+  "quizUv4Explanation": "Using multiple forms of sun protection, including sunscreen, suitable clothing and shade, helps reduce UV exposure.",
+
+  "quizUv5Question": "Why should you still consider UV protection on a cloudy day?",
+  "quizUv5Option1": "UV radiation can still reach you through cloud cover",
+  "quizUv5Option2": "Clouds always increase the UV Index",
+  "quizUv5Option3": "UV radiation only exists when it rains",
+  "quizUv5Option4": "Sun protection is only needed on clear days",
+  "quizUv5Explanation": "Cloud cover does not completely block ultraviolet radiation, so UV protection may still be necessary.",
+
+  "quizHeat1Question": "What is one of the most important ways to reduce heat stress during prolonged outdoor activity?",
+  "quizHeat1Option1": "Take regular hydration and cooling breaks",
+  "quizHeat1Option2": "Avoid drinking water until you feel thirsty",
+  "quizHeat1Option3": "Wear heavier clothing",
+  "quizHeat1Option4": "Stay continuously in direct sunlight",
+  "quizHeat1Explanation": "Regular hydration and cooling breaks can help reduce heat stress during prolonged outdoor activity.",
+
+  "quizHeat2Question": "If you begin feeling very warm during outdoor activity, what is a safer action?",
+  "quizHeat2Option1": "Continue without stopping",
+  "quizHeat2Option2": "Move to a shaded or cooler area and take a break",
+  "quizHeat2Option3": "Exercise harder to finish sooner",
+  "quizHeat2Option4": "Avoid drinking water",
+  "quizHeat2Explanation": "Taking a break in a shaded or cooler area helps reduce continued heat exposure and allows your body to cool down.",
+
+  "quizHeat3Question": "Why is hydration important during hot weather?",
+  "quizHeat3Option1": "It helps replace fluids lost through sweating",
+  "quizHeat3Option2": "It increases your exposure to heat",
+  "quizHeat3Option3": "It removes the need for rest breaks",
+  "quizHeat3Option4": "It prevents all heat-related illness",
+  "quizHeat3Explanation": "Drinking water helps replace fluids lost through sweating and supports hydration during hot conditions.",
+
+  "quizHeat4Question": "What should you do before planning prolonged outdoor activity on a very hot day?",
+  "quizHeat4Option1": "Check current heat conditions and plan appropriate precautions",
+  "quizHeat4Option2": "Ignore the conditions if the sky is clear",
+  "quizHeat4Option3": "Avoid bringing water",
+  "quizHeat4Option4": "Wear additional heavy layers",
+  "quizHeat4Explanation": "Checking current heat conditions helps you plan hydration, cooling breaks and other precautions before prolonged outdoor activity.",
+
+  "quizHeat5Question": "If hot conditions continue throughout the day, what should you do?",
+  "quizHeat5Option1": "Assume conditions will improve automatically",
+  "quizHeat5Option2": "Continue all outdoor plans without changes",
+  "quizHeat5Option3": "Continue monitoring conditions and adjust your plans when necessary",
+  "quizHeat5Option4": "Stop drinking water so you need fewer breaks",
+  "quizHeat5Explanation": "Heat conditions can change throughout the day, so continue monitoring them and adjust prolonged outdoor activities when necessary.",
+
+  "quizFlood1Question": "What should you do if the road ahead is covered by flood water and you cannot tell how deep it is?",
+  "quizFlood1Option1": "Drive through slowly",
+  "quizFlood1Option2": "Turn around and use another route",
+  "quizFlood1Option3": "Stop in the flooded section",
+  "quizFlood1Option4": "Drive through quickly before the water rises",
+  "quizFlood1Explanation": "Avoid entering flood water when its depth and conditions are uncertain. Turning around and using a safer alternative route reduces the risk.",
+
+  "quizFlood2Question": "What should you do before choosing an alternative route during a flash flood?",
+  "quizFlood2Option1": "Check current flood information and road conditions",
+  "quizFlood2Option2": "Choose the shortest route without checking",
+  "quizFlood2Option3": "Return to the flooded road",
+  "quizFlood2Option4": "Keep driving until you find an open road",
+  "quizFlood2Explanation": "Checking current flood and road information can help you avoid routes affected by flooding.",
+
+  "quizFlood3Question": "What should you do when driving visibility becomes poor during heavy rain?",
+  "quizFlood3Option1": "Speed up to leave the rain sooner",
+  "quizFlood3Option2": "Slow down and drive cautiously",
+  "quizFlood3Option3": "Continue at the same speed",
+  "quizFlood3Option4": "Use your phone to check weather updates while driving",
+  "quizFlood3Explanation": "Slowing down and driving cautiously is safer when heavy rain reduces visibility.",
+
+  "quizFlood4Question": "Why should you avoid entering flood water?",
+  "quizFlood4Option1": "Flood water is always shallow",
+  "quizFlood4Option2": "Flood water makes your vehicle cleaner",
+  "quizFlood4Option3": "The water may be deeper or faster-moving than it appears",
+  "quizFlood4Option4": "Flood water always disappears immediately",
+  "quizFlood4Explanation": "Flood water can be deeper or faster-moving than it appears, making it dangerous to enter.",
+
+  "quizFlood5Question": "What should you do while heavy rain and flood conditions continue?",
+  "quizFlood5Option1": "Continue monitoring conditions and follow relevant safety information",
+  "quizFlood5Option2": "Ignore further weather updates",
+  "quizFlood5Option3": "Assume all roads are safe if they are open",
+  "quizFlood5Option4": "Enter flooded areas to check the water depth",
+  "quizFlood5Explanation": "Conditions can change during heavy rain, so continue monitoring current information and adjust your plans when necessary.",
+
+  "scenarioChallenges": "Scenario Challenges",
+  "scenarioChallengesDescription": "Practise making safe decisions in realistic environmental situations.",
+  "scenarioProgress": "Scenario Progress",
+  "scenarioAllCompleted": "All scenario challenges completed.",
+  "scenarioRemaining": "{count} scenario(s) remaining.",
+  "@scenarioRemaining": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "scenarioCompleted": "Completed",
+  "scenarioNotCompleted": "Not completed",
+
+  "scenarioFlashFloodTitle": "Flash Flood on Your Route",
+  "scenarioFlashFloodDescription": "Make decisions while travelling during sudden flooding.",
+
+  "scenarioHazeTitle": "Haze During Outdoor Activity",
+  "scenarioHazeDescription": "Make safe decisions when air quality worsens during outdoor plans.",
+
+  "scenarioHeatUvTitle": "Heat & UV During Outdoor Activity",
+  "scenarioHeatUvDescription": "Make safe decisions when heat and UV exposure are high.",
+
+  "scenarioFloodStep1Situation": "You are travelling home during heavy rain. The road ahead is covered by flood water and you cannot tell how deep it is.",
+  "scenarioFloodStep1Question": "What should you do?",
+  "scenarioFloodStep1Option1": "Drive through quickly before the water rises further.",
+  "scenarioFloodStep1Option2": "Turn around and use another route.",
+  "scenarioFloodStep1Option3": "Stop in the flooded section and wait.",
+  "scenarioFloodStep1Option4": "Open the windows and continue slowly.",
+  "scenarioFloodStep1CorrectFeedback": "Good decision. Avoid entering flood water and use a safer alternative route.",
+  "scenarioFloodStep1IncorrectFeedback": "Avoid entering flood water. It may be deeper or faster-moving than it appears.",
+
+  "scenarioFloodStep2Situation": "You turn around safely, but the rain is becoming heavier. You need to decide which route to take next.",
+  "scenarioFloodStep2Question": "What should you do before choosing another route?",
+  "scenarioFloodStep2Option1": "Choose the shortest road without checking conditions.",
+  "scenarioFloodStep2Option2": "Check current flood information and plan a safer route.",
+  "scenarioFloodStep2Option3": "Return to the flooded road to see if conditions improved.",
+  "scenarioFloodStep2Option4": "Continue driving until you find an open road.",
+  "scenarioFloodStep2CorrectFeedback": "Correct. Checking current conditions helps you avoid roads affected by flooding.",
+  "scenarioFloodStep2IncorrectFeedback": "A safer approach is to check current flood information before choosing another route.",
+
+  "scenarioFloodStep3Situation": "Your alternative route is clear, but heavy rain is continuing and visibility is becoming poor.",
+  "scenarioFloodStep3Question": "What is the safest next action?",
+  "scenarioFloodStep3Option1": "Speed up so you can get home sooner.",
+  "scenarioFloodStep3Option2": "Continue normally and ignore the reduced visibility.",
+  "scenarioFloodStep3Option3": "Slow down and continue cautiously while monitoring conditions.",
+  "scenarioFloodStep3Option4": "Use your phone while driving to check updates.",
+  "scenarioFloodStep3CorrectFeedback": "Correct. Slowing down and staying alert is safer when visibility is reduced.",
+  "scenarioFloodStep3IncorrectFeedback": "Poor visibility increases driving risk. Slow down, stay alert and monitor conditions safely.",
+
+  "scenarioCompleteTitle": "Scenario complete",
+  "scenarioSafeDecisions": "{safe} of {total} safe decisions",
+  "@scenarioSafeDecisions": {
+    "placeholders": {
+      "safe": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "scenarioPreviouslyCompleted": "Scenario completed previously. No additional XP awarded.",
+  "scenarioXpEarned": "+{points} XP earned",
+  "@scenarioXpEarned": {
+    "placeholders": {
+      "points": {
+        "type": "int"
+      }
+    }
+  },
+  "scenarioContinue": "Continue",
+  "scenarioSaveError": "Unable to save scenario progress. Please try again.",
+  "scenarioHazeStep1Situation": "You planned to exercise outdoors this afternoon, but you notice that conditions look hazy.",
+  "scenarioHazeStep1Question": "What should you do before heading out?",
+  "scenarioHazeStep1Option1": "Continue with your plans without checking anything.",
+  "scenarioHazeStep1Option2": "Check the latest PSI and air-quality conditions.",
+  "scenarioHazeStep1Option3": "Exercise harder so you can finish sooner.",
+  "scenarioHazeStep1Option4": "Assume the haze is harmless because visibility is still acceptable.",
+  "scenarioHazeStep1CorrectFeedback": "Good decision. Checking current air-quality information helps you decide whether outdoor activity is appropriate.",
+  "scenarioHazeStep1IncorrectFeedback": "Check current air-quality information before deciding whether to continue with prolonged outdoor activity.",
+
+  "scenarioHazeStep2Situation": "The PSI indicates poorer air quality than usual. You still want to stay active today.",
+  "scenarioHazeStep2Question": "What is the safer choice?",
+  "scenarioHazeStep2Option1": "Continue a long, strenuous outdoor workout.",
+  "scenarioHazeStep2Option2": "Move your workout indoors or reduce prolonged outdoor exertion.",
+  "scenarioHazeStep2Option3": "Ignore the reading because you already planned the workout.",
+  "scenarioHazeStep2Option4": "Stay outdoors for longer to adapt to the haze.",
+  "scenarioHazeStep2CorrectFeedback": "Correct. Adjusting your activity can reduce unnecessary exposure when air quality deteriorates.",
+  "scenarioHazeStep2IncorrectFeedback": "Consider moving strenuous activity indoors or reducing prolonged outdoor exertion when conditions worsen.",
+
+  "scenarioHazeStep3Situation": "Later, you need to go outside and the hazy conditions are still present.",
+  "scenarioHazeStep3Question": "What should you do?",
+  "scenarioHazeStep3Option1": "Monitor current conditions and follow the recommended precautions.",
+  "scenarioHazeStep3Option2": "Ignore further air-quality updates.",
+  "scenarioHazeStep3Option3": "Spend extra time outdoors because your workout was cancelled.",
+  "scenarioHazeStep3Option4": "Assume conditions cannot change during the day.",
+  "scenarioHazeStep3CorrectFeedback": "Correct. Air quality can change, so continue monitoring conditions and follow appropriate precautions.",
+  "scenarioHazeStep3IncorrectFeedback": "Continue checking current conditions because air quality can change throughout the day.",
+
+  "scenarioSituationLabel": "Situation",
+  "scenarioCheckDecision": "Check decision",
+  "scenarioNextSituation": "Next situation",
+  "scenarioFinishScenario": "Finish scenario",
+
+  "scenarioHeatUvStep1Situation": "You are planning to spend several hours outdoors around midday. The weather is hot and the UV Index is high.",
+"scenarioHeatUvStep1Question": "What should you do before heading out?",
+"scenarioHeatUvStep1Option1": "Go out immediately because sunny weather is safe.",
+"scenarioHeatUvStep1Option2": "Apply sun protection, bring water and plan for shade.",
+"scenarioHeatUvStep1Option3": "Avoid drinking water so you do not need breaks.",
+"scenarioHeatUvStep1Option4": "Wear heavier clothing to get used to the heat.",
+"scenarioHeatUvStep1CorrectFeedback": "Good decision. Preparing sun protection, hydration and access to shade helps reduce heat and UV exposure.",
+"scenarioHeatUvStep1IncorrectFeedback": "Prepare for both heat and UV exposure before spending prolonged periods outdoors.",
+
+"scenarioHeatUvStep2Situation": "After spending some time outdoors, you are becoming very warm and have been exposed to direct sunlight for a while.",
+"scenarioHeatUvStep2Question": "What is the safer next action?",
+"scenarioHeatUvStep2Option1": "Keep going without stopping.",
+"scenarioHeatUvStep2Option2": "Drink water and take a break in a shaded or cooler area.",
+"scenarioHeatUvStep2Option3": "Exercise harder so you can finish sooner.",
+"scenarioHeatUvStep2Option4": "Stay in direct sunlight during your break.",
+"scenarioHeatUvStep2CorrectFeedback": "Correct. Hydration and cooling breaks can help reduce heat stress during prolonged outdoor activity.",
+"scenarioHeatUvStep2IncorrectFeedback": "Take regular hydration and cooling breaks rather than continuing prolonged activity in the heat.",
+
+"scenarioHeatUvStep3Situation": "You still have more outdoor activities planned later in the day.",
+"scenarioHeatUvStep3Question": "How should you continue?",
+"scenarioHeatUvStep3Option1": "Ignore any changes because you already checked conditions earlier.",
+"scenarioHeatUvStep3Option2": "Avoid water until you feel extremely thirsty.",
+"scenarioHeatUvStep3Option3": "Continue monitoring conditions and adjust your plans if necessary.",
+"scenarioHeatUvStep3Option4": "Stay outdoors continuously so your body adapts.",
+"scenarioHeatUvStep3CorrectFeedback": "Correct. Conditions can change, so continue monitoring them and adjust outdoor plans when necessary.",
+"scenarioHeatUvStep3IncorrectFeedback": "Continue monitoring heat and UV conditions and adjust your plans when necessary.",
+
+"cprAedTitle": "CPR & AED",
+"cprAedVideoTitle": "Learn CPR & AED Procedures",
+"cprAedVideoSubtitle": "Opens official SCDF video",
+"cprAedDescription": "Know the basic actions to take during a suspected cardiac arrest.",
+"cprAedRememberActions": "Remember these actions",
+
+"cprAedStep1Title": "Check responsiveness",
+"cprAedStep1Description": "Tap the person on the shoulders and check whether they respond.",
+
+"cprAedStep2Title": "Call 995 & get an AED",
+"cprAedStep2Description": "Ask someone to call 995 and another person to retrieve the nearest AED.",
+
+"cprAedStep3Title": "Start CPR",
+"cprAedStep3Description": "If the person is not breathing, begin hands-only CPR and follow the 995 dispatcher’s instructions.",
+
+"cprAedStep4Title": "Use the AED",
+"cprAedStep4Description": "Use the AED when it becomes available and follow its voice or visual instructions.",
+
+"cprAedWatchVideo": "Watch official SCDF video",
+"cprAedDisclaimer": "This quick guide is for preparedness learning and does not replace certified CPR/AED training. During an emergency, call 995 and follow the instructions given by the SCDF dispatcher.",
+"cprAedVideoError": "Unable to open the SCDF video.",
+
+"floodSafetyTitle": "Flash Flood Safety",
+"floodSafetyHeroTitle": "Heavy rain can cause flash floods",
+"floodSafetyHeroDescription": "Know what to do if you encounter flooding while travelling in Singapore.",
+"floodSafetyEncounterTitle": "If you encounter a flood",
+
+"floodSafetyTurnBackTitle": "Turn back",
+"floodSafetyTurnBackDescription": "Do not enter a flooded area. Use a safer alternative route.",
+
+"floodSafetyHigherGroundTitle": "Move to higher ground",
+"floodSafetyHigherGroundDescription": "If flooding is ahead, move away from the area as water levels can rise quickly.",
+
+"floodSafetyAvoidMovingWaterTitle": "Avoid moving floodwater",
+"floodSafetyAvoidMovingWaterDescription": "Floodwater can be difficult to judge and moving water can cause you to fall.",
+
+"floodSafetyAvoidDrivingTitle": "Do not drive into deep floodwater",
+"floodSafetyAvoidDrivingDescription": "Avoid flooded roads where water is above kerb height or road markings are no longer visible.",
+
+"floodSafetyBeforeTravellingTitle": "Before travelling",
+"floodSafetyBeforeTravellingDescription": "Check current weather and flood alerts before travelling during heavy rain, and plan an alternative route if necessary.",
+
+"floodSafetySource": "Safety guidance adapted from PUB, Singapore’s National Water Agency.",
+"floodSafetyDo": "DO",
+"floodSafetyDont": "DON’T",
+
+"scenarioRewardXp": "· +{points} XP",
+"@scenarioRewardXp": {
+  "placeholders": {
+    "points": {
+      "type": "int"
+    }
+  }
+},
+"learnTryAgain": "Try again",
+"emergencyHelpTitle": "Emergency Help",
+"emergencyInEmergency": "In an emergency",
+"emergencyImmediateDangerDescription": "If someone is in immediate danger, contact the appropriate emergency service immediately.",
+"emergencyServices": "Emergency services",
+
+"emergencyFireRescueTitle": "Fire, Rescue & Emergency Ambulance",
+"emergencyFireRescueDescription": "Fire, rescue or life-threatening emergencies",
+
+"emergencyPoliceTitle": "Police Emergency",
+"emergencyPoliceDescription": "Immediate police assistance",
+
+"emergencySms": "Emergency SMS",
+"emergencyPoliceSmsTitle": "Police Emergency SMS",
+"emergencyPoliceSmsDescription": "Emergency SMS when calling is unsafe",
+
+"emergencyScdfSmsTitle": "SCDF Emergency SMS",
+"emergencyScdfSmsDescription": "Emergency SMS service for people who are deaf, hard-of-hearing or have speech impairments.",
+
+"emergencyOtherUsefulContacts": "Other useful contacts",
+"emergencyNurseFirstDescription": "Non-emergency medical advice",
+"emergencyNeaHotline": "NEA Hotline",
+"emergencyNeaDescription": "Environmental feedback and enquiries",
+
+"emergencyWhenToCall": "When should I call?",
+"emergencyEmergencyLabel": "Emergency",
+"emergencyEmergencyGuide": "Someone is in immediate danger, seriously injured, experiencing a life-threatening medical condition, or there is a fire or rescue situation.",
+"emergencyNonEmergencyLabel": "Non-emergency",
+"emergencyNonEmergencyGuide": "The situation does not pose an immediate threat to life or safety. Use the appropriate non-emergency service instead.",
+
+"emergencyDisclaimer": "Emergency information is provided for preparedness purposes. Always follow instructions from the relevant Singapore authorities.",
+"profileLoadProgressError": "Unable to load your progress.",
+"profileWeeklyActivity": "Weekly Activity",
+"profileWeeklyDaysCompleted": "{completed} / 7 days",
+"@profileWeeklyDaysCompleted": {
+  "placeholders": {
+    "completed": {
+      "type": "int"
+    }
+  }
+},
+"profileWeeklyActivityDescription": "Your preparedness-plan activity over the last 7 days.",
+"profileCurrentStreak": "{days}-day current streak",
+"@profileCurrentStreak": {
+  "placeholders": {
+    "days": {
+      "type": "int"
+    }
+  }
+},
+"profileYourProgress": "Your Progress",
+"profileProgressDescription": "Track your preparedness journey and achievements.",
+
+"profileLevel": "Level {level}",
+"@profileLevel": {
+  "placeholders": {
+    "level": {
+      "type": "int"
+    }
+  }
+},
+"profileXpStreak": "{xp} XP · {days}-day streak",
+"@profileXpStreak": {
+  "placeholders": {
+    "xp": {
+      "type": "int"
+    },
+    "days": {
+      "type": "int"
+    }
+  }
+},
+"profileProgressToLevel": "Progress to Level {level}",
+"@profileProgressToLevel": {
+  "placeholders": {
+    "level": {
+      "type": "int"
+    }
+  }
+},
+"profileXpProgress": "{current} / 100 XP",
+"@profileXpProgress": {
+  "placeholders": {
+    "current": {
+      "type": "int"
+    }
+  }
+},
+"profileXpToLevel": "{xp} XP to Level {level}",
+"@profileXpToLevel": {
+  "placeholders": {
+    "xp": {
+      "type": "int"
+    },
+    "level": {
+      "type": "int"
+    }
+  }
+},
+"profileTodayPlanCompleted": "Today’s plan completed",
+"profileTodayPlanNotCompleted": "Today’s plan not completed yet",
+"profileTodayPlanCompletedDescription": "Your XP and streak have been updated.",
+"profileTodayPlanNotCompletedDescription": "Complete today’s preparedness plan to continue your streak.",
+"profileNextBadge": "Next badge",
+"profileBadges": "Badges",
+
+"profileBadgeFirstCheckTitle": "First Check",
+"profileBadgeFirstCheckDescription": "Complete your first preparedness checklist item.",
+
+"profileBadgeHazeHeroTitle": "Haze Hero",
+"profileBadgeHazeHeroDescription": "Complete both haze quizzes.",
+
+"profileBadgeUvGuardianTitle": "UV Guardian",
+"profileBadgeUvGuardianDescription": "Complete both UV quizzes.",
+
+"profileBadgeFloodReadyTitle": "Flood Ready",
+"profileBadgeFloodReadyDescription": "Complete all flood preparedness checklist items.",
+
+"profileBadgeStreak7Title": "7-Day Streak",
+"profileBadgeStreak7Description": "Maintain your preparedness streak for 7 days.",
+
+"profileSettings": "Settings",
+"profilePreferences": "Preferences",
+"profilePreferencesDescription": "Region, outdoor activity and preparedness reminders.",
+
+"profileAccount": "Account",
+"profileLogout": "Log Out",
+"profileLogoutDescription": "Sign out of your SGReady account.",
+"profileLogoutDialogTitle": "Log out of SGReady?",
+"profileLogoutDialogDescription": "You can log back in anytime using your account.",
+"profileCancel": "Cancel",
+
+"profilePhotoSelectError": "Unable to select that photo. Please try again.",
+"profileChangePhoto": "Change profile photo",
+"profileChoosePhoto": "Choose profile photo",
+"profileRemovePhoto": "Remove profile photo",
+
+"profileRewards": "Rewards",
+"profileLifetimeXp": "{xp} lifetime XP",
+"@profileLifetimeXp": {
+  "placeholders": {
+    "xp": {
+      "type": "int"
+    }
+  }
+},
+"profileAllRewardsUnlocked": "All prototype reward milestones unlocked.",
+"profileXpUntilNextReward": "{xp} XP until your next reward.",
+"@profileXpUntilNextReward": {
+  "placeholders": {
+    "xp": {
+      "type": "int"
+    }
+  }
+},
+
+"profilePreparednessScore": "Preparedness Score",
+"profileScoreChecklist": "Checklist",
+"profileScoreQuizzes": "Quizzes",
+"profileScoreEngagement": "Engagement",
+"profileScoreBadges": "Badges",
+
+"rewardsScreenTitle": "Rewards",
+"rewardsMilestones": "Reward milestones",
+"rewardsMilestonesDescription": "Build your preparedness knowledge and unlock rewards as your lifetime XP grows.",
+
+"rewardTreatVoucherTitle": "$5 Treat Voucher",
+"rewardTreatVoucherDescription": "A little treat for building good preparedness habits.",
+"rewardLifestyleVoucherTitle": "$10 Lifestyle Voucher",
+"rewardLifestyleVoucherDescription": "A reward for staying active and prepared.",
+"rewardPreparednessPackTitle": "SGReady Preparedness Pack",
+"rewardPreparednessPackDescription": "Useful essentials to help you stay ready for emergencies.",
+
+"rewardsLifetimeXpTitle": "Your lifetime XP",
+"rewardsXpValue": "{xp} XP",
+"@rewardsXpValue": {
+  "placeholders": {
+    "xp": {
+      "type": "int"
+    }
+  }
+},
+
+"rewardsTier": "{tier} tier",
+"@rewardsTier": {
+  "placeholders": {
+    "tier": {
+      "type": "String"
+    }
+  }
+},
+"rewardsHighestTierReached": "Highest reward tier reached",
+"rewardsXpToTier": "{xp} XP to {tier}",
+"@rewardsXpToTier": {
+  "placeholders": {
+    "xp": {
+      "type": "int"
+    },
+    "tier": {
+      "type": "String"
+    }
+  }
+},
+"rewardsEarnXpDescription": "Earn XP from daily preparedness actions, quizzes, scenarios and your emergency kit.",
+
+"rewardsTierStarter": "Starter",
+"rewardsTierPrepared": "Prepared",
+"rewardsTierReady": "Ready",
+"rewardsTierResilient": "Resilient",
+
+"rewardUnlocked": "Reward unlocked",
+"rewardXpMoreToUnlock": "{xp} XP more to unlock",
+"@rewardXpMoreToUnlock": {
+  "placeholders": {
+    "xp": {
+      "type": "int"
+    }
+  }
+},
+"rewardView": "View reward",
+
+"rewardPrototypeDialogDescription": "This reward is part of the SGReady prototype and is not currently redeemable. In a future implementation, eligible users could redeem rewards through participating partner organisations.",
+"rewardGotIt": "Got it",
+
+"prototypeRewardsTitle": "Prototype rewards",
+"prototypeRewardsDescription": "Rewards shown in SGReady are simulated for demonstration purposes and are not currently redeemable. Real-world implementation would require partnerships with participating organisations and secure reward fulfilment.",
+
+"youSpendMoreTimeOutdoors": "You spend more time outdoors",
+"moderatelyActiveOutdoors": "You’re moderately active outdoors",
+"usuallyOutdoorsAtMidday": "Usually outdoors at midday",
+"todayFocusAirQuality": "Air quality",
+"todayFocusHeatSafety": "Heat safety",
+"todayFocusUvProtection": "UV protection",
+"todayPlanAdapts": "Today’s plan adapts to your routine and current environmental conditions.",
+"todayProgressError": "Unable to load today’s progress."
+}
