@@ -1,8 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-/// Handles Firebase authentication and stores basic account
-/// information for SGReady users.
+/// Handles user authentication and account details.
 class AuthService {
   AuthService({
     FirebaseAuth? firebaseAuth,
@@ -17,8 +16,7 @@ class AuthService {
 
   Stream<User?> get authStateChanges => _firebaseAuth.authStateChanges();
 
-  /// Creates a Firebase account and saves the user's basic
-  /// profile information in Firestore.
+  /// Creates a new account and saves the user's details in Firestore.
   Future<UserCredential> createAccount({
     required String name,
     required String email,
@@ -32,9 +30,7 @@ class AuthService {
     final user = credential.user;
 
     if (user != null) {
-      await user.updateDisplayName(
-        name.trim(),
-      );
+      await user.updateDisplayName(name.trim());
 
       await _firestore.collection('users').doc(user.uid).set({
         'name': name.trim(),

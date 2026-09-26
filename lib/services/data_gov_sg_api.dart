@@ -6,8 +6,7 @@ import 'package:http/http.dart' as http;
 
 import '../models/environmental_reading.dart';
 
-/// NEA real-time APIs via data.gov.sg (v2).
-/// Docs: https://guide.data.gov.sg/developer-guide/real-time-apis
+/// Handles environmental data requests to data.gov.sg.
 class DataGovSgApi {
   DataGovSgApi({
     http.Client? client,
@@ -637,8 +636,7 @@ class DataGovSgApi {
         return [];
       }
 
-      // Build a lookup table so each rainfall reading can include
-      // its station name and location.
+      // Match rainfall readings with their station details.
       final stations = data['stations'];
       final stationInfo = <String, RainfallStation>{};
 
@@ -761,8 +759,8 @@ class DataGovSgApi {
       return _cachedSnapshot!;
     }
 
-    // Reuse a request that is already running so multiple screens
-    // do not send the same group of API requests at the same time.
+    // Reuse an active request so multiple screens do not trigger
+    // the same API calls at the same time.
     if (_snapshotRequest != null) {
       return _snapshotRequest!;
     }

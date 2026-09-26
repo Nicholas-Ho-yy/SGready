@@ -314,7 +314,7 @@ class _WaterBottle extends StatelessWidget {
                   alignment: Alignment.bottomCenter,
                   clipBehavior: Clip.none,
                   children: [
-                    // Slight bottle background
+                    // Bottle background
                     Container(
                       color:
                           Theme.of(context).colorScheme.surfaceContainerLowest,

@@ -13,15 +13,14 @@ import 'notification_service.dart';
 import 'user_preferences_service.dart';
 import 'user_progress_service.dart';
 
-/// Manages SGReady's periodic background notification task on Android.
+/// Handles periodic background notification checks on Android.
 class BackgroundNotificationService {
   BackgroundNotificationService._();
 
   static const String taskName = 'sgreadyNotificationCheck';
-
   static const String uniqueTaskName = 'sgready_periodic_notification_check';
 
-  /// Registers SGReady's periodic notification check.
+  /// Registers the background notification task.
   static Future<void> register() async {
     await Workmanager().registerPeriodicTask(
       uniqueTaskName,
@@ -35,7 +34,7 @@ class BackgroundNotificationService {
   }
 }
 
-/// Runs SGReady's notification checks when triggered by WorkManager.
+/// Called by WorkManager when the background task runs.
 @pragma('vm:entry-point')
 void notificationCallbackDispatcher() {
   Workmanager().executeTask(
@@ -58,7 +57,6 @@ void notificationCallbackDispatcher() {
           return true;
         }
 
-        // Use the language selected by the user.
         final languageCode = preferences.languageCode;
         final now = DateTime.now();
 
@@ -78,14 +76,12 @@ void notificationCallbackDispatcher() {
           return true;
         }
 
-        // Fetch fresh conditions instead of relying on data cached by the app.
+        // Fetch current conditions instead of using cached app data.
         api = DataGovSgApi();
-
         final snapshot = await api.fetchSnapshot();
 
-        final region = _regionFromPreference(
-          preferences.homeRegion,
-        );
+
+        final region = _regionFromPreference(preferences.homeRegion);
 
         const contextService = MissionContextService();
         final context = contextService.generate(
@@ -106,7 +102,7 @@ void notificationCallbackDispatcher() {
           languageCode: languageCode,
         );
 
-        // Daily task reminders are daytime only.
+        // Only send daily task reminders during the daytime.
         if (isDaytime) {
           final user = FirebaseAuth.instance.currentUser;
 
@@ -126,7 +122,6 @@ void notificationCallbackDispatcher() {
             try {
               final progress = await progressService.getProgress();
 
-              // Build the task reminder in the user's selected language.
               final taskBody = coordinator.buildDailyTaskReminderBody(
                 tasks: tasks,
                 progress: progress,
@@ -165,24 +160,17 @@ void notificationCallbackDispatcher() {
   );
 }
 
-/// Converts the user's saved home region into the region
-/// used when generating environmental guidance and daily tasks.
-SingaporeRegion _regionFromPreference(
-  String region,
-) {
+/// Converts the saved home region into a SingaporeRegion value.
+SingaporeRegion _regionFromPreference(String region) {
   switch (region.toLowerCase()) {
     case 'north':
       return SingaporeRegion.north;
-
     case 'south':
       return SingaporeRegion.south;
-
     case 'east':
       return SingaporeRegion.east;
-
     case 'west':
       return SingaporeRegion.west;
-
     case 'central':
     default:
       return SingaporeRegion.central;

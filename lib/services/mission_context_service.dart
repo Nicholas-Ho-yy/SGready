@@ -239,7 +239,7 @@ class MissionContextService {
 
       case RiskLevel.veryHigh:
         return 'Very High';
-        
+
       case RiskLevel.extreme:
         return 'Extreme';
     }

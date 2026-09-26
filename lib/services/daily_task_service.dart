@@ -81,7 +81,6 @@ class DailyTaskService {
     );
   }
 
-  /// Adds air-quality tasks according to the current PSI risk level.
   void _addPsiTasks({
     required List<DailyTask> tasks,
     required RiskLevel level,
@@ -178,7 +177,6 @@ class DailyTaskService {
     }
   }
 
-  /// Adds sun-protection tasks based on the current UV risk.
   void _addUvTasks({
     required List<DailyTask> tasks,
     required RiskLevel level,
@@ -297,7 +295,6 @@ class DailyTaskService {
     }
   }
 
-  /// Adds hydration and cooling tasks when heat stress increases.
   void _addHeatStressTasks({
     required List<DailyTask> tasks,
     required RiskLevel level,
@@ -365,7 +362,6 @@ class DailyTaskService {
     }
   }
 
-  /// Adds a preparation task when heavy rainfall is detected.
   void _addHeavyRainTasks(List<DailyTask> tasks) {
     tasks.add(
       const DailyTask(
@@ -436,7 +432,6 @@ class DailyTaskService {
     return prioritised;
   }
 
-  /// Keeps only one task for each task ID.
   List<DailyTask> _removeDuplicates(List<DailyTask> tasks) {
     final uniqueTasks = <String, DailyTask>{};
 

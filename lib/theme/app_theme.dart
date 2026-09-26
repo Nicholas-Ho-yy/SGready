@@ -49,7 +49,7 @@ class AppTheme {
 
       scaffoldBackgroundColor: background,
 
-      // App Bar
+      // App bar
       appBarTheme: const AppBarTheme(
         backgroundColor: background,
         foregroundColor: textPrimary,
@@ -76,7 +76,7 @@ class AppTheme {
         ),
       ),
 
-      // Filled Buttons
+      // Filled buttons
       filledButtonTheme: FilledButtonThemeData(
         style: FilledButton.styleFrom(
           backgroundColor: primary,
@@ -94,7 +94,7 @@ class AppTheme {
         ),
       ),
 
-      // Outlined Buttons
+      // Outlined buttons
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(
           foregroundColor: primary,
@@ -114,7 +114,7 @@ class AppTheme {
         ),
       ),
 
-      // Navigation Bar
+      // Navigation bar
       navigationBarTheme: NavigationBarThemeData(
         backgroundColor: Colors.white,
         elevation: 0,
@@ -154,7 +154,7 @@ class AppTheme {
         ),
       ),
 
-      // Progress Indicators
+      // Progress indicators
       progressIndicatorTheme: const ProgressIndicatorThemeData(
         color: primary,
         linearTrackColor: Color(0xFFDDEBE8),

@@ -41,7 +41,7 @@ class NotificationCoordinator {
     MissionContext context,
     String languageCode,
   ) {
-    // Heavy rain takes highest priority.
+    // Heavy rain takes priority because it may affect travel and safety.
     if (context.heavyRainDetected) {
       return _text(
         languageCode,
