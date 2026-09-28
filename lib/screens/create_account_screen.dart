@@ -1,3 +1,9 @@
+// SGReady Final Year Project
+// Developed by: Nicholas Ho
+//
+// The SGReady-specific account creation screen, form validation and UI
+// behaviour in this file were developed by me. Flutter and Firebase
+// Authentication are external frameworks/services used by the application.
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -22,6 +28,8 @@ class CreateAccountScreen extends StatefulWidget {
 }
 
 class _CreateAccountScreenState extends State<CreateAccountScreen> {
+
+  // Controllers keep track of what the user enters into each form field.
   final _formKey = GlobalKey<FormState>();
 
   final _nameController = TextEditingController();
@@ -31,10 +39,14 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
 
   final _authService = AuthService();
 
+  // Keep track of the loading state and whether the password fields
+  // should currently be hidden from view.
   bool _isLoading = false;
   bool _obscurePassword = true;
   bool _obscureConfirmPassword = true;
 
+  // Dispose the text controllers when the screen is closed so they are
+  // no longer kept in memory.
   @override
   void dispose() {
     _nameController.dispose();
@@ -56,6 +68,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
     });
 
     try {
+      // Send the validated account details to the authentication service.
       await _authService.createAccount(
         name: _nameController.text,
         email: _emailController.text,
@@ -139,6 +152,8 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
               constraints: const BoxConstraints(
                 maxWidth: 430,
               ),
+              // The form checks the user's name, email and passwords before allowing
+              // the account creation request to be sent.
               child: Form(
                 key: _formKey,
                 child: Column(

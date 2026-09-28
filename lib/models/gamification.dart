@@ -1,5 +1,16 @@
-/// Represents an achievement that can be earned through
-/// preparedness activities in SGReady.
+// SGReady Final Year Project
+// Developed by: Nicholas Ho
+//
+// This file was developed by me for SGReady. It contains the models and
+// calculations used for the gamification system, including XP, levels,
+// badges, streaks, quizzes and the Preparedness Score.
+//
+// The Dart implementation and SGReady scoring system were developed by me.
+// The preparedness information used in the checklist and quiz content was
+// written based on the safety and preparedness guidance researched for
+// this project. The relevant sources are referenced in the project report.
+
+/// Stores the information needed for a badge that the user can earn.
 class Badge {
   const Badge({
     required this.id,
@@ -16,8 +27,10 @@ class Badge {
   final int pointsRequired;
 }
 
-/// Stores a quiz question together with its possible answers,
-/// correct answer and the feedback shown to the user.
+/// Stores one preparedness quiz question.
+///
+/// Each question has a list of possible answers, the position of the
+/// correct answer and a short explanation shown after answering.
 class QuizQuestion {
   const QuizQuestion({
     required this.id,
@@ -35,20 +48,20 @@ class QuizQuestion {
   final int correctIndex;
   final String explanation;
 
+  // Compare the answer selected by the user with the saved correct answer.
   bool isCorrect(int selectedIndex) {
     return selectedIndex == correctIndex;
   }
 }
 
-/// Distinguishes physical emergency-kit items from other
-/// preparedness actions in the checklist.
+/// Used to separate physical emergency-kit items from preparedness
+/// actions that the user should complete.
 enum ChecklistItemType {
   kitItem,
   preparednessAction,
 }
 
-/// Represents an item or preparedness action that users can
-/// complete as part of the emergency-kit checklist.
+/// Stores one item in the emergency preparedness checklist.
 class ChecklistItem {
   const ChecklistItem({
     required this.id,
@@ -64,6 +77,8 @@ class ChecklistItem {
   final int points;
   final ChecklistItemType type;
 
+  // These helper getters make it easier for the UI to display physical
+  // kit items differently from other preparedness actions.
   bool get isKitItem {
     return type == ChecklistItemType.kitItem;
   }
@@ -73,11 +88,11 @@ class ChecklistItem {
   }
 }
 
-/// Holds the user's overall preparedness progress.
+/// Stores the user's overall progress in SGReady.
 ///
-/// This includes XP, streaks, completed activities, badges and
-/// daily-task progress. The same model is also converted to and
-/// from a map when progress is stored in Firestore.
+/// I use this model to keep the user's XP, streak, completed activities,
+/// badges and daily task progress together. The same data can also be
+/// converted into a format that can be saved to Firestore.
 class UserProgress {
   const UserProgress({
     this.points = 0,
@@ -108,12 +123,12 @@ class UserProgress {
   final bool dailyTaskRewardClaimed;
   final List<DateTime> completedDailyPlanDates;
 
-  /// Converts accumulated XP into a level, with each 100 XP
-  /// advancing the user by one level.
+  // Every 100 XP increases the user's level by one. Level 1 starts at 0 XP.
   int get level => (points ~/ 100) + 1;
 
-  /// Calculates how much of the preparedness checklist has been completed.
-  /// Only IDs that still exist in the current checklist are counted.
+  // Calculate how much of the current checklist the user has completed.
+  // I only count IDs that still exist in defaultChecklist so old or invalid
+  // saved IDs do not affect the percentage.
   int get checklistCompletionPercentage {
     if (defaultChecklist.isEmpty) {
       return 0;
@@ -133,7 +148,8 @@ class UserProgress {
         .round();
   }
 
-  /// Calculates quiz completion based on valid completed question IDs.
+  // Work out the quiz completion percentage using only questions that
+  // still exist in the current quiz list.
   int get quizCompletionPercentage {
     if (defaultQuizzes.isEmpty) {
       return 0;
@@ -153,7 +169,8 @@ class UserProgress {
         .round();
   }
 
-  /// Calculates the percentage of currently available badges earned.
+  // Calculate the percentage of currently available badges that the
+  // user has earned.
   int get badgeCompletionPercentage {
     if (defaultBadges.isEmpty) {
       return 0;
@@ -173,8 +190,9 @@ class UserProgress {
         .round();
   }
 
-  /// Converts the current streak into an engagement percentage.
-  /// A seven-day streak reaches the maximum engagement score.
+  // Convert the user's streak into an engagement score from 0 to 100.
+  // I chose seven days as the point where the full engagement score
+  // is reached.
   int get engagementPercentage {
     if (streakDays <= 0) {
       return 0;
@@ -183,12 +201,12 @@ class UserProgress {
     return ((streakDays / 7) * 100).clamp(0, 100).round();
   }
 
-  /// Combines the main areas of user progress into one Preparedness Score.
-  ///
-  /// Checklist completion contributes 40%, quiz completion 30%,
-  /// engagement 20%, and earned badges 10%. Keeping each component
-  /// on the same 0–100 scale makes the weighted score easier to compare
-  /// and keeps the final result between 0 and 100.
+  // Calculate the overall Preparedness Score used in SGReady.
+  //
+  // I designed the score using four parts of the user's progress:
+  // 40% checklist completion, 30% quiz completion, 20% engagement
+  // and 10% badges earned. Each part is already converted to 0-100
+  // before the weighting is applied.
   int get preparednessScore {
     final checklistContribution = checklistCompletionPercentage * 0.40;
 
@@ -198,6 +216,7 @@ class UserProgress {
 
     final badgeContribution = badgeCompletionPercentage * 0.10;
 
+  // Keep the final score between 0 and 100 and round it to a whole number.
     return (checklistContribution +
             quizContribution +
             engagementContribution +
@@ -206,6 +225,8 @@ class UserProgress {
         .round();
   }
 
+  // Helper methods used by the screens and services to quickly check
+  // what the user has already completed or earned.
   bool hasCompletedChecklistItem(String id) {
     return completedChecklistIds.contains(id);
   }
@@ -222,6 +243,8 @@ class UserProgress {
     return earnedBadgeIds.contains(id);
   }
 
+  // Check whether the last check-in happened on the same calendar day.
+  // I compare year, month and day instead of the exact time.
   bool hasCheckedInOn(DateTime date) {
     final lastCheckIn = lastCheckInAt;
 
@@ -234,6 +257,7 @@ class UserProgress {
         lastCheckIn.day == date.day;
   }
 
+  // Check whether the saved daily-task progress belongs to this date.
   bool hasDailyTaskDataFor(DateTime date) {
     final savedDate = dailyTaskDate;
 
@@ -246,10 +270,13 @@ class UserProgress {
         savedDate.day == date.day;
   }
 
+  // Return the saved progress for a task. A task that has not been
+  // started yet is treated as having zero progress.
   int dailyTaskProgressFor(String taskId) {
     return dailyTaskProgress[taskId] ?? 0;
   }
 
+  // A daily task is completed once its progress reaches its target.
   bool isDailyTaskCompleted({
     required String taskId,
     required int target,
@@ -257,8 +284,10 @@ class UserProgress {
     return dailyTaskProgressFor(taskId) >= target;
   }
 
-  /// Creates an updated copy of the user's progress while keeping
-  /// any values that have not changed.
+  // Create a new UserProgress object with the values that have changed,
+  // while keeping everything else from the current progress.
+  //
+  // This lets me update progress without directly changing the old object.
   UserProgress copyWith({
     int? points,
     int? streakDays,
@@ -300,7 +329,9 @@ class UserProgress {
     );
   }
 
-  /// Converts the user's progress into a Firestore-friendly map.
+  // Convert UserProgress into a basic map that can be saved in Firestore.
+  // Firestore is provided by Firebase, while this mapping was written by
+  // me to match the progress structure used by SGReady.
   Map<String, dynamic> toMap() {
     return {
       'points': points,
@@ -319,8 +350,9 @@ class UserProgress {
     };
   }
 
-  /// Rebuilds user progress from data previously stored in Firestore.
-  /// Missing values fall back to safe defaults for new or older accounts.
+  // Rebuild UserProgress after the saved map is read from Firestore.
+  // Default values are used when a field is missing, which also helps
+  // older or newly created accounts load without causing an error.
   factory UserProgress.fromMap(Map<String, dynamic> map) {
     return UserProgress(
       points: (map['points'] as num?)?.toInt() ?? 0,
@@ -353,8 +385,8 @@ class UserProgress {
     );
   }
 
-  // These helpers safely convert loosely typed Firestore values back into
-  // the strongly typed collections used by UserProgress.
+  // Firestore data is read as dynamic values, so these helper methods
+  // safely convert the saved values back into the types SGReady expects.
   static List<String> _toStringList(dynamic value) {
     if (value is! List) {
       return const [];
@@ -418,8 +450,12 @@ class UserProgress {
 // -----------------------------------------------------------------------------
 // Default gamification content
 // -----------------------------------------------------------------------------
+// The structures, IDs, point values and way this content is used in SGReady
+// were created as part of my implementation. The preparedness information
+// itself was written using the safety guidance researched for this project;
+// the supporting sources are included in the project report.
 
-/// Badges that users can earn through preparedness activities.
+/// Badges available in SGReady and the progress needed to earn them.
 const defaultBadges = [
   Badge(
     id: 'first_check',
@@ -458,7 +494,9 @@ const defaultBadges = [
   ),
 ];
 
-/// Preparedness items used by the emergency-kit checklist.
+/// Default preparedness items shown in the emergency-kit checklist.
+///
+/// The points give users XP for completing preparedness activities.
 const defaultChecklist = [
   ChecklistItem(
     id: 'haze_mask',
@@ -518,7 +556,10 @@ const defaultChecklist = [
   ),
 ];
 
-/// Question bank covering SGReady's main environmental preparedness topics.
+/// Default quiz questions covering haze, UV, flood and heat preparedness.
+///
+/// Each question includes the correct answer and a short explanation so
+/// the quiz also gives the user feedback after they answer.
 const defaultQuizzes = [
   QuizQuestion(
     id: 'haze_1',

@@ -1,3 +1,15 @@
+// SGReady Final Year Project
+// Developed by: Nicholas Ho
+//
+// The SGReady-specific Learn screen, emergency kit, quiz system, scenario
+// challenges, progress tracking and reward logic in this file were developed
+// by me.
+//
+// Flutter and Riverpod are external frameworks/packages used for the interface
+// and state management. The preparedness learning content used by the emergency
+// kit, quizzes and scenarios is based on the safety and preparedness sources
+// referenced in the project report.
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -204,6 +216,9 @@ class _EmergencyKitContent extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context)!;
+
+    // Group the emergency kit items by category so haze, UV,
+    // heat and flood items can be displayed together.
     final groupedItems = <String, List<ChecklistItem>>{};
 
     for (final item in defaultChecklist) {
@@ -215,6 +230,8 @@ class _EmergencyKitContent extends ConsumerWidget {
       groupedItems[item.category]!.add(item);
     }
 
+    // Use today's environmental risks to decide which emergency kit
+    // categories should be recommended to the user.
     final riskState = ref.watch(riskSummaryProvider);
     final recommendedCategories = <String>{};
 
@@ -563,6 +580,8 @@ class _RecommendedTodayCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
+    // Only recommend unfinished kit items that match today's conditions,
+    // and keep the list short by showing at most three.
     final recommendedItems = defaultChecklist
         .where(
           (item) =>
@@ -695,6 +714,8 @@ class _KitCategoryCard extends ConsumerWidget {
     final l10n = AppLocalizations.of(context)!;
     final service = ref.read(userProgressServiceProvider);
 
+    // Calculate the progress for this category using the number of
+    // emergency kit items the user has already completed.
     final completedCount = items
         .where(
           (item) => progress.hasCompletedChecklistItem(item.id),
@@ -744,6 +765,8 @@ class _KitCategoryCard extends ConsumerWidget {
               item: item,
               completed: completed,
               onChanged: (value) async {
+                // Save the updated checklist item through the progress service so
+                // the user's emergency kit progress is kept between app sessions.
                 try {
                   await service.setChecklistItemCompleted(
                     item,
@@ -1178,6 +1201,8 @@ class _QuizListTab extends ConsumerWidget {
     final progress =
         ref.watch(userProgressProvider).valueOrNull ?? const UserProgress();
 
+    // Group the quiz questions by topic and compare them with the user's
+    // saved progress to show how much of the quiz section is completed.
     final topics = defaultQuizzes
         .map((question) => question.topic)
         .toSet()
@@ -1373,6 +1398,8 @@ class _ScenarioListTab extends ConsumerWidget {
     final progress =
         ref.watch(userProgressProvider).valueOrNull ?? const UserProgress();
 
+    // These are the three preparedness scenarios available in SGReady.
+    // Saved progress is used below to check which ones have been completed.
     const scenarios = [
       _flashFloodScenario,
       _hazeScenario,
@@ -1711,6 +1738,9 @@ class _ScenarioVisualCard extends StatelessWidget {
   }
 }
 
+// The scenario structure, questions, answer flow and XP rewards were created
+// for SGReady. The safety guidance used in the scenario content is based on
+// the preparedness sources referenced in the project report.
 const _flashFloodScenario = _Scenario(
   id: 'flash_flood_route',
   title: 'Flash Flood on Your Route',
@@ -1979,6 +2009,8 @@ class _ScenarioScreenState extends ConsumerState<_ScenarioScreen> {
 
       final totalSteps = widget.scenario.steps.length;
 
+      // Give the user a simple star rating based on how many safe
+      // decisions they made during the scenario.
       final starCount = _safeDecisions == totalSteps
           ? 3
           : _safeDecisions >= 2

@@ -1,3 +1,14 @@
+// SGReady Final Year Project
+// Developed by: Nicholas Ho
+//
+// The SGReady-specific daily task generation, environmental risk-based
+// task selection and task prioritisation logic in this file were developed by me.
+//
+// The environmental risk levels used here are provided by SGReady's RiskEngine.
+// The preparedness information used in the task descriptions was written based
+// on the safety and preparedness guidance researched for this project. The
+// relevant sources are referenced in the project report.
+
 import '../models/daily_task.dart';
 import '../models/environmental_reading.dart';
 import '../models/user_preferences.dart';
@@ -81,6 +92,7 @@ class DailyTaskService {
     );
   }
 
+  // Add haze-related tasks depending on the current PSI risk level.
   void _addPsiTasks({
     required List<DailyTask> tasks,
     required RiskLevel level,
@@ -177,6 +189,7 @@ class DailyTaskService {
     }
   }
 
+  // Add sun-protection tasks depending on the current UV risk level.
   void _addUvTasks({
     required List<DailyTask> tasks,
     required RiskLevel level,
@@ -295,6 +308,7 @@ class DailyTaskService {
     }
   }
 
+  // Add hydration and cooling tasks depending on the current heat-stress level.
   void _addHeatStressTasks({
     required List<DailyTask> tasks,
     required RiskLevel level,
@@ -362,6 +376,7 @@ class DailyTaskService {
     }
   }
 
+  // Add the rain preparation task when heavy rainfall has been detected.
   void _addHeavyRainTasks(List<DailyTask> tasks) {
     tasks.add(
       const DailyTask(
@@ -432,6 +447,8 @@ class DailyTaskService {
     return prioritised;
   }
 
+  // Remove tasks with the same ID so the same action is not shown
+  // more than once when different conditions produce it.
   List<DailyTask> _removeDuplicates(List<DailyTask> tasks) {
     final uniqueTasks = <String, DailyTask>{};
 

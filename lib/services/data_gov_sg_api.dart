@@ -1,3 +1,13 @@
+// SGReady Final Year Project
+// Developed by: Nicholas Ho
+//
+// The SGReady-specific environmental data fetching, response parsing,
+// caching, retry handling and data conversion in this file were developed by me.
+//
+// The environmental data is retrieved from the external data.gov.sg APIs.
+// Flutter's foundation library and the Dart http package are external
+// libraries used to support the API requests and web platform handling.
+
 import 'dart:async';
 import 'dart:convert';
 
@@ -33,6 +43,8 @@ class DataGovSgApi {
   List<RainfallReading>? _cachedRainfall;
   DateTime? _cachedRainfallAt;
 
+  // Flutter Web uses the Cloudflare Worker proxy to avoid browser CORS
+  // restrictions. Other platforms can request data.gov.sg directly.
   String _urlForPath(String path) {
     if (kIsWeb) {
       final endpoint = path == 'weather?api=wbgt' ? 'wbgt' : path;
@@ -42,6 +54,8 @@ class DataGovSgApi {
     return '$_dataGovBaseUrl/$path';
   }
 
+  // Add the API key header when one has been provided. Otherwise,
+  // the request is sent without an API key.
   Map<String, String> get _headers {
     if (apiKey == null || apiKey!.isEmpty) {
       return {};
@@ -65,6 +79,8 @@ class DataGovSgApi {
             )
             .timeout(_requestTimeout);
 
+        // A 429 response means too many requests were sent, so wait
+        // before trying the request one more time.
         if (response.statusCode != 429) {
           return response;
         }
@@ -94,7 +110,7 @@ class DataGovSgApi {
 
     return null;
   }
-
+  /// Retrieves the latest 24-hour PSI readings for each Singapore region.
   Future<PsiReading?> fetchPsi() async {
     try {
       final response = await _get('psi');
@@ -185,6 +201,7 @@ class DataGovSgApi {
     }
   }
 
+  /// Retrieves the latest UV index together with its hourly readings.
   Future<UvReading?> fetchUv() async {
     try {
       final response = await _get('uv');
@@ -279,6 +296,7 @@ class DataGovSgApi {
     }
   }
 
+  /// Retrieves the latest WBGT and heat stress readings from available stations.
   Future<List<WbgtReading>> fetchWbgt() async {
     try {
       final response = await _get('weather?api=wbgt');
@@ -403,6 +421,8 @@ class DataGovSgApi {
     }
   }
 
+  // Group WBGT stations into the five regions used by SGReady so
+  // the app can show environmental conditions for the selected region.
   SingaporeRegion _wbgtRegionForStation(String stationId) {
     switch (stationId) {
       // North
@@ -449,6 +469,7 @@ class DataGovSgApi {
     }
   }
 
+  /// Retrieves the latest air temperature readings from available stations.
   Future<List<TemperatureReading>> fetchTemperature() async {
     try {
       final response = await _get('air-temperature');
@@ -554,6 +575,7 @@ class DataGovSgApi {
     }
   }
 
+  // Group temperature stations into the same five SGReady regions.
   SingaporeRegion _temperatureRegionForStation(String stationId) {
     switch (stationId) {
       // North
@@ -604,6 +626,7 @@ class DataGovSgApi {
         .toList();
   }
 
+  /// Retrieves the latest rainfall readings and their station locations.
   Future<List<RainfallReading>> fetchRainfall() async {
     try {
       final now = DateTime.now();

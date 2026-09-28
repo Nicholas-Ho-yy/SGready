@@ -1,3 +1,13 @@
+// SGReady Final Year Project
+// Developed by: Nicholas Ho
+//
+// The SGReady-specific main navigation, app lifecycle handling and
+// notification checking logic in this file were developed by me.
+//
+// Flutter and Riverpod are external frameworks/packages used for the interface
+// and state management. The notification scheduling uses Dart's Timer together
+// with the notification services implemented for SGReady.
+
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -37,6 +47,7 @@ class _MainShellState extends ConsumerState<MainShell>
   static const NotificationCoordinator _notificationCoordinator =
       NotificationCoordinator();
 
+  // Keep the five main sections in the same order as the bottom navigation bar.
   static const List<Widget> _screens = [
     HomeScreen(),
     TodayScreen(),
@@ -51,6 +62,8 @@ class _MainShellState extends ConsumerState<MainShell>
 
     WidgetsBinding.instance.addObserver(this);
 
+    // Wait until the first screen has been built before running the first
+    // notification check and starting the repeating timer.
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _runNotificationCheck();
       _startNotificationTimer();
@@ -73,6 +86,8 @@ class _MainShellState extends ConsumerState<MainShell>
   void didChangeAppLifecycleState(
     AppLifecycleState state,
   ) {
+    // Check again when the user returns to SGReady because the environmental
+    // conditions may have changed while the app was in the background.
     if (state == AppLifecycleState.resumed) {
       _runNotificationCheck();
     }
@@ -108,6 +123,8 @@ class _MainShellState extends ConsumerState<MainShell>
         return;
       }
 
+      // Daily task reminders are limited to daytime hours. Weather notifications
+      // can also run outside this period if the user selected the all-day option.
       final isDaytime = now.hour >= 8 && now.hour < 22;
 
       final allowWeather = preferences.notificationScheduleMode ==
@@ -234,6 +251,8 @@ class _MainShellState extends ConsumerState<MainShell>
     final l10n = AppLocalizations.of(context)!;
 
     return Scaffold(
+      // IndexedStack keeps each main screen in memory when the user
+      // switches between sections using the navigation bar.
       body: SafeArea(
         child: IndexedStack(
           index: _index,

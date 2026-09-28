@@ -1,3 +1,10 @@
+// SGReady Final Year Project
+// Developed by: Nicholas Ho
+//
+// The SGReady-specific provider setup, state handling and application logic
+// in this file were developed by me. Riverpod, Firebase Authentication,
+// Flutter and SharedPreferences are external packages/frameworks used to
+// provide state management, authentication, UI types and local storage.
 import 'dart:convert';
 import 'dart:typed_data';
 
@@ -17,6 +24,9 @@ import '../services/mission_context_service.dart';
 import '../services/risk_engine.dart';
 import '../services/user_preferences_service.dart';
 import '../services/user_progress_service.dart';
+
+// Riverpod providers are used here to share data and state between
+// different parts of SGReady without passing them between every screen.
 
 /// Provides the Data.gov.sg API service.
 final apiProvider = Provider<DataGovSgApi>((ref) {
@@ -46,7 +56,8 @@ final rainfallProvider = FutureProvider<List<RainfallReading>>((ref) async {
   return api.fetchRainfall();
 });
 
-/// Analyses the environmental snapshot for the selected region.
+// Re-run the risk analysis when the environmental data or selected
+// region changes, so the app always uses the latest risk information.
 final riskSummaryProvider = Provider<AsyncValue<RiskSummary>>((ref) {
   final snapshotState = ref.watch(snapshotProvider);
   final selectedRegion = ref.watch(selectedRegionProvider);
@@ -86,6 +97,10 @@ final missionContextProvider = Provider<AsyncValue<MissionContext>>((ref) {
 
 /// Generates the user's daily preparedness tasks from the latest
 /// environmental conditions, selected region and saved preferences.
+///
+/// The tasks are only generated once both the environmental data and
+/// preferences are ready. Loading and error states are passed back to
+/// the UI if either one is not available yet.
 final dailyTasksProvider = Provider<AsyncValue<List<DailyTask>>>((ref) {
   final snapshotState = ref.watch(snapshotProvider);
   final selectedRegion = ref.watch(selectedRegionProvider);
@@ -119,7 +134,8 @@ final dailyTasksProvider = Provider<AsyncValue<List<DailyTask>>>((ref) {
   );
 });
 
-/// Exposes Firebase authentication changes to the rest of the app.
+// Firebase Authentication provides the login state. I expose it through
+// Riverpod so the rest of SGReady can react when the user signs in or out.
 final authStateProvider = StreamProvider<User?>((ref) {
   return FirebaseAuth.instance.authStateChanges();
 });
@@ -144,6 +160,7 @@ final userProgressServiceProvider = Provider.autoDispose<UserProgressService>(
       userId: user.uid,
     );
 
+    // Clean up the service when Riverpod no longer needs this provider.
     ref.onDispose(
       service.dispose,
     );
@@ -189,7 +206,10 @@ final themeModeProvider = StateNotifierProvider<ThemeModeNotifier, ThemeMode>(
   (ref) => ThemeModeNotifier(),
 );
 
-/// Manages theme selection and persists it between app sessions.
+/// Manages the app's light, dark and system theme settings.
+///
+/// SharedPreferences is used to save the selected theme on the device
+/// so the same choice can be restored the next time the app is opened.
 class ThemeModeNotifier extends StateNotifier<ThemeMode> {
   ThemeModeNotifier() : super(ThemeMode.system) {
     _loadThemeMode();
@@ -241,6 +261,9 @@ final profilePhotoProvider =
 );
 
 /// Manages loading, saving and removing the user's local profile photo.
+///
+/// The photo is converted to Base64 because SharedPreferences can store
+/// strings but cannot directly store the Uint8List image data.
 class ProfilePhotoNotifier extends StateNotifier<Uint8List?> {
   ProfilePhotoNotifier() : super(null) {
     _loadPhoto();
@@ -248,6 +271,7 @@ class ProfilePhotoNotifier extends StateNotifier<Uint8List?> {
 
   static const String _photoKey = 'profile_photo';
 
+  // Load and decode the previously saved profile photo.
   Future<void> _loadPhoto() async {
     final prefs = await SharedPreferences.getInstance();
     final savedPhoto = prefs.getString(_photoKey);
@@ -265,6 +289,7 @@ class ProfilePhotoNotifier extends StateNotifier<Uint8List?> {
     }
   }
 
+  // Convert the image bytes to Base64 before saving it locally.
   Future<void> savePhoto(Uint8List bytes) async {
     final prefs = await SharedPreferences.getInstance();
 
@@ -276,6 +301,7 @@ class ProfilePhotoNotifier extends StateNotifier<Uint8List?> {
     state = bytes;
   }
 
+  // Remove the saved photo and clear the current photo from the app state.
   Future<void> removePhoto() async {
     final prefs = await SharedPreferences.getInstance();
 
@@ -306,7 +332,8 @@ SingaporeRegion regionFromPreference(
   }
 }
 
-/// Returns the display colour associated with a risk level.
+// Give each risk level a consistent colour that can be reused across
+// the different SGReady screens.
 Color riskColor(RiskLevel level) {
   switch (level) {
     case RiskLevel.good:

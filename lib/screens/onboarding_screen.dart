@@ -1,3 +1,13 @@
+// SGReady Final Year Project
+// Developed by: Nicholas Ho
+//
+// The SGReady-specific onboarding flow, personalisation options, preference
+// handling and onboarding interface in this file were developed by me.
+//
+// Flutter and Riverpod are external frameworks/packages used for the interface
+// and state management. Firebase Authentication and Cloud Firestore are
+// external Firebase services used for account and onboarding data.
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -31,6 +41,8 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
 
   bool _remindersEnabled = true;
 
+  // These pages introduce the main SGReady features before asking
+  // the user to choose their personalisation settings.
   static const List<_OnboardingPageData> _pages = [
     _OnboardingPageData(
       icon: Icons.cloud_outlined,
@@ -80,6 +92,8 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
     });
 
     try {
+      // Combine the selections made during onboarding into the user's
+      // preferences before saving them.
       final preferences = UserPreferences(
         homeRegion: _homeRegion,
         outdoorActivityLevel: _activityLevel,
@@ -93,6 +107,8 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
 
       ref.invalidate(userPreferencesProvider);
 
+      // Update the currently selected region straight away so the app
+      // can use the user's chosen home region after onboarding.
       ref.read(selectedRegionProvider.notifier).state =
           regionFromPreference(_homeRegion);
 
@@ -103,7 +119,8 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
           'No authenticated user found.',
         );
       }
-
+      // Mark onboarding as completed in the user's Firestore account so
+      // the app does not show the onboarding screens again on the next login.
       await FirebaseFirestore.instance
           .collection('users')
           .doc(user.uid)
@@ -149,6 +166,8 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
         );
       }
 
+      // Skipping still marks onboarding as completed, but keeps the
+      // user's default preference settings.
       await FirebaseFirestore.instance
           .collection('users')
           .doc(user.uid)

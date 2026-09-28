@@ -1,3 +1,13 @@
+// SGReady Final Year Project
+// Developed by: Nicholas Ho
+//
+// The SGReady-specific hydration task card, progress handling and animated
+// water bottle visual in this file were developed by me.
+//
+// Flutter is an external framework used to build the interface. The hydration
+// guidance shown in this task is based on the health and preparedness sources
+// referenced in the project report.
+
 import 'package:flutter/material.dart';
 
 import '../l10n/app_localizations.dart';
@@ -25,12 +35,16 @@ class HydrationTaskCard extends StatelessWidget {
     final l10n = AppLocalizations.of(context)!;
     final target = task.target;
 
+    // Keep the saved number of glasses within the target before
+    // calculating how full the water bottle should appear.
     final safeProgress = currentProgress.clamp(0, target);
 
     final progress = target > 0 ? safeProgress / target : 0.0;
 
     final isComplete = safeProgress >= target;
 
+    // Once the hydration target is reached, show a smaller completed-state
+    // card while still allowing the user to undo the last glass.
     if (isComplete) {
       return Card(
         child: Padding(
@@ -226,6 +240,8 @@ class HydrationTaskCard extends StatelessWidget {
   }
 }
 
+/// Displays an animated water bottle that fills up based on
+/// the user's progress towards their hydration target.
 class _WaterBottle extends StatelessWidget {
   const _WaterBottle({
     required this.progress,
@@ -320,7 +336,7 @@ class _WaterBottle extends StatelessWidget {
                           Theme.of(context).colorScheme.surfaceContainerLowest,
                     ),
 
-                    // Animated water
+                    // Increase the water height as the user records more glasses.
                     Align(
                       alignment: Alignment.bottomCenter,
                       child: AnimatedContainer(

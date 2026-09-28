@@ -1,3 +1,12 @@
+// SGReady Final Year Project
+// Developed by: Nicholas Ho
+//
+// The SGReady-specific screen layout, interaction and UI logic in this
+// file were developed by me. Flutter and url_launcher are external
+// packages/frameworks used to build the interface and open external links.
+//
+// The CPR and AED guidance displayed by this screen is informational content
+// based on the emergency-preparedness sources referenced in the project report.
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -10,6 +19,8 @@ class CprAedScreen extends StatelessWidget {
     super.key,
   });
 
+  // External CPR/AED training video linked from the emergency guide.
+  // The video itself was not created as part of SGReady.
   static final Uri _videoUrl = Uri.parse(
     'https://www.youtube.com/watch?v=O9iMqfl4cGY',
   );
@@ -181,6 +192,8 @@ class CprAedScreen extends StatelessWidget {
 
             const SizedBox(height: 12),
 
+            // Show the main emergency actions in numbered order so they can be
+            // quickly read by the user.
             _ActionStep(
               number: '1',
               icon: Icons.touch_app_outlined,

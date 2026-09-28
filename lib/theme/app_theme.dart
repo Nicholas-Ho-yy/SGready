@@ -1,3 +1,12 @@
+// SGReady Final Year Project
+// Developed by: Nicholas Ho
+//
+// The SGReady-specific colour palette and light/dark theme configuration
+// in this file were developed by me.
+//
+// Flutter and Material 3 are external frameworks/design components used
+// to apply the themes throughout the application.
+
 import 'package:flutter/material.dart';
 
 /// Defines the shared light and dark themes used throughout SGReady.
@@ -31,6 +40,8 @@ class AppTheme {
 
   // Light theme
   static ThemeData get light {
+    // Start with the main SGReady colour and customise the generated
+    // Material colour scheme to match the application's design.
     final colorScheme = ColorScheme.fromSeed(
       seedColor: primary,
       brightness: Brightness.light,
@@ -182,6 +193,8 @@ class AppTheme {
 
   // Dark theme
   static ThemeData get dark {
+    // Generate the dark colour scheme from the same SGReady palette so
+    // the application keeps a consistent look when dark mode is enabled.
     final colorScheme = ColorScheme.fromSeed(
       seedColor: primary,
       brightness: Brightness.dark,

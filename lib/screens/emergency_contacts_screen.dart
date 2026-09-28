@@ -1,3 +1,13 @@
+// SGReady Final Year Project
+// Developed by: Nicholas Ho
+//
+// The SGReady-specific emergency contacts screen, layout and reusable UI
+// components in this file were developed by me. Flutter is an external
+// framework used to build the interface.
+//
+// The emergency contact numbers and guidance displayed on this screen are
+// based on the Singapore emergency and support sources referenced in the
+// project report.
 import 'package:flutter/material.dart';
 
 import '../l10n/app_localizations.dart';
@@ -59,6 +69,8 @@ class EmergencyContactsScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 24),
+            // Group the contact numbers by their purpose so users can quickly
+            // find the service they need during an emergency.
             Text(
               l10n.emergencyServices,
               style: Theme.of(context).textTheme.titleLarge?.copyWith(
@@ -128,6 +140,8 @@ class EmergencyContactsScreen extends StatelessWidget {
               accentColor: Colors.green,
             ),
             const SizedBox(height: 24),
+            // Give some guidance on the difference between emergency and
+            // non-emergency situations.
             const _WhenToCallCard(),
             const SizedBox(height: 24),
             Text(

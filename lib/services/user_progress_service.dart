@@ -1,3 +1,13 @@
+// SGReady Final Year Project
+// Developed by: Nicholas Ho
+//
+// The SGReady-specific progress tracking, points, streaks, badge awarding,
+// daily task progress and Firestore persistence in this file were developed by me.
+//
+// Cloud Firestore is an external Firebase service used to store the user's
+// progress. Dart's StreamController is used to send progress updates to
+// other parts of the application.
+
 import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -18,6 +28,8 @@ class UserProgressService {
   final StreamController<UserProgress> _controller =
       StreamController<UserProgress>.broadcast();
 
+  // Keep the latest progress in memory so the app does not need to
+  // read from Firestore every time progress is needed.
   UserProgress _cache = const UserProgress();
   bool _isInitialized = false;
   bool _isDisposed = false;
@@ -26,6 +38,8 @@ class UserProgressService {
     return _firestore.collection('users').doc(userId);
   }
 
+  /// Loads the user's saved progress from Firestore. If no progress
+  /// exists yet, a new empty progress record is created.
   Future<void> init() async {
     if (_isInitialized) {
       return;
@@ -61,6 +75,8 @@ class UserProgressService {
     }
   }
 
+  /// Provides the current progress first and then sends any later
+  /// progress updates to listening parts of the app.
   Stream<UserProgress> watchProgress() async* {
     await init();
 
@@ -75,6 +91,8 @@ class UserProgressService {
     return _cache;
   }
 
+  /// Saves updated progress to Firestore and updates the local
+  /// copy used by the rest of the app.
   Future<void> _persist(
     UserProgress progress,
   ) async {
@@ -118,6 +136,8 @@ class UserProgressService {
 
     var updatedPoints = _cache.points;
 
+    // Add the item's points when it is completed, or remove them
+    // if the user changes the item back to incomplete.
     if (isCompleted) {
       completedIds.add(item.id);
       updatedPoints += item.points;
@@ -173,6 +193,8 @@ class UserProgressService {
 
     final safeScore = score.clamp(0, total);
 
+    // Convert the quiz result into points based on the percentage
+    // of questions the user answered correctly.
     final pointsEarned =
         total > 0 ? ((safeScore / total) * maxPoints).round() : 0;
 
@@ -245,6 +267,8 @@ class UserProgressService {
     final previousCheckIn = _cache.lastCheckInAt;
     var newStreak = 1;
 
+    // Continue the streak when the previous check-in was yesterday.
+    // Otherwise, the new streak starts again from one day.
     if (previousCheckIn != null) {
       final previousDate = _dateOnly(
         previousCheckIn,
@@ -259,6 +283,7 @@ class UserProgressService {
       }
     }
 
+    // Give a larger bonus for every seventh day of the streak.
     final bonusPoints = newStreak % 7 == 0 ? 25 : 5;
 
     final updatedPoints = _cache.points + bonusPoints;
@@ -474,6 +499,8 @@ class UserProgressService {
       (total, task) => total + task.points,
     );
 
+    // Completing the full daily plan counts as another day
+    // towards the user's preparedness streak.
     final newStreak = _cache.streakDays + 1;
     final updatedPoints = _cache.points + rewardPoints;
 
@@ -522,6 +549,8 @@ class UserProgressService {
   // Badges
   // ---------------------------------------------------------------------------
 
+  // Check the user's completed activities and streak, then award
+  // any badges whose requirements have now been reached.
   List<String> _awardBadges({
     required List<String> currentBadgeIds,
     required List<String> checklistIds,

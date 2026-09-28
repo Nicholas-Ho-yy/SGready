@@ -1,3 +1,12 @@
+// SGReady Final Year Project
+// Developed by: Nicholas Ho
+//
+// The SGReady-specific Explore screen, environmental map, marker positioning,
+// nearby-condition logic and UI behaviour in this file were developed by me.
+//
+// Flutter, Riverpod, flutter_svg and Geolocator are external packages/frameworks
+// used for the interface, state management, SVG map display and device location.
+// Environmental readings shown here are provided through SGReady's data services.
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -17,6 +26,8 @@ class ExploreScreen extends ConsumerStatefulWidget {
 }
 
 class _ExploreScreenState extends ConsumerState<ExploreScreen> {
+
+  // Keeps track of which environmental layer is currently shown on the map.
   String _selectedLayer = 'heat';
 
   /// Uses the user's location to find the most relevant reading nearby.
@@ -27,6 +38,8 @@ class _ExploreScreenState extends ConsumerState<ExploreScreen> {
     final l10n = AppLocalizations.of(context)!;
 
     try {
+      // Check for location permission first and ask the user if it has not
+      // been granted yet.
       var permission = await Geolocator.checkPermission();
 
       if (permission == LocationPermission.denied) {
@@ -179,6 +192,7 @@ class _ExploreScreenState extends ConsumerState<ExploreScreen> {
       WbgtReading? nearestStation;
       double? nearestDistance;
 
+      // Do the same distance check for the available heat monitoring stations.
       for (final reading in readings) {
         final distance = Geolocator.distanceBetween(
           position.latitude,
@@ -243,7 +257,7 @@ class _ExploreScreenState extends ConsumerState<ExploreScreen> {
 
         const SizedBox(height: 20),
 
-        // Environmental layer selector
+        // Let the user switch between Heat, PSI and Rain data on the same map.
         Container(
           padding: const EdgeInsets.all(4),
           decoration: BoxDecoration(
@@ -297,7 +311,8 @@ class _ExploreScreenState extends ConsumerState<ExploreScreen> {
 
         const SizedBox(height: 12),
 
-        // Singapore environmental map
+        // Display the Singapore SVG map and place the selected environmental
+        // readings over it as interactive markers.
         Card(
           child: Padding(
             padding: const EdgeInsets.all(16),
@@ -379,6 +394,7 @@ class _ExploreScreenState extends ConsumerState<ExploreScreen> {
                           loading: () => const SizedBox.shrink(),
                           error: (error, stackTrace) => const SizedBox.shrink(),
                           data: (readings) {
+                            // Only show rainfall markers for stations currently reporting rain.
                             return Stack(
                               children: readings
                                   .where(
@@ -546,6 +562,7 @@ class _ExploreScreenState extends ConsumerState<ExploreScreen> {
                 );
               }
 
+              // Find the station currently reporting the highest rainfall.
               final highest = rainingStations.reduce(
                 (a, b) => a.valueMm >= b.valueMm ? a : b,
               );
@@ -685,6 +702,7 @@ class _ExploreScreenState extends ConsumerState<ExploreScreen> {
                 );
               }
 
+              // Go through each Singapore region to find the highest current PSI reading.
               SingaporeRegion? highestRegion;
               int? highestValue;
 
@@ -853,6 +871,7 @@ class _ExploreScreenState extends ConsumerState<ExploreScreen> {
                 );
               }
 
+              // Find the monitoring station with the highest current WBGT reading.
               final hottest = readings.reduce(
                 (a, b) => a.value >= b.value ? a : b,
               );
@@ -969,6 +988,8 @@ class _ExploreScreenState extends ConsumerState<ExploreScreen> {
     double mapWidth,
     double mapHeight,
   ) {
+    // Convert Singapore latitude and longitude into a relative position
+    // that can be placed on top of the SVG map.
     const minLongitude = 103.60;
     const maxLongitude = 104.10;
     const minLatitude = 1.20;
@@ -1258,6 +1279,7 @@ class _ExploreScreenState extends ConsumerState<ExploreScreen> {
     double mapWidth,
     double mapHeight,
   ) {
+    // Convert the station coordinates into a position on the SVG map.
     const minLongitude = 103.60;
     const maxLongitude = 104.10;
     const minLatitude = 1.20;

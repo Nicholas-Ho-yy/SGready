@@ -1,3 +1,9 @@
+// SGReady Final Year Project
+// Developed by: Nicholas Ho
+//
+// The SGReady-specific model and logic in this file were developed by me.
+// This file does not contain any externally adapted or generated code.
+
 /// Identifies the environmental condition that should receive the
 /// most attention in the user's current preparedness mission.
 enum MissionFocus {
@@ -52,9 +58,12 @@ class MissionContext {
   final String? heatStress;
   final String heatStressLabel;
 
+  // Keeps track of whether heavy rain is currently detected.
   final bool heavyRainDetected;
 
-  /// Formats the environmental values into concise labels for display.
+  // These getters prepare shorter versions of the readings that can
+  // be displayed directly on the Today screen. A dash is shown when
+  // the PSI or UV value is not available.
   String get psiDisplay {
     return 'PSI ${psiValue ?? '—'} · $psiLabel';
   }

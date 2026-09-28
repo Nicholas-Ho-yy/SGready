@@ -1,3 +1,13 @@
+// SGReady Final Year Project
+// Developed by: Nicholas Ho
+//
+// The SGReady-specific rewards screen, XP milestones, tier calculations
+// and reward progress logic in this file were developed by me.
+//
+// Flutter is an external framework used to build the interface. The rewards
+// shown here are prototype rewards created for demonstrating the SGReady
+// gamification system and do not represent real redeemable rewards.
+
 import 'package:flutter/material.dart';
 
 import '../l10n/app_localizations.dart';
@@ -16,6 +26,8 @@ class RewardsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
 
+    // These are the prototype reward milestones used to show how users
+    // could be rewarded as they gain more XP in SGReady.
     final rewards = [
       _RewardItem(
         title: l10n.rewardTreatVoucherTitle,
@@ -101,6 +113,8 @@ class _XpOverviewCard extends StatelessWidget {
     final scheme = Theme.of(context).colorScheme;
     final l10n = AppLocalizations.of(context)!;
 
+    // Work out the user's current tier and what tier they are working
+    // towards based on their total XP.
     final tier = _tierForXp(currentXp);
     final nextTier = _nextTierForXp(currentXp);
 
@@ -238,6 +252,7 @@ class _XpOverviewCard extends StatelessWidget {
     }
   }
 
+  // Assign a tier based on the XP milestones used by the reward system.
   static String _tierForXp(int xp) {
     if (xp >= 1500) return 'Resilient';
     if (xp >= 1000) return 'Ready';
@@ -245,6 +260,8 @@ class _XpOverviewCard extends StatelessWidget {
     return 'Starter';
   }
 
+  // Find the next milestone so the screen can show how much more
+  // XP the user needs. Null means they already reached the highest tier.
   static ({String name, int xp})? _nextTierForXp(int xp) {
     if (xp < 500) {
       return (name: 'Prepared', xp: 500);
@@ -293,6 +310,8 @@ class _RewardCard extends StatelessWidget {
     final scheme = Theme.of(context).colorScheme;
     final l10n = AppLocalizations.of(context)!;
 
+    // Compare the user's XP with this reward milestone to decide whether
+    // it is unlocked and how much progress should be shown.
     final unlocked = currentXp >= reward.xpRequired;
 
     final remaining =

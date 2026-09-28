@@ -1,3 +1,14 @@
+// SGReady Final Year Project
+// Developed by: Nicholas Ho
+//
+// The SGReady-specific preparedness message generation, risk prioritisation
+// and environmental context logic in this file were developed by me.
+//
+// The environmental risk levels used here are provided by SGReady's RiskEngine.
+// The preparedness messages were written based on the safety and preparedness
+// guidance researched for this project. The relevant sources are referenced
+// in the project report.
+
 import '../models/environmental_reading.dart';
 import '../models/mission_context.dart';
 import 'risk_engine.dart';
@@ -221,6 +232,8 @@ class MissionContextService {
       return 'Unknown';
     }
 
+    // Compare the available risk levels and keep the highest one
+    // to use as the overall risk shown to the user.
     final highest = levels.reduce(
       (current, next) {
         return current.index >= next.index ? current : next;

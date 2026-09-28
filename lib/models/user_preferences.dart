@@ -1,3 +1,10 @@
+// SGReady Final Year Project
+// Developed by: Nicholas Ho
+//
+// The SGReady-specific preference model and logic in this file were
+// developed by me. This file does not contain any externally adapted
+// or generated code.
+
 /// Describes how frequently the user expects to be active outdoors.
 enum OutdoorActivityLevel {
   low,
@@ -50,8 +57,8 @@ class UserPreferences {
   final bool largerControlsEnabled;
   final String languageCode;
 
-  /// Creates an updated copy of the preferences while keeping
-  /// any settings that have not changed.
+  // Create a new copy of the user's preferences with the changed settings,
+  // while keeping the existing value for anything that was not changed.
   UserPreferences copyWith({
     String? homeRegion,
     OutdoorActivityLevel? outdoorActivityLevel,
@@ -81,7 +88,8 @@ class UserPreferences {
     );
   }
 
-  /// Converts the preferences into a map that can be persisted.
+  // Convert the user's preferences into a map so they can be saved.
+  // Enum values are stored using their names so they can be restored later.
   Map<String, dynamic> toMap() {
     return {
       'homeRegion': homeRegion,
@@ -97,10 +105,11 @@ class UserPreferences {
     };
   }
 
-  /// Restores preferences from persisted data.
-  ///
-  /// Missing or unrecognised values fall back to sensible defaults so that
-  /// older saved preferences remain compatible when new settings are added.
+  // Restore the user's preferences from the previously saved data.
+  //
+  // If a setting is missing or no longer recognised, I use a default value.
+  // This also helps older saved preferences continue working if new settings
+  // are added to the app later.
   factory UserPreferences.fromMap(
     Map<String, dynamic> map,
   ) {
@@ -112,6 +121,7 @@ class UserPreferences {
         (map['outdoorTimes'] as List?)?.whereType<String>().toSet() ??
             const <String>{};
 
+    // Match the saved enum names back to the enum values used by the app.
     return UserPreferences(
       homeRegion: map['homeRegion'] as String? ?? 'Central',
       outdoorActivityLevel: OutdoorActivityLevel.values.firstWhere(

@@ -1,3 +1,14 @@
+// SGReady Final Year Project
+// Developed by: Nicholas Ho
+//
+// The SGReady-specific Home screen, regional environmental data display,
+// risk presentation and preparedness recommendation UI in this file were
+// developed by me.
+//
+// Flutter and Riverpod are external frameworks/packages used for the interface
+// and state management. The environmental readings and risk results are
+// provided by SGReady's own providers, models and RiskEngine service.
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
@@ -16,6 +27,8 @@ class HomeScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context)!;
 
+    // Watch the latest environmental readings, calculated risk and selected
+    // region so the Home screen updates when any of them changes.
     final snapshotAsync = ref.watch(snapshotProvider);
     final riskAsync = ref.watch(riskSummaryProvider);
     final region = ref.watch(selectedRegionProvider);
@@ -26,6 +39,8 @@ class HomeScreen extends ConsumerWidget {
         preferencesAsync.valueOrNull?.largerControlsEnabled ?? false;
 
     return RefreshIndicator(
+      // Pulling down forces the environmental data to be fetched again
+      // instead of continuing to use the current provider result.
       onRefresh: () async {
         ref.invalidate(snapshotProvider);
         await ref.read(snapshotProvider.future);
@@ -61,6 +76,8 @@ class HomeScreen extends ConsumerWidget {
                 ),
           ),
           const SizedBox(height: 16),
+          // Changing the region updates the shared provider, which lets the
+          // environmental cards show readings for the selected part of Singapore.
           _RegionSelector(
             selected: region,
             largerControlsEnabled: largerControlsEnabled,
@@ -322,6 +339,8 @@ class _OverallRiskBanner extends StatelessWidget {
     RiskSummary summary,
     AppLocalizations l10n,
   ) {
+    // Show an elevated warning when flood risk is detected instead of
+    // relying only on the general environmental risk level.
     if (summary.floodRisk) {
       return l10n.riskElevated;
     }
@@ -386,18 +405,18 @@ class _MetricGrid extends StatelessWidget {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
 
+    // Pick the environmental readings that apply to the selected region.
+    // UV is island-wide, while PSI, temperature and heat readings can use
+    // the regional data stored in the environmental snapshot.
     final psi = snapshot.psi?.forRegion(region);
-
     final uv = snapshot.uv?.currentIndex;
-
     final temperature = snapshot.temperatureForRegion(region);
-
     final wbgt = snapshot.wbgtForRegion(region);
-
     final heatStress = snapshot.heatStressForRegion(region);
 
+    // Convert the raw PSI and UV readings into the risk levels used
+    // throughout SGReady.
     final psiRisk = psi != null ? RiskEngine.psiLevel(psi) : null;
-
     final uvRisk = uv != null ? RiskEngine.uvLevel(uv) : null;
 
     return Column(
@@ -769,6 +788,8 @@ class _RecommendationCardState extends State<_RecommendationCard> {
             ),
             if (recommendation.actions.isNotEmpty) ...[
               const SizedBox(height: 16),
+              // Keep each recommendation card short by showing at most
+              // three suggested actions on the Home screen.
               ...List.generate(
                 recommendation.actions.take(3).length,
                 (index) {
@@ -786,6 +807,8 @@ class _RecommendationCardState extends State<_RecommendationCard> {
                 },
               ),
             ],
+            // Only show the expandable "Why" section when there is extra
+            // information available to explain the recommendation.
             if (localizedBody.trim().isNotEmpty) ...[
               const SizedBox(height: 6),
               Align(
@@ -849,6 +872,8 @@ class _RecommendationCardState extends State<_RecommendationCard> {
     );
   }
 
+  // Match each recommendation ID to the translated text shown in the app.
+  // If there is no matching translation, keep the original recommendation text.
   String _localizedTitle(
     SafetyRecommendation recommendation,
     AppLocalizations l10n,

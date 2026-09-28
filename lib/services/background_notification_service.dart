@@ -1,3 +1,13 @@
+// SGReady Final Year Project
+// Developed by: Nicholas Ho
+//
+// The SGReady-specific background notification scheduling, environmental
+// checks and reminder logic in this file were developed by me.
+//
+// WorkManager is an external Flutter package used to run periodic background
+// tasks on Android. Firebase Authentication and Firebase Core are external
+// Firebase services used by the application.
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
@@ -22,6 +32,8 @@ class BackgroundNotificationService {
 
   /// Registers the background notification task.
   static Future<void> register() async {
+    // Schedule a periodic Android background check. The notification
+    // service performs its own checks before deciding whether to notify the user.
     await Workmanager().registerPeriodicTask(
       uniqueTaskName,
       taskName,
@@ -44,6 +56,8 @@ void notificationCallbackDispatcher() {
       try {
         await NotificationService.instance.initForBackground();
 
+        // Background tasks can run separately from the main app, so make
+        // sure Firebase has been initialised before accessing Firebase services.
         if (Firebase.apps.isEmpty) {
           await Firebase.initializeApp(
             options: DefaultFirebaseOptions.currentPlatform,
@@ -53,6 +67,7 @@ void notificationCallbackDispatcher() {
         final preferencesService = UserPreferencesService();
         final preferences = await preferencesService.getPreferences();
 
+        // Stop the background check if the user has disabled preparedness reminders.
         if (!preferences.preparednessRemindersEnabled) {
           return true;
         }
@@ -68,6 +83,8 @@ void notificationCallbackDispatcher() {
           return true;
         }
 
+        // Follow the user's notification schedule. Daytime reminders are
+        // limited to 8 AM to 10 PM unless all-day notifications are enabled.
         final isDaytime = now.hour >= 8 && now.hour < 22;
         final isAllDay = preferences.notificationScheduleMode.name == 'allDay';
         final allowWeather = isAllDay || isDaytime;
@@ -80,9 +97,10 @@ void notificationCallbackDispatcher() {
         api = DataGovSgApi();
         final snapshot = await api.fetchSnapshot();
 
-
         final region = _regionFromPreference(preferences.homeRegion);
 
+        // Turn the latest environmental readings into the preparedness
+        // context used to decide what information should be shown.
         const contextService = MissionContextService();
         final context = contextService.generate(
           snapshot: snapshot,
@@ -129,6 +147,7 @@ void notificationCallbackDispatcher() {
                 currentTime: now,
               );
 
+              // A null message means there are no unfinished tasks that need a reminder.
               if (taskBody != null) {
                 await NotificationService.instance.showDailyTaskReminder(
                   body: taskBody,

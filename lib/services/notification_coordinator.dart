@@ -1,3 +1,13 @@
+// SGReady Final Year Project
+// Developed by: Nicholas Ho
+//
+// The SGReady-specific notification message generation, localisation,
+// weather advice and daily-task reminder logic in this file were developed by me.
+//
+// The preparedness messages were written based on the safety and preparedness
+// guidance researched for this project. The relevant sources are referenced
+// in the project report.
+
 import '../models/daily_task.dart';
 import '../models/gamification.dart';
 import '../models/mission_context.dart';
@@ -15,6 +25,8 @@ class NotificationCoordinator {
     required MissionContext context,
     String languageCode = 'en',
   }) {
+    // Build the first part of the notification using the latest
+    // PSI, UV and heat-stress information.
     final lines = <String>[
       _localizedPsiDisplay(context, languageCode),
       _localizedUvDisplay(context, languageCode),
@@ -51,6 +63,8 @@ class NotificationCoordinator {
       );
     }
 
+    // If there is no heavy rain, check the remaining conditions
+    // in priority order and return the first relevant advice.
     final psi = context.psiValue;
 
     if (psi != null) {
@@ -129,6 +143,8 @@ class NotificationCoordinator {
     // affect the current reminder.
     final hasTodayProgress = progress.hasDailyTaskDataFor(today);
 
+    // Find the tasks that still need to be completed. The general
+    // conditions-review task is not included in reminder notifications.
     final incompleteTasks = tasks.where((task) {
       if (task.id == 'review_conditions') {
         return false;
@@ -173,6 +189,8 @@ class NotificationCoordinator {
     }
   }
 
+  // Return the version of a message that matches the user's
+  // selected app language.
   String _text(
     String languageCode, {
     required String en,
@@ -449,6 +467,8 @@ class NotificationCoordinator {
     }
   }
 
+  // Choose which unfinished task should be highlighted as the user's
+  // next action. Rain, hydration and sunscreen are checked first.
   DailyTask _selectPriorityTask(List<DailyTask> tasks) {
     const priorityOrder = [
       'rain_preparation',

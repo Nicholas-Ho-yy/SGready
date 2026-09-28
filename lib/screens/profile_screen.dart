@@ -1,3 +1,13 @@
+// SGReady Final Year Project
+// Developed by: Nicholas Ho
+//
+// The SGReady-specific profile screen, progress display, badge tracking,
+// weekly activity and profile interactions in this file were developed by me.
+//
+// Flutter and Riverpod are external frameworks/packages used for the interface
+// and state management. Firebase Authentication is used for account sign-out,
+// while image_picker is an external package used to select profile photos.
+
 import 'dart:typed_data';
 
 import 'package:firebase_auth/firebase_auth.dart';
@@ -58,6 +68,8 @@ class _WeeklyActivityCard extends StatelessWidget {
     final l10n = AppLocalizations.of(context)!;
     final today = DateTime.now();
 
+    // Build the last seven calendar days, including today, so the user
+    // can quickly see which daily preparedness plans they completed.
     final days = List.generate(
       7,
       (index) {
@@ -228,16 +240,15 @@ class _ProfileContent extends ConsumerWidget {
     final l10n = AppLocalizations.of(context)!;
     final profilePhoto = ref.watch(profilePhotoProvider);
 
+    // Each level uses 100 XP. These values work out how far the user
+    // has progressed through their current level and what is left.
     final currentLevelStart = (progress.level - 1) * 100;
-
     final nextLevelTarget = progress.level * 100;
-
     final pointsIntoLevel = progress.points - currentLevelStart;
-
     final levelProgress = (pointsIntoLevel / 100).clamp(0.0, 1.0);
-
     final pointsRemaining = nextLevelTarget - progress.points;
 
+    // Find the next badge that the user has not earned yet.
     final nextBadge = _nextBadgeProgress(progress);
 
     return ListView(
@@ -642,6 +653,8 @@ class _ProfileContent extends ConsumerWidget {
           child: InkWell(
             borderRadius: BorderRadius.circular(20),
             onTap: () async {
+              // Ask for confirmation first so the user does not accidentally
+              // sign out by tapping the account option.
               final shouldLogout = await showDialog<bool>(
                 context: context,
                 builder: (dialogContext) {
@@ -749,6 +762,8 @@ class _ProfileContent extends ConsumerWidget {
     try {
       final picker = ImagePicker();
 
+      // image_picker opens the device gallery. The image is reduced in
+      // size and quality so a very large photo does not need to be stored.
       final image = await picker.pickImage(
         source: ImageSource.gallery,
         imageQuality: 70,
@@ -856,11 +871,16 @@ class _ProfileContent extends ConsumerWidget {
   })? _nextBadgeProgress(
     gamification.UserProgress progress,
   ) {
+
+    // Go through the badges in order and skip the ones already earned.
+    // The first badge left is used as the user's next badge target.
     for (final badge in gamification.defaultBadges) {
       if (progress.hasEarnedBadge(badge.id)) {
         continue;
       }
 
+      // Different badges use different progress rules, such as completing
+      // quizzes, checklist items or maintaining a streak.
       switch (badge.id) {
         case 'first_check':
           return (
@@ -932,6 +952,8 @@ class _ProfileContent extends ConsumerWidget {
     return null;
   }
 
+  // Check whether the user completed a daily plan on this exact
+  // calendar date. The time of day is ignored for this comparison.
   bool _completedPlanOn(
     gamification.UserProgress progress,
     DateTime date,
@@ -1090,6 +1112,8 @@ class _RewardsPreviewCard extends StatelessWidget {
     final scheme = Theme.of(context).colorScheme;
     final l10n = AppLocalizations.of(context)!;
 
+    // Find the next prototype reward milestone based on the user's XP.
+    // Null means all of the currently available rewards are unlocked.
     final nextRewardXp = currentXp < 500
         ? 500
         : currentXp < 1000

@@ -1,3 +1,12 @@
+// SGReady Final Year Project
+// Developed by: Nicholas Ho
+//
+// The SGReady-specific notification setup, notification display,
+// timing and reminder-check logic in this file were developed by me.
+//
+// flutter_local_notifications, SharedPreferences and the timezone package
+// are external Flutter/Dart packages used by the application.
+
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:timezone/data/latest.dart' as tz;
@@ -13,6 +22,8 @@ class NotificationService {
   final FlutterLocalNotificationsPlugin _notificationsPlugin =
       FlutterLocalNotificationsPlugin();
 
+  // Use separate IDs so weather notifications and daily-task reminders
+  // can be updated or cancelled independently.
   static const int _weatherNotificationId = 100;
   static const int _taskNotificationId = 101;
 
@@ -45,6 +56,7 @@ class NotificationService {
       settings: settings,
     );
 
+    // Use Singapore time so notification timing matches the user's local day.
     tz.initializeTimeZones();
     tz.setLocalLocation(
       tz.getLocation('Asia/Singapore'),
@@ -191,6 +203,8 @@ class NotificationService {
 
     final now = currentTime ?? DateTime.now();
 
+    // Compare the last saved check time with the current time to avoid
+    // checking for notifications more often than the set interval.
     return now.difference(lastCheck) >= notificationInterval;
   }
 

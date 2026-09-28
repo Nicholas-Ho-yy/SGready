@@ -10,7 +10,7 @@ Besides displaying environmental information, SGReady also includes daily prepar
 
 ## Main Features
 
-- **Real-time environmental information** – Displays PSI, UV and rainfall information retrieved from data.gov.sg.
+- **Real-time environmental information** – Displays PSI, UV, rainfall, temperature and heat-stress information retrieved from data.gov.sg.
 - **Daily preparedness tasks** – Provides activities based on current environmental conditions, such as hydration, sunscreen and rain preparation tasks.
 - **Preparedness guidance** – Gives users simple recommendations based on environmental conditions.
 - **Learn section** – Includes preparedness information, emergency contacts, CPR/AED guidance, quizzes and interactive scenarios.
@@ -29,12 +29,36 @@ SGReady was developed using:
 - Flutter and Dart
 - Firebase Authentication
 - Cloud Firestore
-- Firebase Cloud Messaging
-- Firebase Cloud Functions
 - Firebase Hosting
 - Riverpod
 - WorkManager
+- flutter_local_notifications
+- SharedPreferences
+- Cloudflare Worker
 - data.gov.sg APIs
+
+---
+
+## Authorship and External Components
+
+SGReady was designed and developed by Nicholas Ho as part of my Final Year Project.
+
+The SGReady-specific application logic, user interface, environmental risk
+classification, preparedness features, gamification system, progress tracking
+and notification logic were developed by me.
+
+The project uses external frameworks, packages and services including Flutter,
+Firebase, Riverpod, WorkManager, SharedPreferences and data.gov.sg APIs.
+
+Some configuration and platform files are generated or managed by Flutter,
+FlutterFire and Firebase tooling. For example, `lib/firebase_options.dart`
+was generated using the FlutterFire CLI.
+
+The environmental thresholds and preparedness guidance used by SGReady were
+implemented based on the sources researched for the project. These sources are
+referenced in the Final Year Project report.
+
+The SGReady logo was also created by me for this project.
 
 ---
 
@@ -47,6 +71,8 @@ Environmental information is retrieved from Singapore Government data sources th
 | PSI | `https://api-open.data.gov.sg/v2/real-time/api/psi` |
 | UV Index | `https://api-open.data.gov.sg/v2/real-time/api/uv` |
 | Rainfall | `https://api-open.data.gov.sg/v2/real-time/api/rainfall` |
+| Air Temperature | `https://api-open.data.gov.sg/v2/real-time/api/air-temperature` |
+| WBGT / Heat Stress | `https://api-open.data.gov.sg/v2/real-time/api/weather?api=wbgt` |
 
 Dataset pages:
 
@@ -142,7 +168,7 @@ The Flutter platform folders are already included in the repository, so there is
 
 ## 4. Firebase Setup
 
-SGReady uses Firebase for authentication, user progress and other cloud-based features.
+SGReady uses Firebase for user authentication, progress storage and web hosting.
 
 The local Android Firebase configuration file:
 
@@ -166,7 +192,9 @@ flutterfire configure
 
 Follow the FlutterFire setup instructions to configure the Firebase project.
 
-SGReady uses Firebase Authentication, Cloud Firestore, Cloud Messaging and Cloud Functions.
+SGReady uses Firebase Authentication and Cloud Firestore for user accounts and
+progress storage. Firebase Hosting is used to deploy the web version of the
+application.
 
 ## 5. Select a Device
 

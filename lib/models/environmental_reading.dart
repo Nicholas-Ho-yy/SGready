@@ -1,5 +1,18 @@
-/// Common risk levels used throughout SGReady to keep environmental
-/// conditions and recommendations on a consistent severity scale.
+// SGReady Final Year Project
+// Developed by: Nicholas Ho
+//
+// This file was developed by me for SGReady. It contains the data models
+// used to store environmental readings and the risk information used by
+// other parts of the application.
+//
+// The environmental readings represented by these models come from the
+// data.gov.sg APIs. The Dart models and processing methods in this file
+// were implemented by me for the application.
+
+/// Common risk levels used throughout SGReady.
+///
+/// I use the same levels across the different environmental conditions
+/// so that risks can be compared using one consistent scale.
 enum RiskLevel {
   good,
   moderate,
@@ -7,6 +20,7 @@ enum RiskLevel {
   veryHigh,
   extreme;
 
+  // Converts the enum into text that can be shown in the interface.
   String get label {
     switch (this) {
       case RiskLevel.good:
@@ -22,8 +36,8 @@ enum RiskLevel {
     }
   }
 
-  /// Numeric ordering used when different environmental risks need
-  /// to be compared. A higher value represents a more severe condition.
+  // Gives each risk level a number so I can compare which condition
+  // is more serious. A larger number means a higher risk.
   int get severity {
     switch (this) {
       case RiskLevel.good:
@@ -40,7 +54,8 @@ enum RiskLevel {
   }
 }
 
-/// Regions used to group environmental readings across Singapore.
+/// Regions used by SGReady when displaying environmental readings
+/// for different parts of Singapore.
 enum SingaporeRegion {
   north,
   south,
@@ -48,6 +63,7 @@ enum SingaporeRegion {
   west,
   central;
 
+  // Gives each region a readable name for the user interface.
   String get label {
     switch (this) {
       case SingaporeRegion.north:
@@ -63,8 +79,9 @@ enum SingaporeRegion {
     }
   }
 
-  /// Converts a text region key into its corresponding Singapore region.
-  /// An unknown key is treated as invalid data.
+  // Converts a region name received as text into the matching enum.
+  // I normalise the text first so differences in spaces or capital
+  // letters do not affect the result.
   static SingaporeRegion fromKey(String key) {
     final normalizedKey = key.trim().toLowerCase();
 
@@ -74,12 +91,14 @@ enum SingaporeRegion {
       }
     }
 
+    // Throw an error if the value cannot be matched to a known region.
     throw FormatException(
       'Unknown Singapore region key: $key',
     );
   }
 
-  /// Attempts to convert a region key without throwing an exception.
+  // Safe version of fromKey(). Instead of throwing an error for an
+  // unknown region, it returns null so the caller can handle it.
   static SingaporeRegion? tryFromKey(String key) {
     try {
       return fromKey(key);
@@ -89,8 +108,7 @@ enum SingaporeRegion {
   }
 }
 
-/// Stores a PSI observation together with the values reported
-/// for each Singapore region.
+/// Stores a PSI reading and the PSI values available for each region.
 class PsiReading {
   const PsiReading({
     required this.timestamp,
@@ -104,8 +122,9 @@ class PsiReading {
 
   bool get hasRegionalData => byRegion.isNotEmpty;
 
-  /// Returns the highest available regional PSI value.
-  /// This is also used as a fallback when a specific region has no reading.
+  // Find the highest PSI value across all available regions.
+  // This is also useful as a fallback when a particular region
+  // does not have a reading.
   int get nationalMax {
     if (byRegion.isEmpty) {
       return 0;
@@ -117,18 +136,19 @@ class PsiReading {
     );
   }
 
+  // Return null when there is no PSI reading for the requested region.
   int? forRegionOrNull(SingaporeRegion region) {
     return byRegion[region];
   }
 
-  /// Returns the regional PSI when available, otherwise the national maximum.
+  // Return the regional PSI when possible, otherwise use the highest
+  // available PSI so that the app still has a value to work with.
   int forRegion(SingaporeRegion region) {
     return byRegion[region] ?? nationalMax;
   }
 }
 
-/// Stores the latest UV Index together with the available
-/// hourly UV history.
+/// Stores the latest UV Index together with the available hourly history.
 class UvReading {
   const UvReading({
     required this.timestamp,
@@ -145,7 +165,7 @@ class UvReading {
   bool get hasHistory => hourlyHistory.isNotEmpty;
 }
 
-/// Represents one UV Index value at a specific hour.
+/// Stores one UV Index reading for a particular hour.
 class UvHourlyPoint {
   const UvHourlyPoint({
     required this.hour,
@@ -156,8 +176,8 @@ class UvHourlyPoint {
   final int value;
 }
 
-/// Represents a Wet Bulb Globe Temperature (WBGT) reading from
-/// an environmental monitoring station.
+/// Stores a Wet Bulb Globe Temperature (WBGT) reading from an
+/// environmental monitoring station.
 class WbgtReading {
   const WbgtReading({
     required this.stationId,
@@ -175,13 +195,15 @@ class WbgtReading {
   final String stationName;
   final String townCenter;
 
+  // Coordinates are kept because they are also used for location-based
+  // features such as finding a nearby station.
   final double latitude;
   final double longitude;
 
   final double value;
 
-  /// Official value returned by the WBGT API:
-  /// Low, Moderate or High.
+  // Heat-stress category returned together with the WBGT data.
+  // The expected values are Low, Moderate or High.
   final String heatStress;
 
   final DateTime timestamp;
@@ -204,7 +226,7 @@ class RainfallStation {
   final double longitude;
 }
 
-/// Represents a rainfall observation recorded at a monitoring station.
+/// Stores a rainfall observation recorded at one monitoring station.
 class RainfallReading {
   const RainfallReading({
     required this.stationId,
@@ -218,16 +240,17 @@ class RainfallReading {
   final String stationId;
   final String stationName;
 
+  // Coordinates allow the Explore screen to work out which rainfall
+  // observation is nearest to the user.
   final double latitude;
   final double longitude;
 
-  /// Rainfall amount reported in millimetres.
+  // Rainfall amount reported in millimetres.
   final double valueMm;
   final DateTime timestamp;
 }
 
-/// Represents a temperature observation associated with a
-/// Singapore region.
+/// Stores a temperature reading and the SGReady region it belongs to.
 class TemperatureReading {
   const TemperatureReading({
     required this.stationId,
@@ -244,12 +267,11 @@ class TemperatureReading {
   final SingaporeRegion region;
 }
 
-/// Groups the latest environmental information used by SGReady
-/// into a single snapshot.
+/// Combines the latest environmental information into one object.
 ///
-/// Individual readings may be unavailable because the source datasets
-/// are retrieved independently. Screens and services can therefore use
-/// the available data without assuming that every indicator is present.
+/// Some APIs may return data while another one may be unavailable, so
+/// these values are kept separately instead of requiring every dataset
+/// to be present at the same time.
 class EnvironmentalSnapshot {
   const EnvironmentalSnapshot({
     required this.psi,
@@ -269,8 +291,8 @@ class EnvironmentalSnapshot {
   final DateTime fetchedAt;
   final String? error;
 
-  /// Returns the average temperature from stations mapped to the
-  /// requested region, or null when no regional readings are available.
+  // Work out the average temperature for stations in the selected region.
+  // Null is returned if there is no temperature data for that region.
   double? temperatureForRegion(SingaporeRegion region) {
     final readings = temperatureReadings
         .where((reading) => reading.region == region)
@@ -288,8 +310,7 @@ class EnvironmentalSnapshot {
     return total / readings.length;
   }
 
-  /// Returns the average WBGT from stations mapped to the requested
-  /// region, or null when no regional readings are available.
+  // Work out the average WBGT reading for the selected region.
   double? wbgtForRegion(SingaporeRegion region) {
     final readings =
         wbgtReadings.where((reading) => reading.region == region).toList();
@@ -306,11 +327,8 @@ class EnvironmentalSnapshot {
     return total / readings.length;
   }
 
-  /// Returns the most severe heat-stress category reported within
-  /// the requested region.
-  ///
-  /// High takes priority over Moderate, followed by Low. Null is
-  /// returned when the region has no WBGT readings.
+  // Find the most serious heat-stress level reported by any station
+  // within the selected region.
   String? heatStressForRegion(SingaporeRegion region) {
     final readings =
         wbgtReadings.where((reading) => reading.region == region).toList();
@@ -319,12 +337,15 @@ class EnvironmentalSnapshot {
       return null;
     }
 
+    // High takes priority because only one high station is needed for
+    // the regional result to be treated as High.
     if (readings.any(
       (reading) => reading.heatStress.toLowerCase() == 'high',
     )) {
       return 'High';
     }
 
+    // If there are no High readings, check for Moderate next.
     if (readings.any(
       (reading) => reading.heatStress.toLowerCase() == 'moderate',
     )) {
@@ -336,8 +357,8 @@ class EnvironmentalSnapshot {
 
   bool get hasPsiData => psi != null;
 
-  /// Indicates whether at least one environmental dataset contains
-  /// usable information.
+  // Check whether at least one of the environmental APIs returned
+  // something that the application can use.
   bool get hasData =>
       psi != null ||
       uv != null ||
@@ -347,13 +368,14 @@ class EnvironmentalSnapshot {
 
   bool get hasHeavyRainData => heavyRainStations.isNotEmpty;
 
+  // An empty error message is not treated as an actual error.
   bool get hasError {
     return error != null && error!.trim().isNotEmpty;
   }
 }
 
-/// Represents user-facing preparedness guidance produced from
-/// the interpreted environmental conditions.
+/// Stores one piece of preparedness advice that can be shown to the user
+/// after the environmental conditions have been interpreted.
 class SafetyRecommendation {
   const SafetyRecommendation({
     required this.id,
@@ -364,10 +386,9 @@ class SafetyRecommendation {
     required this.actions,
   });
 
-  /// Stable identifier used for localisation and UI logic.
-  ///
-  /// Examples include `haze`, `uv_exposure`, `heavy_rain` and
-  /// `favourable_conditions`.
+  // A fixed ID makes it easier for the app to recognise the same
+  // recommendation for localisation and UI handling.
+  // Examples are haze, uv_exposure and heavy_rain.
   final String id;
 
   final String title;
@@ -377,8 +398,8 @@ class SafetyRecommendation {
   final List<String> actions;
 }
 
-/// Collects the interpreted environmental risk for a region together
-/// with the preparedness recommendations generated for the user.
+/// Groups the calculated environmental risks and recommendations for
+/// the region currently being viewed by the user.
 class RiskSummary {
   const RiskSummary({
     required this.overallLevel,
@@ -398,6 +419,9 @@ class RiskSummary {
 
   bool get hasRecommendations => recommendations.isNotEmpty;
 
+  // The first recommendation is treated as the main recommendation.
+  // Return null when there are no recommendations instead of causing
+  // an error by trying to access an empty list.
   SafetyRecommendation? get primaryRecommendation {
     if (recommendations.isEmpty) {
       return null;

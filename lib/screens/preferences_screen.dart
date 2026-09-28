@@ -1,3 +1,13 @@
+// SGReady Final Year Project
+// Developed by: Nicholas Ho
+//
+// The SGReady-specific preferences screen, preference handling and settings
+// interactions in this file were developed by me.
+//
+// Flutter and Riverpod are external frameworks/packages used for the interface
+// and state management. The notification functionality uses SGReady's
+// NotificationService together with the notification packages used by the app.
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -23,6 +33,8 @@ class _PreferencesScreenState extends ConsumerState<PreferencesScreen> {
   void initState() {
     super.initState();
 
+    // Load the user's saved preferences when the screen first opens.
+    // The values are then kept locally while the user makes changes.
     Future.microtask(() async {
       final preferences = await ref.read(userPreferencesProvider.future);
 
@@ -67,6 +79,9 @@ class _PreferencesScreenState extends ConsumerState<PreferencesScreen> {
                   ),
                 ),
                 const SizedBox(height: 20),
+
+                // Changes on this screen update the local copy first. They are only
+                // saved permanently when the user presses the Save Preferences button.
                 _SectionCard(
                   title: l10n.homeRegion,
                   subtitle: l10n.homeRegionDescription,
@@ -362,6 +377,8 @@ class _PreferencesScreenState extends ConsumerState<PreferencesScreen> {
                         return;
                       }
 
+                      // Apply the appearance change straight away so the user can
+                      // immediately see the selected theme.
                       ref
                           .read(
                             themeModeProvider.notifier,
@@ -450,23 +467,30 @@ class _PreferencesScreenState extends ConsumerState<PreferencesScreen> {
     });
 
     try {
+      // Save the updated settings using the preferences service.
       final preferencesService = ref.read(userPreferencesServiceProvider);
 
       await preferencesService.savePreferences(
         preferences,
       );
 
+      // Update the selected region used by the environmental data screens
+      // so they follow the user's saved home region.
       final selectedRegion = regionFromPreference(
         preferences.homeRegion,
       );
 
       ref.read(selectedRegionProvider.notifier).state = selectedRegion;
 
+      // If reminders were turned off, remove any preparedness
+      // notifications that may already have been scheduled.
       if (!preferences.preparednessRemindersEnabled) {
         await NotificationService.instance.cancelWeatherPreparedness();
         await NotificationService.instance.cancelDailyTaskReminder();
       }
 
+      // Reload the parts of SGReady that depend on these preferences.
+      // This lets changes such as the user's routine affect the daily plan.
       ref.invalidate(userPreferencesProvider);
       ref.invalidate(missionContextProvider);
       ref.invalidate(dailyTasksProvider);

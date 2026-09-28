@@ -1,3 +1,13 @@
+// SGReady Final Year Project
+// Developed by: Nicholas Ho
+//
+// The SGReady-specific risk classification, overall risk calculation
+// and safety recommendation logic in this file were developed by me.
+//
+// The PSI, UV and preparedness guidance used by the app was implemented
+// based on the environmental and safety guidance researched for this project.
+// The relevant sources and thresholds are referenced in the project report.
+
 import '../models/environmental_reading.dart';
 
 /// Converts environmental readings into risk levels
@@ -5,6 +15,7 @@ import '../models/environmental_reading.dart';
 class RiskEngine {
   const RiskEngine._();
 
+  // Convert the PSI reading into the risk levels used throughout SGReady.
   static RiskLevel psiLevel(int psi) {
     if (psi <= 50) return RiskLevel.good;
     if (psi <= 100) return RiskLevel.moderate;
@@ -13,6 +24,7 @@ class RiskEngine {
     return RiskLevel.extreme;
   }
 
+  // Convert the UV Index into the risk levels used throughout SGReady.
   static RiskLevel uvLevel(int uvi) {
     if (uvi <= 2) return RiskLevel.good;
     if (uvi <= 5) return RiskLevel.moderate;
@@ -21,6 +33,7 @@ class RiskEngine {
     return RiskLevel.extreme;
   }
 
+  // Group the temperature reading into SGReady's temperature risk levels.
   static RiskLevel temperatureLevel(double temperature) {
     if (temperature < 30) {
       return RiskLevel.good;
@@ -41,6 +54,8 @@ class RiskEngine {
     return RiskLevel.extreme;
   }
 
+  // Convert the WBGT heat-stress description from the environmental data
+  // into the common RiskLevel used by the app.
   static RiskLevel wbgtLevel(String heatStress) {
     switch (heatStress.trim().toLowerCase()) {
       case 'low':
@@ -114,6 +129,8 @@ class RiskEngine {
     }
   }
 
+  /// Combines the available environmental readings into one risk summary
+  /// for the selected Singapore region.
   static RiskSummary analyze({
     required EnvironmentalSnapshot snapshot,
     required SingaporeRegion region,
@@ -132,6 +149,8 @@ class RiskEngine {
 
     final floodRisk = snapshot.heavyRainStations.isNotEmpty;
 
+    // Only include readings that are actually available when working out
+    // the overall risk. Heavy rain is treated as a high-risk condition.
     final availableRiskLevels = <RiskLevel>[
       if (hasPsiData) psiRisk,
       if (hasUvData) uvRisk,
@@ -168,6 +187,8 @@ class RiskEngine {
     );
   }
 
+  // Compare the available risks and keep the most severe one
+  // for the overall risk shown by the app.
   static RiskLevel _highestRisk(Iterable<RiskLevel> levels) {
     return levels.reduce(
       (currentHighest, candidate) =>
@@ -201,6 +222,8 @@ class RiskEngine {
 class GuidanceService {
   const GuidanceService._();
 
+  /// Builds the list of safety recommendations from the available
+  /// PSI, UV and heavy-rain conditions.
   static List<SafetyRecommendation> recommendations({
     required RiskLevel psiLevel,
     required RiskLevel uvLevel,
@@ -214,6 +237,8 @@ class GuidanceService {
   }) {
     final recommendations = <SafetyRecommendation>[];
 
+    // If none of the environmental readings are available, show one
+    // clear system message instead of giving condition-specific advice.
     if (!hasPsiData && !hasUvData && !floodRisk) {
       recommendations.add(
         SafetyRecommendation(
@@ -313,6 +338,8 @@ class GuidanceService {
       );
     }
 
+    // If no elevated risks or missing-data warnings were added,
+    // show the normal lower-risk preparedness message.
     if (recommendations.isEmpty) {
       recommendations.add(
         const SafetyRecommendation(

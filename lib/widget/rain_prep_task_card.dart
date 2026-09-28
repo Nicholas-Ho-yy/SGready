@@ -1,3 +1,13 @@
+// SGReady Final Year Project
+// Developed by: Nicholas Ho
+//
+// The SGReady-specific rain preparation task card, progress handling and
+// step-by-step checklist in this file were developed by me.
+//
+// Flutter is an external framework used to build the interface. The rain and
+// flood preparedness guidance shown in this task is based on the safety and
+// preparedness sources referenced in the project report.
+
 import 'package:flutter/material.dart';
 
 import '../l10n/app_localizations.dart';
@@ -26,10 +36,13 @@ class RainPrepTaskCard extends StatelessWidget {
     // This task contains four fixed preparation steps.
     const target = 4;
 
+    // Keep the saved progress within the four available preparation steps.
     final safeProgress = currentProgress.clamp(0, target);
 
     final isComplete = safeProgress >= target;
 
+    // Once all four steps are completed, show a smaller completed-state
+    // card while still allowing the user to undo the last step.
     if (isComplete) {
       return Card(
         child: Padding(

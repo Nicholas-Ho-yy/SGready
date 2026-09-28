@@ -1,3 +1,13 @@
+// SGReady Final Year Project
+// Developed by: Nicholas Ho
+//
+// The SGReady-specific welcome screen, layout and button behaviour in this
+// file were developed by me. Flutter is an external framework used to build
+// the interface.
+//
+// The SGReady logo used on this screen was also created by me for this project
+// and is loaded using Flutter's standard asset system.
+
 import 'package:flutter/material.dart';
 
 /// Introduces SGReady and lets users choose whether to
@@ -9,6 +19,8 @@ class WelcomeScreen extends StatelessWidget {
     required this.onLogin,
   });
 
+  // These callbacks let the parent screen decide where to navigate when
+  // the user selects Create Account or Log In.
   final VoidCallback onCreateAccount;
   final VoidCallback onLogin;
 
@@ -25,6 +37,8 @@ class WelcomeScreen extends StatelessWidget {
               horizontal: 28,
               vertical: 32,
             ),
+            // Limit the content width so the welcome screen does not become
+            // too stretched when it is opened on a larger screen.
             child: ConstrainedBox(
               constraints: const BoxConstraints(
                 maxWidth: 430,
@@ -55,6 +69,7 @@ class WelcomeScreen extends StatelessWidget {
                       height: 1.45,
                     ),
                   ),
+                  // Give new and returning users their two main options from this screen.
                   const SizedBox(height: 48),
                   SizedBox(
                     width: double.infinity,

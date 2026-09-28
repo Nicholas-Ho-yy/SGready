@@ -1,12 +1,24 @@
+// SGReady Final Year Project
+// Developed by: Nicholas Ho
+//
+// The SGReady-specific daily mission interface, task progress, reward handling,
+// environmental context display and task routing in this file were developed by me.
+//
+// Flutter is an external framework used to build the interface. The preparedness
+// guidance shown through the daily missions is based on the safety and
+// preparedness sources referenced in the project report.
+
 import 'package:flutter/material.dart';
 import '../l10n/app_localizations.dart';
 import '../models/daily_task.dart';
 import '../models/gamification.dart';
 import '../models/mission_context.dart';
 import 'hydration_task_card.dart';
-import 'sunscreen_task_card.dart';
 import 'rain_prep_task_card.dart';
+import 'sunscreen_task_card.dart';
 
+/// Displays the user's daily preparedness mission, progress, tasks,
+/// environmental context, and reward status.
 class DailyMissionCard extends StatelessWidget {
   const DailyMissionCard({
     super.key,
@@ -45,6 +57,8 @@ class DailyMissionCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Work out the user's overall daily mission progress from the
+    // individual tasks they have completed.
     final completedTasks = tasks.where((task) {
       return progress.isDailyTaskCompleted(
         taskId: task.id,
@@ -63,6 +77,8 @@ class DailyMissionCard extends StatelessWidget {
 
     final remainingTasks = totalTasks - completedTasks;
 
+    // Add the XP from all tasks together to get the reward
+    // the user can claim after completing the whole mission.
     final rewardXp = tasks.fold<int>(
       0,
       (total, task) => total + task.points,
@@ -202,6 +218,8 @@ class DailyMissionCard extends StatelessWidget {
   }
 }
 
+/// Shows the environmental conditions that caused today's mission
+/// to be selected and lets the user view an explanation of the plan.
 class _MissionContextBanner extends StatefulWidget {
   const _MissionContextBanner({
     required this.missionContext,
@@ -329,7 +347,6 @@ class _MissionContextBannerState extends State<_MissionContextBanner> {
 
         const SizedBox(height: 12),
 
-        // Expand / collapse control
         Material(
           color: Colors.transparent,
           child: InkWell(
@@ -377,7 +394,7 @@ class _MissionContextBannerState extends State<_MissionContextBanner> {
           ),
         ),
 
-        // Existing explanation, now expandable
+        // Expandable mission explanation
         AnimatedSize(
           duration: const Duration(
             milliseconds: 250,
@@ -695,6 +712,8 @@ class _DailyTaskTile extends StatelessWidget {
                   .withValues(alpha: 0.65),
         ),
       ),
+      // Some missions use their own interactive task card. Other tasks
+      // fall back to the normal counter or checkbox layout.
       child: task.id == 'hydration_goal_heat'
           ? HydrationTaskCard(
               task: task,
@@ -813,6 +832,7 @@ class _CounterTaskContent extends StatelessWidget {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
 
+    // Convert the saved counter value into a percentage for the progress bar.
     final counterProgress = task.target == 0
         ? 0.0
         : (currentProgress / task.target).clamp(0.0, 1.0);
@@ -889,6 +909,8 @@ class _CounterTaskContent extends StatelessWidget {
   }
 }
 
+/// Displays the task details and allows the user to expand the
+/// "Why?" section to understand the reason for the task.
 class _TaskText extends StatefulWidget {
   const _TaskText({
     required this.task,
@@ -1214,6 +1236,8 @@ Color _taskColor(DailyTask task) {
   }
 }
 
+// Map the task and mission values used internally by SGReady to the
+// correct translated text for the user's selected language.
 String _localizedTaskTitle(
   DailyTask task,
   AppLocalizations l10n,

@@ -1,3 +1,12 @@
+// SGReady Final Year Project
+// Developed by: Nicholas Ho
+//
+// The SGReady-specific flash flood safety screen, layout and reusable UI
+// components in this file were developed by me. Flutter is an external
+// framework used to build the interface.
+//
+// The flash flood safety guidance displayed on this screen is based on
+// the Singapore safety and preparedness sources referenced in the project report.
 import 'package:flutter/material.dart';
 
 import '../l10n/app_localizations.dart';
@@ -76,6 +85,8 @@ class FlashFloodSafetyScreen extends StatelessWidget {
 
             const SizedBox(height: 12),
 
+            // Separate the guidance into actions the user should and should not do
+            // when they encounter a flash flood.
             _FloodActionCard(
               icon: Icons.turn_left_rounded,
               title: l10n.floodSafetyTurnBackTitle,
@@ -198,6 +209,9 @@ class _FloodActionCard extends StatelessWidget {
   final IconData icon;
   final String title;
   final String description;
+
+  // Used to decide whether the card is shown as a recommended
+  // "Do" action or an unsafe "Don't" action.
   final bool isDo;
 
   @override

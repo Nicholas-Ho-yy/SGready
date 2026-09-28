@@ -1,3 +1,14 @@
+// SGReady Final Year Project
+// Developed by: Nicholas Ho
+//
+// The SGReady-specific Today screen, daily plan handling, personalisation
+// logic and reward interactions in this file were developed by me.
+//
+// Flutter and Riverpod are external frameworks/packages used for the interface
+// and state management. The daily tasks, progress and environmental data are
+// provided through other SGReady models, providers and services developed
+// as part of this project.
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -16,6 +27,8 @@ class TodayScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context)!;
 
+    // Watch the different parts of the app that are needed to build today's
+    // personalised plan and update the screen when any of them changes.
     final dailyTasksAsync = ref.watch(dailyTasksProvider);
     final progressAsync = ref.watch(userProgressProvider);
     final missionContextAsync = ref.watch(missionContextProvider);
@@ -26,6 +39,8 @@ class TodayScreen extends ConsumerWidget {
 
     final progressService = ref.read(userProgressServiceProvider);
 
+    // Pulling down refreshes the environmental readings so today's
+    // preparedness plan can use the latest available conditions.
     return RefreshIndicator(
       onRefresh: () async {
         ref.invalidate(snapshotProvider);
@@ -58,6 +73,9 @@ class TodayScreen extends ConsumerWidget {
             error: (error, stackTrace) => const SizedBox.shrink(),
           ),
           const SizedBox(height: 16),
+
+          // The daily mission needs the tasks, user progress and current environmental
+          // context, so wait for each part to load before showing the full mission card.
           dailyTasksAsync.when(
             loading: () => const Center(
               child: Padding(
@@ -96,6 +114,8 @@ class TodayScreen extends ConsumerWidget {
                         progress: progress,
                         missionContext: missionContext,
                         largerControlsEnabled: largerControlsEnabled,
+                        // Send task changes to the progress service so the user's completion
+                        // status and counters can be saved instead of only changing the UI.
                         onCheckboxChanged: (
                           DailyTask task,
                           bool isCompleted,
@@ -116,6 +136,8 @@ class TodayScreen extends ConsumerWidget {
                           );
                         },
                         onClaimReward: () async {
+                          // Add the points from today's tasks to show the user how much XP
+                          // is available before they confirm the reward.
                           final rewardXp = tasks.fold<int>(
                             0,
                             (total, task) => total + task.points,
@@ -131,6 +153,8 @@ class TodayScreen extends ConsumerWidget {
                           }
 
                           try {
+                            // Compare the points before and after claiming so the completion
+                            // popup can show the actual XP that was added.
                             final beforePoints = progress.points;
 
                             final updated =

@@ -1,3 +1,12 @@
+// SGReady Final Year Project
+// Developed by: Nicholas Ho
+//
+// The SGReady-specific sunscreen task card, progress handling and animated
+// sunscreen coverage visual in this file were developed by me.
+//
+// Flutter is an external framework used to build the interface, while
+// flutter_svg is an external package used to display the SVG face image.
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -25,6 +34,8 @@ class SunscreenTaskCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
 
+    // Change the task description depending on the UV level that
+    // caused the sunscreen task to be shown.
     final localizedDescription = switch (task.contentKey) {
       'moderate' => l10n.taskApplySunscreenModerateDescription,
       'high' => l10n.taskApplySunscreenHighDescription,
@@ -35,12 +46,16 @@ class SunscreenTaskCard extends StatelessWidget {
     // Sunscreen coverage is completed across four application steps.
     const target = 4;
 
+    // Keep the saved progress within the four available sunscreen steps
+    // before using it to calculate the completion percentage.
     final safeProgress = currentProgress.clamp(0, target);
 
     final progress = safeProgress / target;
 
     final isComplete = safeProgress >= target;
 
+    // Once all four steps are completed, replace the interactive card
+    // with a smaller completed-state version while still allowing undo.
     if (isComplete) {
       return Card(
         child: Padding(
@@ -232,6 +247,8 @@ class SunscreenTaskCard extends StatelessWidget {
   }
 }
 
+/// Shows sunscreen being applied to different parts of the face
+/// as the user progresses through the four application steps.
 class _CoverageVisual extends StatelessWidget {
   const _CoverageVisual({
     required this.progress,
@@ -243,6 +260,7 @@ class _CoverageVisual extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Convert the percentage back into one of the four visual steps.
     final steps = (progress * 4).round();
 
     return SizedBox(
@@ -345,6 +363,7 @@ class _CoverageVisual extends StatelessWidget {
   }
 }
 
+/// Draws and animates one of the small sunscreen marks on the face.
 class _SunscreenMark extends StatelessWidget {
   const _SunscreenMark({
     this.width = 16,
@@ -361,6 +380,7 @@ class _SunscreenMark extends StatelessWidget {
       duration: const Duration(milliseconds: 300),
       curve: Curves.easeOutBack,
       builder: (context, value, child) {
+        // Keep the animation value within the valid opacity range.
         final safeOpacity = value.clamp(0.0, 1.0).toDouble();
 
         return Transform.scale(

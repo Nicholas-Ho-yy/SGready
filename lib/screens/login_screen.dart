@@ -1,3 +1,13 @@
+// SGReady Final Year Project
+// Developed by: Nicholas Ho
+//
+// The SGReady-specific login screen, form validation, password reset flow
+// and user interface logic in this file were developed by me.
+//
+// Flutter is an external framework used to build the interface. Firebase
+// Authentication is an external service used to sign users in and handle
+// authentication errors.
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -46,6 +56,8 @@ class _LoginScreenState extends State<LoginScreen> {
       return;
     }
 
+    // Disable the login controls while the sign-in request is running
+    // so the user cannot accidentally submit the form more than once.
     setState(() {
       _isLoading = true;
     });
@@ -56,6 +68,8 @@ class _LoginScreenState extends State<LoginScreen> {
         password: _passwordController.text,
       );
 
+      // The Firebase request is asynchronous, so make sure this screen
+      // still exists before updating the interface.
       if (!mounted) return;
 
       widget.onLoggedIn();
@@ -171,6 +185,8 @@ class _LoginScreenState extends State<LoginScreen> {
         child: Center(
           child: SingleChildScrollView(
             padding: const EdgeInsets.all(24),
+            // Keep the login form at a comfortable width on larger screens
+            // instead of stretching it across the whole display.
             child: ConstrainedBox(
               constraints: const BoxConstraints(
                 maxWidth: 430,

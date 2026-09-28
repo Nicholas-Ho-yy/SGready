@@ -1,3 +1,12 @@
+// SGReady Final Year Project
+// Developed by: Nicholas Ho
+//
+// The SGReady-specific authentication service and account creation logic
+// in this file were developed by me.
+//
+// Firebase Authentication and Cloud Firestore are external Firebase services
+// used to manage user accounts, authentication and account information.
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -27,11 +36,15 @@ class AuthService {
       password: password,
     );
 
+    // After Firebase creates the account, save the user's name and
+    // initial SGReady account information.
     final user = credential.user;
 
     if (user != null) {
       await user.updateDisplayName(name.trim());
 
+      // Store the account details in Firestore and start new users
+      // with onboarding not yet completed.
       await _firestore.collection('users').doc(user.uid).set({
         'name': name.trim(),
         'email': email.trim(),
@@ -43,6 +56,7 @@ class AuthService {
     return credential;
   }
 
+  /// Signs an existing user in using their email and password.
   Future<UserCredential> signIn({
     required String email,
     required String password,
@@ -53,10 +67,12 @@ class AuthService {
     );
   }
 
+  /// Signs the currently authenticated user out.
   Future<void> signOut() {
     return _firebaseAuth.signOut();
   }
 
+  /// Sends a Firebase password reset email to the user's email address.
   Future<void> sendPasswordResetEmail({
     required String email,
   }) {
